@@ -12,7 +12,7 @@ import ErrorPage from './error-page.jsx';
 import Team from './routes/contact.jsx';
 import Home from './routes/home.jsx'
 import People from './routes/people.jsx'
-import About from './routes/About.jsx'
+import About from './routes/about.jsx'
 import Streets from './routes/streets.jsx'
 import FlintPark from './routes/flintfloralpark.jsx'
 import StJohn from './routes/stjohns.jsx'
