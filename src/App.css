@@ -9,8 +9,11 @@
 
 body {
   background-color: #f0f1e5; /* Replace this with any color you prefer */
-  margin: 0; /* Optional: removes default body margin for a flush background */
-  color: #333; /* I made this the default text color */
+  margin: 0;
+  color: #333;
+  font-family: "century-gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .logo {
@@ -21,18 +24,19 @@ body {
 }
 
 .logo-container {
-  width: 125px; /* Set a fixed width for the logo area */
-  height: 75px; /* Set a fixed height for the logo area */
+  width: 125px;
+  height: 75px;
   display: flex;
-  align-items: center; /* Center the image vertically */
-  justify-content: center; /* Center the image horizontally */
-  overflow: hidden; /* Prevent overflow if logos are slightly larger */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .logo:hover {
   filter: drop-shadow(0 0 2em #fbb03b);
   content: url("");
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #fbb03b);
 }
@@ -60,29 +64,24 @@ body {
   color: #888;
 }
 
-body {
-  font-family: "century-gothic", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
+/* Navbar Styles */
 .top-nav {
   width: 100%;
   background-color: #009640;
-  padding: 0px 10px; /* Adjust if needed */
+  padding: 0px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box; /* Ensures padding doesn’t affect total width */
-  position: fixed; /* Makes the navbar stay at the top on scroll */
+  box-sizing: border-box;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* Keeps navbar on top */
+  z-index: 1000;
 }
 
-.top-nav .logo{
-  width: 150px; /* Adjust this value as needed */
-  height: auto; /* Keeps the aspect ratio */
+.top-nav .logo {
+  width: 150px;
+  height: auto;
 }
 
 .top-nav .nav-links {
@@ -100,5 +99,50 @@ body {
 }
 
 .top-nav .nav-links li a:hover {
-  color: #fbb03b; /* A highlight color */
+  color: #fbb03b;
+}
+
+/* About Page Styles */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.about-section.left {
+  flex-direction: row;
+}
+
+.about-section.right {
+  flex-direction: row-reverse;
+}
+
+.about-section p {
+  flex: 1;
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.about-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+  }
+
+  .about-image {
+    margin-bottom: 20px;
+  }
 }
