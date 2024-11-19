@@ -34,11 +34,11 @@ export default function Home() {
 
       {/* Right Section for Map */}
       <div className="map">
-        <iframe
-          src="https://storage.googleapis.com/flint-floral-park/map/TestQGIS/index.html"
-          title="Flint Floral Neighborhood Map"
+        <img
+          src="https://storage.cloud.google.com/flint-floral-park/Print/TaxPhotoPNG/FloralParkNeighborhood/Broad/Broad%201308.png"
+          alt="Flint Floral Neighborhood Map"
           className="map-frame"
-        ></iframe>
+        ></img>
       </div>
     </div>
   );
