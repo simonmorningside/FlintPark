@@ -38,7 +38,7 @@ export default function Home() {
         <img
           src="https://storage.cloud.google.com/flint-floral-park/Print/TaxPhotoPNG/FloralParkNeighborhood/Broad/Broad%201308.png"
           alt="Flint Floral Neighborhood Map"
-          className="map-frame"
+          className="map"
         ></img>
       </div>
     </div>
