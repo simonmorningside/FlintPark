@@ -1,33 +1,49 @@
-// Import React and useState hook
-import React, { useState } from 'react';
-
-// Define a functional component called ExamplePage
-export default function About(){
-  // Define a piece of state called 'showInfo' and initialize it to 'false'
-  const [showInfo, setShowInfo] = useState(false);
-
-  // Toggle function to change the 'showInfo' state between true and false
-  const toggleInfo = () => {
-    setShowInfo(!showInfo);
-  };
-
+export default function About() {
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1>Welcome to My Example Page!</h1>
-      <p>This is a simple page built with React.</p>
+    <div className="about-container">
+      <div className="about-section left">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+          imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae
+          scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices
+          nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut
+          aliquet.
+        </p>
+        <img
+          src="https://via.placeholder.com/300"
+          alt="Placeholder Image"
+          className="about-image"
+        />
+      </div>
 
-      {/* Button to toggle additional info */}
-      <button onClick={toggleInfo}>
-        {showInfo ? 'Hide Info' : 'Show Info'}
-      </button>
+      <div className="about-section right">
+        <p>
+          Nulla accumsan, elit sit amet varius semper, nulla mauris mollis
+          massa, quis accumsan arcu felis euismod metus. Cras ultricies ligula
+          sed magna dictum porta. Quisque velit nisi, pretium ut lacinia in,
+          elementum id enim. Nulla quis lorem ut libero malesuada feugiat.
+        </p>
+        <img
+          src="https://via.placeholder.com/300"
+          alt="Placeholder Image"
+          className="about-image"
+        />
+      </div>
 
-      {/* Conditionally render additional information based on 'showInfo' state */}
-      {showInfo && (
-        <div style={{ marginTop: '20px' }}>
-          <p>Here’s some extra information about this page.</p>
-          <p>You can build amazing things with React!</p>
-        </div>
-      )}
+      <div className="about-section left">
+        <p>
+          Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+          Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+          cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper
+          sit amet ligula.
+        </p>
+        <img
+          src="https://via.placeholder.com/300"
+          alt="Placeholder Image"
+          className="about-image"
+        />
+      </div>
     </div>
   );
-};
+}

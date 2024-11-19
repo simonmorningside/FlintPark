@@ -54,6 +54,14 @@ h1 {
   line-height: 1.1;
 }
 
+h2 {
+  font-family: "bomboniere", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5em;
+  line-height: 1.1;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -140,3 +148,110 @@ button:focus-visible {
   }
 }
 
+/* Streets Page Styles */
+.streets-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.streets-description {
+  width: 45%;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.streets-description p {
+  margin-bottom: 20px;
+}
+
+.streets-links {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.streets-links li {
+  margin: 10px 0;
+}
+
+.streets-links a {
+  color: #009640;
+  text-decoration: none;
+}
+
+.streets-links a:hover {
+  color: #fbb03b; /* Highlight color for hover */
+}
+
+.streets-map {
+  width: 50%;
+  height: 500px; /* Adjust the height as needed */
+  border: none; /* Remove border for the iframe */
+}
+
+@media (max-width: 768px) {
+  .streets-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .streets-description, .streets-map {
+    width: 100%;
+  }
+
+  .streets-map {
+    margin-top: 20px;
+  }
+}
+
+/* People Page Styles */
+.people-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.people-video {
+  background-color: #f0f1e5; /* Light background for each video placeholder */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.people-video iframe {
+  width: 100%;
+  height: 200px; /* You can adjust the height as needed */
+  border-radius: 8px;
+}
+
+.people-video-label {
+  margin-top: 1rem;
+  font-size: 1.1em;
+  color: #333;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .people-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .people-container {
+    grid-template-columns: 1fr;
+  }
+}
