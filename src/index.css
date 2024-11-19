@@ -27,13 +27,29 @@ body {
   font-weight: 400;
   font-style: normal;
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding-top: 20px; /* Adjust this value to match the navbar height */
+}
+.floatRight {
+  float: right;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.textAlignLeft {
+  text-align: left;
 }
 
 h1 {
+  font-family: "bomboniere", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 3.2em;
   line-height: 1.1;
 }
@@ -57,6 +73,60 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* New Styles for the Home Page Layout */
+.home-page {
+  display: flex; /* Enables flexbox for layout */
+  flex-direction: row; /* Aligns children side by side */
+  justify-content: space-between; /* Creates space between sections */
+  align-items: flex-start; /* Aligns items at the top */
+  gap: 20px; /* Adds space between text and map */
+  padding: 20px; /* Adds padding around the layout */
+  margin-top: 20px; /* Match this to the navbar height */
+}
+
+.content {
+  flex: 1; /* Makes the content section flexible */
+  max-width: 50%; /* Limits the width of the content section */
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.map {
+  flex: 1; /* Makes the map section flexible */
+  max-width: 50%; /* Limits the width of the map section */
+}
+
+.map iframe {
+  width: 100%; /* Ensures the iframe fills its container */
+  height: 400px; /* Adjusts the height of the map */
+  border: 0; /* Removes iframe border */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-page {
+    flex-direction: column; /* Stacks sections vertically */
+  }
+
+  .content,
+  .map {
+    max-width: 100%; /* Makes sections full width */
+  }
+
+  .map iframe {
+    height: 300px; /* Adjusts map height for smaller screens */
+  }
+}
+
+/* Additional Color Adjustments for Light Mode */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -69,3 +139,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
