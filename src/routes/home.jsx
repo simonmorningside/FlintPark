@@ -20,7 +20,7 @@ export default function Home() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <img src="https://storage.cloud.google.com/flint-floral-park/Print/TaxPhotoPNG/FloralParkNeighborhood/Broad/Broad%201308.png" alt="google image"/>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
