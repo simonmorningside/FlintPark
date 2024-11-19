@@ -31,7 +31,7 @@ const IntroPage = ({ onComplete }) => {
       {/* Button to skip the intro manually */}
       <button
         onClick={onComplete}
-        className="absolute bottom-10 right-10 p-2 bg-white text-black rounded"
+        className="absolute bottom-10 right-100 p-2 bg-white text-black rounded"
       >
         Skip Intro
       </button>
