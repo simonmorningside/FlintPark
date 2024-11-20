@@ -1,17 +1,22 @@
-# Use a lightweight Python image
-FROM python:3.9-slim
+# Stage 1: Build the Vite app
+FROM node:18-alpine AS build
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy application files
-COPY . /app
+# Copy the rest of the application code
+COPY . .
 
-# Install dependencies
-RUN pip install --no-cache-dir flask flask-cors
+# Stage 2: Serve the app with Nginx and Brotli support
+FROM fholzer/nginx-brotli:v1.12.2
 
-# Expose the port Flask runs on
+# Set the working directory to Nginx config directory
+WORKDIR /etc/nginx
+ADD nginx.conf /etc/nginx/nginx.conf
+# Copy the built Vite app from the build stage
+COPY --from=build /app/dist /usr/share/nginx/html
+# Expose port 8080 (or 80 if desired)
 EXPOSE 8080
 
-# Command to run the Flask app
-CMD ["python", "app.py"]
+# Start Nginx in the foreground
+CMD ["nginx", "-g", "daemon off;"]
