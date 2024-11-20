@@ -1,10 +1,22 @@
-//import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
 import '../index.css';
+import axios from 'axios';
+
+
 
 export default function Home() {
   //const [count, setCount] = useState(0);
+  const fetchAPI = async () => {
+    const response = await axios.get('http://localhost:8080/api/users');
+    const data = await response.json();
+    console.log(data);
+  };
 
+  useEffect(() => {
+    fetchAPI();
+  }, []);
+  
   return (
     <div className="home-page">
       {/* Left Section for Text and Heading */}
