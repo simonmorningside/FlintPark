@@ -9,4 +9,4 @@ def users():
     return jsonify({'users': ['Alice', 'Bob', 'Charlie']})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(host='0.0.0.0', port=8080)
