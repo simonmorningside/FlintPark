@@ -24,7 +24,7 @@ body {
 }
 
 .logo-container {
-  width: 125px;
+  width: 160px;
   height: 75px;
   display: flex;
   align-items: center;
@@ -88,14 +88,14 @@ body {
   font-family: "century-gothic", sans-serif;
   list-style-type: none;
   display: flex;
-  gap: 15px;
+  gap: 40px;
 }
 
 .top-nav .nav-links li a {
   font-family: "century-gothic", sans-serif;
   color: #fff;
   text-decoration: none;
-  font-size: 0.75em;
+  font-size: 0.9em;
 }
 
 .top-nav .nav-links li a:hover {
