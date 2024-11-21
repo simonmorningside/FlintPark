@@ -60,11 +60,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/directory/:directory",
-        element = {<DirectoryDetail />},
+        element = <DirectoryDetail />,
       },
       {
         path: "/directory/:directory/:subdirectory",
-        element = {<DirectoryDetail />},
+        element = <DirectoryDetail />,
       }
     ]
   },
