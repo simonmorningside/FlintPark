@@ -17,17 +17,11 @@ export default function Streets(){
             </p>
     
             <ul className="streets-links">
-            <p>Search the streets of <Link to={`/stjohns/`}>StJohn</Link></p>
-            <p>Search the streets of <Link to={`/flintfloralpark/`}>FlintFloralPark</Link></p>
+            <p>Search the<Link to={`/flintfloralpark/`}>Neighborhoods</Link></p>
             </ul>
           </div>
     
           {/* Right Section: Interactive Map */}
-          <iframe
-            src="https://storage.googleapis.com/flint-floral-park/map/TestQGIS/index.html"
-            className="streets-map"
-            title="Interactive Map"
-          ></iframe>
         </div>
       );
     }
