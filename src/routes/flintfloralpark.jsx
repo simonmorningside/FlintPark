@@ -1,55 +1,39 @@
-import { Form } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const FlintPark = ({ directory }) => {
-  const [data, setData] = useState({ images: [], subdirectories: [] });
+const FlintPark = () => {
+  const [directories, setDirectories] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Fetch the list of top-level directories from the backend
   useEffect(() => {
-    // Fetch data from the Flask backend
-    fetch(`https://floral-park-webserver-861401374674.us-central1.run.app/api/directory/${directory}`)
+    fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/directory")
       .then((response) => response.json())
       .then((data) => {
-        setData(data);  // Set the data from the response
-        setLoading(false);  // Stop loading
+        setDirectories(data.directories);  // Set directories data
+        setLoading(false);
       })
       .catch((error) => {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, [directory]);
+  }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading directories...</div>;
   }
 
   return (
     <div>
-      <h2>Directory: {directory}</h2>
-
-      {/* Display subdirectories */}
-      {data.subdirectories.length > 0 && (
-        <div>
-          <h3>Subdirectories</h3>
-          <ul>
-            {data.subdirectories.map((subdir, index) => (
-              <li key={index}>{subdir}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Display images */}
-      {data.images.length > 0 && (
-        <div>
-          <h3>Images</h3>
-          <div>
-            {data.images.map((image, index) => (
-              <img key={index} src={image} alt={`Image ${index}`} />
-            ))}
-          </div>
-        </div>
-      )}
+      <h2>Top-level Directories</h2>
+      <ul>
+        {directories.map((directory, index) => (
+          <li key={index}>
+            {/* Link to the subdirectories and images in that directory */}
+            <Link to={`/directory/${directory}`}>{directory}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
