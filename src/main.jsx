@@ -57,6 +57,14 @@ const router = createBrowserRouter([
       {
         path: "stjohns/",
         element: <StJohn />,
+      },
+      {
+        path: "/directory/:directory"
+        element = {<DirectoryDetail />},
+      },
+      {
+        path: "/directory/:directory/:subdirectory"
+        element = {<DirectoryDetail />},
       }
     ]
   },
