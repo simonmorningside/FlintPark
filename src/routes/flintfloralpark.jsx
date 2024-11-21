@@ -7,7 +7,7 @@ const FlintPark = ({ directory }) => {
 
   useEffect(() => {
     // Fetch data from the Flask backend
-    fetch(`/api/directory/${directory}`)
+    fetch(`https://floral-park-webserver-861401374674.us-central1.run.app/api/directory/${directory}`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);  // Set the data from the response
