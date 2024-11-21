@@ -7,14 +7,13 @@ import axios from 'axios';
 
 export default function Home() {
   //const [count, setCount] = useState(0);
-  const fetchAPI = async () => {
-    const response = await axios.get('https://floral-park-webserver-861401374674.us-central1.run.app/api/data');
-    const data = await response.json();
-    console.log(data);
-  };
+   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetchAPI();
+    // Fetch data from Flask API using axios
+    axios.get('http://your-flask-api-url/api/data')  // Replace with your actual Flask API URL
+      .then(response => setData(response.data))  // Set the received data to the state
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
   
   return (
