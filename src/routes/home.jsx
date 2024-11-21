@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     // Fetch data from Flask API using axios
-    axios.get('http://your-flask-api-url/api/data')  // Replace with your actual Flask API URL
+    axios.get('https://floral-park-webserver-861401374674.us-central1.run.app/api/data')  // Replace with your actual Flask API URL
       .then(response => setData(response.data))  // Set the received data to the state
       .catch(error => console.error('Error fetching data:', error));
   }, []);
