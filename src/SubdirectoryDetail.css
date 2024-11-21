@@ -1,1 +1,52 @@
-a
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 10px; /* Space between images */
+}
+
+.grid-item {
+    overflow: hidden;
+    border: 1px solid #ccc; /* Optional border */
+    border-radius: 5px; /* Optional rounded corners */
+    padding: 5px; /* Optional padding */
+    cursor: pointer; /* Indicate clickable item */
+}
+
+.grid-item img {
+    width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes bottom spacing */
+}
+
+/* Modal styles */
+.modal {
+    display: flex; /* Flexbox for centering the image */
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%; /* Restrict modal size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
