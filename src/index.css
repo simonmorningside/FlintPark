@@ -109,11 +109,11 @@ button:focus-visible {
 
 .map {
   flex: 1; /* Makes the map section flexible */
-  max-width: 50%; /* Limits the width of the map section */
+  max-width: 400px; /* Limits the width of the map section */
 }
 
 .map iframe {
-  width: 100%; /* Ensures the iframe fills its container */
+  width: 400px; /* Ensures the iframe fills its container */
   height: 400px; /* Adjusts the height of the map */
   border: 0; /* Removes iframe border */
 }

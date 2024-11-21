@@ -17,6 +17,8 @@ import Streets from './routes/streets.jsx'
 import FlintPark from './routes/flintfloralpark.jsx'
 import StJohn from './routes/stjohns.jsx'
 import Churches from './routes/churches.jsx'
+import DirectoryDetail from './routes/directorydetail.jsx'
+import SubdirectoryDetail from './routes/subdirectorydetail.jsx'
 
 
 const router = createBrowserRouter([
@@ -57,7 +59,15 @@ const router = createBrowserRouter([
       {
         path: "stjohns/",
         element: <StJohn />,
-      }
+      },
+      {
+        path: "/directory/:directory",
+        element: <DirectoryDetail />,
+      },
+      {
+        path: "/directory/:directory/:subdirectory",
+        element: <SubdirectoryDetail />,
+      },
     ]
   },
 ]);

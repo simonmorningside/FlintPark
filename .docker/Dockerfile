@@ -13,10 +13,8 @@ FROM fholzer/nginx-brotli:v1.12.2
 # Set the working directory to Nginx config directory
 WORKDIR /etc/nginx
 ADD nginx.conf /etc/nginx/nginx.conf
-
 # Copy the built Vite app from the build stage
 COPY --from=build /app/dist /usr/share/nginx/html
-
 # Expose port 8080 (or 80 if desired)
 EXPOSE 8080
 

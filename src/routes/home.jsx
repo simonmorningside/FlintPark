@@ -1,9 +1,11 @@
-//import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
+import '../index.css';
+
 
 export default function Home() {
-  //const [count, setCount] = useState(0);
-
+  //const [count, setCount] = useState(0)
+  
   return (
     <div className="home-page">
       {/* Left Section for Text and Heading */}
@@ -31,14 +33,15 @@ export default function Home() {
           imperdiet nibh
         </p>
       </div>
+   
 
       {/* Right Section for Map */}
       <div className="map">
-        <iframe
-          src="https://storage.googleapis.com/flint-floral-park/map/TestQGIS/index.html"
-          title="Flint Floral Neighborhood Map"
-          className="map-frame"
-        ></iframe>
+        <img
+          src="https://storage.cloud.google.com/flint-floral-park/Print/TaxPhotoPNG/FloralParkNeighborhood/Broad/Broad%201308.png"
+          alt="Flint Floral Neighborhood Map"
+          className="map"
+        ></img>
       </div>
     </div>
   );

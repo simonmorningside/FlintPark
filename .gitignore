@@ -7,10 +7,52 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules/
-*dist
-dist-ssr
+#build and dependencies
+dist/
+dist-ssr/
 *.local
+node_modules/
+.vite/deps/
+
+#python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.log
+*.pot
+*.mo
+
+#virtual environment
+venv/
+env/
+ENV/
+.venv/
+.VENV/
+
+#environment variables
+*.env
+*.env.*
+
+#cache and temporary files
+*.cache
+*.tmp
+*.swp
+*~
+.cache/
+.DS_Store
+Thumbs.db
+
+#flask-specific
+instance/
+*.sqlite3
+*.db
+migrations/
+
+#pytest
+.pytest_cache/
+.coverage
+htmlcov/
 
 # Editor directories and files
 .vscode/*
