@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function Home() {
   //const [count, setCount] = useState(0);
   const fetchAPI = async () => {
-    const response = await axios.get('http://localhost:8080/api/users');
+    const response = await axios.get('https://floral-park-webserver-861401374674.us-central1.run.app/api/data');
     const data = await response.json();
     console.log(data);
   };
@@ -43,6 +43,13 @@ export default function Home() {
           sagittis sed ac lorem. Pellentesque purus neque, vulputate vel diam eget, tempor 
           imperdiet nibh
         </p>
+      </div>
+      <div>
+      {data ? (
+        <p>{data.message}</p>  // Display the message received from Flask
+      ) : (
+        <p>Loading...</p>
+      )}
       </div>
 
       {/* Right Section for Map */}
