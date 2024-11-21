@@ -59,11 +59,11 @@ const router = createBrowserRouter([
         element: <StJohn />,
       },
       {
-        path: "/directory/:directory"
+        path: "/directory/:directory",
         element = {<DirectoryDetail />},
       },
       {
-        path: "/directory/:directory/:subdirectory"
+        path: "/directory/:directory/:subdirectory",
         element = {<DirectoryDetail />},
       }
     ]
