@@ -5,36 +5,6 @@ import '../index.css';
 
 export default function Home() {
   //const [count, setCount] = useState(0)
-  const [directories, setDirectories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    // Make the fetch request when the component mounts
-    fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/directory')  // Make sure the URL matches your Flask API
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch directories');
-        }
-        return response.json();  // Parse the response as JSON
-      })
-      .then((data) => {
-        setDirectories(data.directories);  // Update the state with the data
-        setLoading(false);  // Set loading to false once data is received
-      })
-      .catch((err) => {
-        setError(err.message);  // Set any errors if the fetch fails
-        setLoading(false);
-      });
-  }, []);  // Empty dependency array means this runs once on mount
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
   
   return (
     <div className="home-page">
@@ -63,14 +33,7 @@ export default function Home() {
           imperdiet nibh
         </p>
       </div>
-      <div>
-      <h1>Directories</h1>
-      <ul>
-        {directories.map((directory, index) => (
-          <li key={index}>{directory}</li>
-        ))}
-      </ul>
-    </div>
+   
 
       {/* Right Section for Map */}
       <div className="map">
