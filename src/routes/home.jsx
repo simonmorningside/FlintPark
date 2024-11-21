@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
 import '../App.css';
 import '../index.css';
-import axios from 'axios';
-
 
 
 export default function Home() {
-  //const [count, setCount] = useState(0);
-   const [data, setData] = useState(null);
+  //const [count, setCount] = useState(0)
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    // Fetch data from Flask API using axios
-    axios.get('https://floral-park-webserver-861401374674.us-central1.run.app/api/data')  // Replace with your actual Flask API URL
-      .then(response => setData(response.data))  // Set the received data to the state
+    // Fetch data from Flask API
+    fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/data')  // Replace with your actual Flask API URL
+      .then(response => response.json())
+      .then(data => setData(data))  // Set the received data to the state
       .catch(error => console.error('Error fetching data:', error));
   }, []);
   
