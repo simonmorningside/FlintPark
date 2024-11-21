@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const DirectoryDetail = () => {
   const { directory } = useParams();  // Get the directory from the URL
@@ -9,11 +9,9 @@ const DirectoryDetail = () => {
 
   // Fetch subdirectories and images for the specific directory
   useEffect(() => {
-    console.log("Fetching data for directory:", directory);
     fetch(`https://floral-park-webserver-861401374674.us-central1.run.app/api/directory/${directory}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setSubdirectories(data.subdirectories);
         setImages(data.images);
         setLoading(false);
