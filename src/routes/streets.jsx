@@ -17,7 +17,7 @@ export default function Streets(){
             </p>
     
             <ul className="streets-links">
-            <p>Search the<Link to={`/flintfloralpark/`}>Neighborhoods</Link></p>
+            <p>Search the<Link to={`/flintfloralpark/`}> Neighborhoods</Link></p>
             </ul>
           </div>
     
