@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "../SubdirectoryDetail.css"; // Import the CSS file for the styles
 
 const SubdirectoryDetail = () => {
-  const { directory, subdirectory } = useParams();  // Get both directory and subdirectory from the URL
+  const { directory, subdirectory } = useParams();
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [modalImage, setModalImage] = useState(null); // To handle modal image
 
-  // Fetch images for the selected subdirectory
   useEffect(() => {
-    fetch(`https://floral-park-webserver-861401374674.us-central1.run.app/api/directory/${directory}/${subdirectory}`)
+    fetch(
+      `https://floral-park-webserver-861401374674.us-central1.run.app/api/directory/${directory}/${subdirectory}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setImages(data.images);
@@ -20,26 +23,38 @@ const SubdirectoryDetail = () => {
       });
   }, [directory, subdirectory]);
 
+  const openModal = (image) => {
+    setModalImage(image);
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
+  };
+
   if (loading) {
     return <div>Loading images...</div>;
   }
 
   return (
     <div>
-      <h2>Subdirectory: {subdirectory} in {directory}</h2>
+      <h2>
+        Images in Subdirectory: {subdirectory} (Under {directory})
+      </h2>
 
-      {/* Display images */}
-      {images.length > 0 ? (
-        <div>
-          <h3>Images</h3>
-          <div>
-            {images.map((image, index) => (
-              <img key={index} src={image} alt={`Image ${index}`} />
-            ))}
+      <div className="grid">
+        {images.map((image, index) => (
+          <div key={index} className="grid-item" onClick={() => openModal(image)}>
+            <img src={image} alt={`Image ${index}`} />
           </div>
+        ))}
+      </div>
+
+      {/* Modal for displaying the enlarged image */}
+      {modalImage && (
+        <div className="modal" onClick={closeModal}>
+          <span className="close" onClick={closeModal}>&times;</span>
+          <img className="modal-content" src={modalImage} alt="Enlarged view" />
         </div>
-      ) : (
-        <p>No images found.</p>
       )}
     </div>
   );
