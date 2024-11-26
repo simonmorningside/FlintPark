@@ -3,7 +3,7 @@ import { useState } from 'react'
 import whiteLogo from '../assets/Asset_WHITE.svg'
 import whiteLogoInteractive from '../assets/Asset_WHITE_Interactive.svg'
 import '../App.css'
-import '../index.css'   
+ 
 
 export default function Navbar() {
     const [onHover, setonHover] = useState(false);
