@@ -13,7 +13,7 @@ export default function Navbar() {
         <div className="logo-container">
       {onHover ? (
             <img
-              src={whiteLogoInteractive}
+              src={whiteLogo}
               className="logo"
               alt="White logo Alt"
               onMouseLeave={() => setonHover(false)}
