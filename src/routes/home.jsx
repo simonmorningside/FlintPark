@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
 import '../App.css';
 import '../index.css';
 
@@ -10,9 +10,9 @@ export default function Home() {
     <div className="home-page">
       {/* Left Section for Text and Heading */}
       <div className="content">
-        <h1 className="textAlignLeft">Flint Floral Neighborhood</h1>
+        <h1 className="textAlignLeft">The South Side Neighborhood</h1>
         <p className="textAlignLeft">
-          Welcome to the Flint Floral Neighborhood. Explore the map on the right
+          Welcome to South Side. Explore the map on the right
           to learn more about the vibrant community of Flint Floral Park, Michigan 
           and the history it holds.
           <br></br><br></br>
