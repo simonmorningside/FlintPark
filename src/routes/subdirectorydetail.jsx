@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../SubdirectoryDetail.css"; // Import the CSS file for the styles
 
+// Top-level helper function to extract the image name
+const getImageName = (imageUrl) => {
+  return decodeURIComponent(imageUrl.split("/").pop().split(".")[0]);
+};
+
 const SubdirectoryDetail = () => {
   const { directory, subdirectory } = useParams();
   const [images, setImages] = useState([]);
@@ -43,13 +48,12 @@ const SubdirectoryDetail = () => {
 
       <div className="grid">
         {images.map((image, index) => {
-          // Decode the URL-encoded string and extract image name without the extension
-          const imageName = decodeURIComponent(image.split("/").pop().split(".")[0]);
+          const imageName = getImageName(image);  // Use the top-level helper function
 
           return (
             <div key={index} className="grid-item" onClick={() => openModal(image)}>
               <img src={image} alt={`Image ${index}`} />
-              <div className="image-label">{imageName}</div> {/* Add the label */}
+              <div className="image-label">{imageName}</div> {/* Display the image name */}
             </div>
           );
         })}
@@ -59,7 +63,10 @@ const SubdirectoryDetail = () => {
       {modalImage && (
         <div className="modal" onClick={closeModal}>
           <span className="close" onClick={closeModal}>&times;</span>
-          <img className="modal-content" src={modalImage} alt="Enlarged view" />
+          <div className="modal-content-container">
+            <img className="modal-content" src={modalImage} alt="Enlarged view" />
+            <div className="caption">{getImageName(modalImage)}<p>LOTS LOTS AND LOTS OF TEXT YIPPE YIPPE YIPPE YIPPE</p></div> {/* Dynamic caption */}
+          </div>
         </div>
       )}
     </div>

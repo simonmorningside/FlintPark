@@ -33,13 +33,13 @@
     background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 }
 
-.modal-content {
+/* .modal-content {
     margin: auto;
     display: block;
-    max-width: 80%; /* Restrict modal size */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 80%;  Restrict modal size 
+    height: auto;  /* Maintain aspect ratio 
     border-radius: 10px;
-}
+} */
 
 .close {
     position: absolute;
@@ -50,3 +50,26 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.modal-content-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* Push content to the right */
+    padding-left: 10px;           /* Add padding if you want more space */
+    padding-top: 75px;
+}
+
+.modal-content {
+    max-width: 80%;
+    height: 615px;  /* Adjust this value as needed */
+}
+  
+.caption {
+    text-align: left;         /* Align text within caption box */
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    width: 30%;               /* Allocate remaining width for the caption */
+    background: rgba(0, 0, 0, 0.7);  /* Optional: semi-transparent background */
+    box-sizing: border-box;   /* Include padding in width calculation */
+  }
