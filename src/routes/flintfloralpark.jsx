@@ -46,7 +46,7 @@ const FlintPark = () => {
           <>
             <h2>
               <Link to={`/directory/${directories[2]}`} className="column-link">
-              St Johns Neighborhood
+              South Side Neighborhood
               </Link>
             </h2>
             <p>Explore the details of the {directories[2]} directory.</p>
@@ -63,7 +63,7 @@ const FlintPark = () => {
           <>
             <h2>
               <Link to={`/directory/${directories[1]}`} className="column-link">
-                South Side Neighborhood
+                St Johns Neighborhood
               </Link>
             </h2>
             <p>Discover the content of the {directories[1]} directory.</p>
