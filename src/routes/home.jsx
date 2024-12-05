@@ -49,7 +49,7 @@ export default function Home() {
    
 
       {/* Right Section for Map */}
-      <div className="map">
+      <div className="front-map">
       <img
               src={maps[2]?.url}
               alt={`Placeholder for map`}

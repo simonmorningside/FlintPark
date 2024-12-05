@@ -114,6 +114,14 @@ button:focus-visible {
   max-width: 400px; /* Limits the width of the map section */
 }
 
+
+.front-map {
+  flex: 1; /* Makes the map section flexible */
+  max-width: 400px;
+  height: 800px; /* Limits the width of the map section */
+}
+
+
 .map iframe {
   width: 400px; /* Ensures the iframe fills its container */
   height: 400px; /* Adjusts the height of the map */
