@@ -52,7 +52,7 @@ export default function Home() {
       <div className="map">
       <img
               src={maps[2]?.url}
-              alt={`Placeholder for ${directories[2]}`}
+              alt={`Placeholder for map`}
               className="column-image"
       />
       </div>
