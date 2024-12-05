@@ -5,7 +5,19 @@ import '../index.css';
 
 export default function Home() {
   //const [count, setCount] = useState(0)
-  
+  useEffect(() => {
+    fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/maps")
+      .then((response) => response.json())
+      .then((data) => {
+        setMaps(data.maps);  // Set directories data
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="home-page">
       {/* Left Section for Text and Heading */}
@@ -37,11 +49,11 @@ export default function Home() {
 
       {/* Right Section for Map */}
       <div className="map">
-        <img
-          src="https://storage.cloud.google.com/flint-floral-park/Print/TaxPhotoPNG/FloralParkNeighborhood/Broad/Broad%201308.png"
-          alt="Flint Floral Neighborhood Map"
-          className="map"
-        ></img>
+      <img
+              src={maps[2]?.url}
+              alt={`Placeholder for ${directories[2]}`}
+              className="column-image"
+      />
       </div>
     </div>
   );
