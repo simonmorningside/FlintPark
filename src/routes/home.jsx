@@ -5,6 +5,7 @@ import '../index.css';
 
 export default function Home() {
   //const [count, setCount] = useState(0)
+  const [maps, setMaps] = useState([]);
   useEffect(() => {
     fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/maps")
       .then((response) => response.json())
