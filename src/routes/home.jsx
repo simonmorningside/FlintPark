@@ -53,7 +53,7 @@ export default function Home() {
       <img
               src={maps[2]?.url}
               alt={`Placeholder for map`}
-              className="column-image"
+              className="front-column-image"
       />
       </div>
     </div>
