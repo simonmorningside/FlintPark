@@ -54,7 +54,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link to={`/streets/`} onClick={() => setMenuOpen(false)}>
-              Streets
+              Neighborhoods
             </Link>
           </li>
           <li>
