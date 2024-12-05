@@ -15,11 +15,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #009640;
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+  color: #0b3a1f;
 }
 
 body {
@@ -34,6 +35,7 @@ body {
   min-height: 100vh;
   padding-top: 20px; /* Adjust this value to match the navbar height */
 }
+
 .floatRight {
   float: right;
 }
@@ -74,7 +76,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #0b3a1f;
 }
 button:focus,
 button:focus-visible {
@@ -141,7 +143,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #0b3a1f;
   }
   button {
     background-color: #f9f9f9;
@@ -209,49 +211,171 @@ button:focus-visible {
   }
 }
 
-/* People Page Styles */
 .people-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.people-video {
-  background-color: #f0f1e5; /* Light background for each video placeholder */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  overflow: hidden;
+  gap: 20px;
+  padding: 20px;
 }
 
-.people-video iframe {
+.people-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white; /* White background for the container */
+  padding: 20px; /* Padding around the video and label */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+  margin: 10px; /* Margin to space out the video containers */
+}
+
+.people-video.featured {
+  width: 550px; /* Slightly wider container for the top video */
+}
+
+.featured-video-label {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.other-videos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   width: 100%;
-  height: 200px; /* You can adjust the height as needed */
+  justify-items: center;
+}
+
+.people-video video {
   border-radius: 8px;
 }
 
 .people-video-label {
-  margin-top: 1rem;
-  font-size: 1.1em;
-  color: #333;
+  margin-top: 10px;
   text-align: center;
+  font-weight: normal;
 }
 
-@media (max-width: 768px) {
-  .people-container {
-    grid-template-columns: 1fr 1fr;
-  }
+.flint-park-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 30px;
 }
 
-@media (max-width: 480px) {
-  .people-container {
-    grid-template-columns: 1fr;
-  }
+.column {
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.column h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.column p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.column-image {
+  width: 100%;
+  height: 300px;  /* Set a fixed height */
+  object-fit: cover;  /* Ensure the image covers the area without distortion */
+  border-radius: 10px;
+}
+
+.column-link {
+  text-decoration: none;
+  color: #a0671c;
+  transition: color 0.3s ease;
+}
+
+.column-link:hover { 
+  color: #005999;
+}
+/* Example CSS */
+.streets-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Ensure even spacing between sections */
+  align-items: flex-start;
+  gap: 2rem; /* Add spacing between the left and right sections */
+  padding: 2rem; /* Add padding around the entire container */
+}
+
+.streets-description {
+  flex: 1;
+}
+
+.streets-map {
+  flex: 1.5;
+  height: 450px;
+}
+
+.content-container {
+  margin-top: 60px; /* Adjust based on navbar height */
+  padding: 20px; /* Optional for additional spacing */
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column; /* Stacks the image and the label */
+  align-items: center; /* Centers the label under the image */
+  text-align: center; /* Center the text of the label */
+  margin-bottom: 20px; /* Space between grid items */
+  background-color: #fff; /* White background for each grid item */
+  padding: 10px; /* Optional: Adds padding around the image and label */
+  border-radius: 8px; /* Optional: Rounds the corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow */
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure images cover the area without distorting */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.grid-item img:hover {
+  transform: scale(1.05); /* Adds hover effect without affecting layout */
+}
+
+.grid-item .image-label {
+  margin-top: 10px; /* Space between the image and label */
+  font-size: 1rem; /* Adjust label font size */
+  color: #000; /* Black text for the label */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+}
+
+/* Styling for the grid of street buttons */
+.streets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+  gap: 10px; /* Space between the grid items */
+  margin-top: 20px;
+}
+
+.street-button {
+  display: inline-block;
+  background-color: #f2c386;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none; /* Remove underline from links */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.street-button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
 }

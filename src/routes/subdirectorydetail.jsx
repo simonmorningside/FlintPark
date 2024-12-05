@@ -36,17 +36,23 @@ const SubdirectoryDetail = () => {
   }
 
   return (
-    <div>
+    <div style={{ marginTop: "60px" }}>
       <h2>
         Images in Subdirectory: {subdirectory} (Under {directory})
       </h2>
 
       <div className="grid">
-        {images.map((image, index) => (
-          <div key={index} className="grid-item" onClick={() => openModal(image)}>
-            <img src={image} alt={`Image ${index}`} />
-          </div>
-        ))}
+        {images.map((image, index) => {
+          // Decode the URL-encoded string and extract image name without the extension
+          const imageName = decodeURIComponent(image.split("/").pop().split(".")[0]);
+
+          return (
+            <div key={index} className="grid-item" onClick={() => openModal(image)}>
+              <img src={image} alt={`Image ${index}`} />
+              <div className="image-label">{imageName}</div> {/* Add the label */}
+            </div>
+          );
+        })}
       </div>
 
       {/* Modal for displaying the enlarged image */}

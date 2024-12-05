@@ -1,44 +1,82 @@
-import { Outlet, Link } from 'react-router-dom'
-import { useState } from 'react'
-import whiteLogo from '../assets/Asset_WHITE.svg'
-import whiteLogoInteractive from '../assets/Asset_WHITE_Interactive.svg'
-import '../App.css'
- 
+import { Outlet, Link } from 'react-router-dom';
+import { useState } from 'react';
+import whiteLogo from '../assets/Asset_WHITE.svg';
+import whiteLogoInteractive from '../assets/Asset_WHITE_Interactive.svg';
+import '../App.css';
+import '../index.css';
 
 export default function Navbar() {
-    const [onHover, setonHover] = useState(false);
-    return (
+  const [onHover, setOnHover] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  return (
     <>
-       <nav className="top-nav">
+      <nav className="top-nav">
+        {/* Logo Section */}
         <div className="logo-container">
-      {onHover ? (
+          {onHover ? (
             <img
-              src={whiteLogo}
+              src={whiteLogoInteractive}
               className="logo"
               alt="White logo Alt"
-              onMouseLeave={() => setonHover(false)}
+              onMouseLeave={() => setOnHover(false)}
             />
           ) : (
             <img
               src={whiteLogo}
               className="logo"
               alt="White logo"
-              onMouseEnter={() => setonHover(true)}
+              onMouseEnter={() => setOnHover(true)}
             />
           )}
         </div>
-        <ul className="nav-links">
-          <li><Link to={`/home/`}>Home</Link></li>
-          <li><Link to={`/about/`}>About</Link></li>
-          <li><Link to={`/streets/`}>Streets</Link></li>
-          <li><Link to={`/churches/`}>Churches</Link></li>
-          <li><Link to={`/people/`}>People of Flint</Link></li>
-          <li><Link to={`/team/`}>Meet the Team</Link></li>
+
+        {/* Hamburger Menu Icon */}
+        <div className="menu-icon" onClick={toggleMenu}>
+          <div className={`bar ${menuOpen ? 'rotate-bar1' : ''}`}></div>
+          <div className={`bar ${menuOpen ? 'hide-bar' : ''}`}></div>
+          <div className={`bar ${menuOpen ? 'rotate-bar2' : ''}`}></div>
+        </div>
+
+        {/* Navigation Links */}
+        <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <li>
+            <Link to={`/home/`} onClick={() => setMenuOpen(false)}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to={`/about/`} onClick={() => setMenuOpen(false)}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to={`/streets/`} onClick={() => setMenuOpen(false)}>
+              Streets
+            </Link>
+          </li>
+          <li>
+            <Link to={`/churches/`} onClick={() => setMenuOpen(false)}>
+              Churches
+            </Link>
+          </li>
+          <li>
+            <Link to={`/people/`} onClick={() => setMenuOpen(false)}>
+              People of Flint
+            </Link>
+          </li>
+          <li>
+            <Link to={`/team/`} onClick={() => setMenuOpen(false)}>
+              Meet the Team
+            </Link>
+          </li>
         </ul>
       </nav>
-        <div id="detail">
-            <Outlet />
-        </div>
+      <div id="detail">
+        <Outlet />
+      </div>
     </>
-    )
+  );
 }

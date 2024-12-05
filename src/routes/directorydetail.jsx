@@ -27,23 +27,27 @@ const DirectoryDetail = () => {
   }
 
   return (
-    <div>
+    <div style={{ marginTop: "60px" }}> {/* Adjust the value to match the navbar height */}
       <h2>Directory: {directory}</h2>
-
-      {/* Display subdirectories as clickable links */}
+  
+      {/* Display subdirectories as buttons */}
       {subdirectories.length > 0 && (
         <div>
           <h3>Subdirectories</h3>
-          <ul>
+          <div className="streets-grid">
             {subdirectories.map((subdir, index) => (
-              <li key={index}>
-                <Link to={`/directory/${directory}/${subdir}`}>{subdir}</Link>
-              </li>
+              <Link 
+                key={index} 
+                to={`/directory/${directory}/${subdir}`} 
+                className="street-button"
+              >
+                {subdir}
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
       )}
-
+  
       {/* Display images */}
       {images.length > 0 && (
         <div>
@@ -56,7 +60,7 @@ const DirectoryDetail = () => {
         </div>
       )}
     </div>
-  );
+  );  
 };
 
 export default DirectoryDetail;

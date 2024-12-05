@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #f0f1e5; /* Replace this with any color you prefer */
+  background-color: #ffe4c4; /* Replace this with any color you prefer */
   margin: 0;
   color: #333;
   font-family: "century-gothic", sans-serif;
@@ -24,7 +24,7 @@ body {
 }
 
 .logo-container {
-  width: 125px;
+  width: 160px;
   height: 75px;
   display: flex;
   align-items: center;
@@ -34,7 +34,6 @@ body {
 
 .logo:hover {
   filter: drop-shadow(0 0 2em #fbb03b);
-  content: url("");
 }
 
 .logo.react:hover {
@@ -79,70 +78,94 @@ body {
   z-index: 1000;
 }
 
+.top-nav .logo-container {
+  flex: 0 0 auto;
+}
+
 .top-nav .logo {
   width: 150px;
   height: auto;
 }
 
-.top-nav .nav-links {
+.nav-links {
   font-family: "century-gothic", sans-serif;
   list-style-type: none;
   display: flex;
-  gap: 15px;
-}
-
-.top-nav .nav-links li a {
-  font-family: "century-gothic", sans-serif;
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.75em;
-}
-
-.top-nav .nav-links li a:hover {
-  color: #fbb03b;
-}
-
-/* About Page Styles */
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.about-section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-  gap: 20px;
-}
-
-.about-section.left {
-  flex-direction: row;
-}
-
-.about-section.right {
-  flex-direction: row-reverse;
-}
-
-.about-section p {
-  flex: 1;
-  font-size: 1.2em;
-  line-height: 1.5;
+  gap: 40px;
   margin: 0;
+  transition: transform 0.3s ease-in-out;
 }
 
-.about-image {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #fbb03b;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
+.nav-links.open li {
+  margin: 0.5px 0;
+}
+
+.nav-links li {
+  margin: 5px 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.9em;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #0b3a1f;
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-icon .rotate-bar1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon .rotate-bar2 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu-icon .hide-bar {
+  opacity: 0;
+}
+
+/* Responsive Styling */
 @media (max-width: 768px) {
-  .about-section {
-    flex-direction: column;
+  .nav-links {
+    display: none; /* Hide links by default on smaller screens */
   }
 
-  .about-image {
-    margin-bottom: 20px;
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-links.open {
+    display: flex; /* Show when menu is toggled */
   }
 }

@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="about-container">
+    <div className="about-container" style={{ marginTop: "60px" }}>
       <div className="about-section left">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus

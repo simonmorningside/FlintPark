@@ -3,7 +3,7 @@ import '../App.css'
 
 export default function Churches() {
   return (
-    <div className="about-container">
+    <div className="about-container" style={{ marginTop: "60px" }}>
     <div className="about-section left">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
