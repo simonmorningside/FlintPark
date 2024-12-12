@@ -42,34 +42,34 @@ const FlintPark = () => {
   return (
     <div className="flint-park-container">
       <div className="column">
-        {directories[2] && (
+        {directories[1] && (
           <>
             <h2>
-              <Link to={`/directory/${directories[2]}`} className="column-link">
+              <Link to={`/directory/${directories[1]}`} className="column-link">
               South Side Neighborhood
               </Link>
             </h2>
-            <p>Explore the details of the {directories[2]} directory.</p>
+            <p>Explore the details of the {directories[1]} directory.</p>
             <img
               src={maps[0]?.url}
-              alt={`Placeholder for ${directories[2]}`}
+              alt={`Placeholder for ${directories[1]}`}
               className="column-image"
             />
           </>
         )}
       </div>
       <div className="column">
-        {directories[1] && (
+        {directories[2] && (
           <>
             <h2>
-              <Link to={`/directory/${directories[1]}`} className="column-link">
+              <Link to={`/directory/${directories[2]}`} className="column-link">
                 St Johns Neighborhood
               </Link>
             </h2>
-            <p>Discover the content of the {directories[1]} directory.</p>
+            <p>Discover the content of the {directories[2]} directory.</p>
             <img
               src={maps[1]?.url}
-              alt={`Placeholder for ${directories[1]}`}
+              alt={`Placeholder for ${directories[2]}`}
               className="column-image"
             />
           </>
