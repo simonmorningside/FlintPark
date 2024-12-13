@@ -7,8 +7,8 @@ export default function HistoryOfPastors() {
     <div className="page-container">
       <header className="header">
         <div className="header-content">
-          <img
-            src="https://via.placeholder.com/100"
+        <img
+            src="https://storage.googleapis.com/flint-floral-park/Churches/OliveLogo.png" // Church logo image
             alt="Church Logo"
             className="header-logo"
           />
@@ -19,7 +19,7 @@ export default function HistoryOfPastors() {
       <section className="history-text">
         <div className="history-item">
           <img
-            src="https://via.placeholder.com/150"
+            src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/Amherstburg.png"
             alt="Amherstburg in the mid-19th century"
             className="history-image"
           />
@@ -41,7 +41,7 @@ export default function HistoryOfPastors() {
 
         <div className="history-item">
           <img
-            src="https://via.placeholder.com/150"
+            src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/settlements.png"
             alt="Location of Black settlements in Ontario"
             className="history-image"
           />
@@ -62,7 +62,7 @@ export default function HistoryOfPastors() {
 
         <div className="history-item">
           <img
-            src="https://via.placeholder.com/150"
+            src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/headstone.png"
             alt="Headstone recognizing Black settlers"
             className="history-image"
           />
@@ -81,7 +81,7 @@ export default function HistoryOfPastors() {
           <h3>Founders</h3>
           <h4>Rev. William Isaac Lyons</h4>
           <img
-            src="https://via.placeholder.com/150"
+            src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/Lyons.png"
             alt="Rev. William Isaac Lyons"
             className="history-image"
           />
@@ -113,11 +113,6 @@ export default function HistoryOfPastors() {
               In 1895 and 1896 he was living on Isaac Street (Indianapolis Freeman). In 1896, he organized an Emancipation Day celebration on August 3rd in Lansing and invited government officials. 
               Zion disbanded in 1906, hoping in 1907 to reorganize under a different name.
             </p>
-            <img
-              src="https://via.placeholder.com/150"
-              alt="photo"
-              className="history-image"
-            />
           </div>
 
           <div className="history-item">
@@ -127,11 +122,6 @@ export default function HistoryOfPastors() {
               Mrs. Howard had come to Flint in her early 20s and married Charles A. Howard, also of Ontario, there in 1883. 
               They had a number of children. By the time she began hosting the fledgling Mt. Olive community, she was a widow in her 50s with one surviving child, her daughter, Neta.
             </p>
-            <img
-              src="https://via.placeholder.com/150"
-              alt="photo"
-              className="history-image"
-            />
           </div>
 
           <div className="history-item">
@@ -141,11 +131,6 @@ export default function HistoryOfPastors() {
               He lived in Ann Arbor and held the position of state Missionary of the Michigan Baptist Convention. 
               He worked in Kalamazoo and Adrian in the 1880s, at Messiah Baptist in Grand Rapids in the 1890s, and in Jackson and Flint in the first decade of the 20th century.
             </p>
-            <img
-              src="https://via.placeholder.com/150"
-              alt="photo"
-              className="history-image"
-            />
           </div>
 
           <div className="history-item">
@@ -157,7 +142,7 @@ export default function HistoryOfPastors() {
               He boarded with the Linney family at 1718 Pine St. He appears to have returned to Toledo.
             </p>
             <img
-              src="https://via.placeholder.com/150"
+              src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/JennieJohnson.jpg"
               alt="photo"
               className="history-image"
             />
@@ -169,11 +154,6 @@ export default function HistoryOfPastors() {
               In March 1912, the community was called “Mt Olive Mission” on E. 9th St. and a new minister, Rev. David C. Adams, preached Sunday mornings and evenings. 
               Adams also held a week-long series of revival meetings. Mt Olive showed up in the Flint City Directory in 1913 and 1915 with Adams as minister, with services Sunday morning and Wednesday evening, and Sunday School.
             </p>
-            <img
-              src="https://via.placeholder.com/150"
-              alt="photo"
-              className="history-image"
-            />
           </div>
 
           <div className="history-item">
@@ -183,7 +163,17 @@ export default function HistoryOfPastors() {
               Dungy, a native of Cleveland, Ohio, is listed as a student at the University of Michigan’s School of Divinity in 1913. He was likely the minister who hosted the formal formation of the church at the Mission. Dungy preached from the core principles of AME and Baptist ideas, likely organizing Mt. Olive as part of the Detroit Convention system.
             </p>
             <img
-              src="https://via.placeholder.com/150"
+              src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/HerbertLeslieDungy.png"
+              alt="photo"
+              className="history-image"
+            />
+            <img
+              src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/HerbertLeslieDungy2.jpg"
+              alt="photo"
+              className="history-image"
+            />
+            <img
+              src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/HerbertLeslieDungy3.jpg"
               alt="photo"
               className="history-image"
             />
@@ -195,11 +185,6 @@ export default function HistoryOfPastors() {
               Rev. Bolen, the last pastor of the early church, led Mt. Olive from 1914 to 1916. 
               During his tenure, the church's congregation continued to grow, reflecting the increasing prominence of Black Baptist churches in Michigan and the central role of Mt. Olive in Flint's Black community.
             </p>
-            <img
-              src="https://via.placeholder.com/150"
-              alt="photo"
-              className="history-image"
-            />
           </div>
         </div>
 
@@ -208,7 +193,7 @@ export default function HistoryOfPastors() {
   <p>
     Joseph Caldwell Nicholas (1883-1940) was from New Orleans, the son of a minister. He studied at Virginia Union Theological Seminary and at McMaster in Montreal. He and his wife Viola B. Lloyd arrived in Flint in 1917 with their infant son Joseph Jr. During his pastorate, new pews were installed in the church, and a playground was built. The church purchased a parsonage at 1608 Park St. where Nicholas lived through 1923. He was ill during the final months of his pastorate and he and his family returned to New Orleans.
   </p>
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/Nichols.png" alt="photo" className="history-image" />
 </div>
 
 <div className="history-item">
@@ -225,7 +210,8 @@ export default function HistoryOfPastors() {
   <p>
     The American Baptist Home Mission Society engaged an architect. By 1926 services featured both a senior and a junior choir and performed songs such as Harry Burleigh’s “Deep River,” Felix Mendelsson’s “Oh Rest in the Lord,” and Holton's “The Chimes of the Holy Night.” The McKinney family moved to Cleveland in 1928 to lead the large but divided Antioch Church where they became religious and community leaders who fought for civil rights. Rev. Wade Hampton McKinney is featured in the Morehouse College International Hall of Honor, and his family papers and photos are on file at Cleveland Public Library.
   </p>
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/WadeHamptonMcKinney.png" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/WadeHamptonMcKinney2.png" alt="photo" className="history-image" />
 </div>
 
 <div className="history-item">
@@ -240,7 +226,7 @@ export default function HistoryOfPastors() {
   <p>
     Rev. LRW Johnson came to Flint to work at Mt Olive. His wife and children remained in Virginia. He was a boarder at 1520 Park St. in 1929 and 1930. By 1931 he was the pastor of New Hope Baptist Church at 1703 Elm Street and he was living at 2046 Stanford Ave.
   </p>
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/LouisRobertWebsterJohnson.jpg" alt="photo" className="history-image" />
 </div>
 
 <div className="history-item">
@@ -279,10 +265,10 @@ export default function HistoryOfPastors() {
   <p>
     Under his leadership, Mt Olive saw large growth, quadrupling the membership. He led the effort to build a new and larger building at 424 E. Kennelworth and to pay off its mortgage. The Fellowship Hall has been named in his honor. He is remembered by members for his understated preaching style, his ability to strengthen church finances, and his emphasis on punctuality.
   </p>
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/RobertRoscoeTurpin.jpg" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/RobertRoscoeTurpin2.jpg" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/RobertRoscoeTurpin3.jpg" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/RobertRoscoeTurpin4.jpg" alt="photo" className="history-image" />
 </div>
 
 <div className="history-item">
@@ -293,9 +279,9 @@ export default function HistoryOfPastors() {
   <p>
     The church moved to a new location at 1500 2nd Street in 1974. The sanctuary was named the "Roy Ivory Greer, Sr. Memorial Chapel" in his honor. Rev. Greer is remembered as a visionary leader who brought numerous families to the church and helped the congregation grow spiritually.
   </p>
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
-  <img src="https://via.placeholder.com/150" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/RoyIvoryGreer.png" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/RoyIvoryGreer2.png" alt="photo" className="history-image" />
+  <img src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/RoyIvoryGreer3.png" alt="photo" className="history-image" />
 </div>
 
 <div className="history-item">
@@ -303,11 +289,6 @@ export default function HistoryOfPastors() {
   <p>
     Rev. Austin, the senior pastor of Zion Missionary Baptist in Saginaw, MI, served as interim minister at Mt Olive in 2009.
   </p>
-  <img
-    src="https://via.placeholder.com/150"
-    alt="photo"
-    className="history-image"
-  />
 </div>
 
 <div className="history-item">
@@ -324,7 +305,7 @@ export default function HistoryOfPastors() {
     He has since served as a pastor of The Greater Mt Sinai Baptist Church in Charlotte, NC.
   </p>
   <img
-    src="https://via.placeholder.com/150"
+    src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/MajorStewart.png"
     alt="photo"
     className="history-image"
   />
@@ -335,11 +316,6 @@ export default function HistoryOfPastors() {
   <p>
     Rev. Wilson served as Associate Pastor under Rev. Greer and served as interim minister in 2017.
   </p>
-  <img
-    src="https://via.placeholder.com/150"
-    alt="photo"
-    className="history-image"
-  />
 </div>
 
 <div className="history-item">
@@ -358,7 +334,7 @@ export default function HistoryOfPastors() {
     He and his wife Symone (Mays) have three children: Jayce, Jaelyn, and Jrue.
   </p>
   <img
-    src="https://via.placeholder.com/150"
+    src="https://storage.googleapis.com/flint-floral-park/ChurchPastors/JevonCatlett.png"
     alt="photo"
     className="history-image"
   />

@@ -3,22 +3,11 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 
 export default function Churches() {
-  const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch data from the API endpoint
-    fetch("https://floral-church-861401374674.us-central1.run.app/api.church-pastors")
-      .then((response) => response.json())
-      .then((data) => {
-        // Assuming the API returns an array of image URLs under 'images' field
-        setImages(data.images || []); // Adjust this based on the actual API response
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching images:", error);
-        setLoading(false);
-      });
+    // Simulating data loading
+    setTimeout(() => setLoading(false), 1000);
   }, []);
 
   return (
@@ -26,7 +15,7 @@ export default function Churches() {
       <header className="header">
         <div className="header-content">
           <img
-            src="https://storage.googleapis.com/flint-floral-park/Churches/OliveLogo.png" // Church logo image
+            src="https://storage.googleapis.com/flint-floral-park/Churches/OliveLogo.png"
             alt="Church Logo"
             className="header-logo"
           />
@@ -66,7 +55,6 @@ export default function Churches() {
         </div>
       </section>
 
-      {/* Second header with links */}
       <section className="archive-section">
         <h2 className="archive-header">Mount Olive Archive</h2>
         <div className="archive-links">
@@ -83,29 +71,6 @@ export default function Churches() {
             Church Events & Activities
           </Link>
         </div>
-      </section>
-
-      {/* New section to display the fetched images */}
-      <section className="pastor-images">
-        <h2>Pastors Images</h2>
-        {loading ? (
-          <p>Loading images...</p>
-        ) : (
-          <div className="image-gallery">
-            {images.length > 0 ? (
-              images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Pastor ${index + 1}`}
-                  className="pastor-image"
-                />
-              ))
-            ) : (
-              <p>No images found</p>
-            )}
-          </div>
-        )}
       </section>
     </div>
   );

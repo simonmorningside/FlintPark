@@ -89,9 +89,91 @@ footer {
 .history-link {
   text-decoration: none;
   font-size: 16px;
-  color: #009640;
+  color: white;
 }
 
 .history-link:hover {
   text-decoration: underline;
 }
+
+.obituaries {
+  text-align: center;
+  padding: 20px;
+}
+
+.pdf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pdf-link {
+  display: block;
+  padding: 10px 15px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.pdf-link:hover {
+  background-color: #e0e0e0;
+}
+
+.graduations {
+  text-align: center;
+  padding: 20px;
+}
+
+.pdf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pdf-link {
+  display: block;
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.pdf-link:hover {
+  background-color: #ddd;
+}
+
+.birthdays {
+  text-align: center;
+  padding: 20px;
+}
+
+.pdf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pdf-link {
+  display: block;
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #009640;
+  font-weight: bold;
+}
+
+.pdf-link:hover {
+  background-color: #ddd;
+}
+

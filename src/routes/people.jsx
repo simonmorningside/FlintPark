@@ -23,7 +23,7 @@ const People = () => {
   }
 
   return (
-    <div className="people-container" style={{ marginTop: "60px" }}>
+    <div className="people-container">
       {/* Render the first video separately */}
       {videos.length > 0 && (
         <div className="people-video">

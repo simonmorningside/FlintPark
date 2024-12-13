@@ -23,6 +23,9 @@ import HistoryOfPastors from './routes/historyofpastors.jsx';
 import HistoryOfLifeEvents from './routes/historyoflifeevents.jsx'; // Import the new HistoryOfLifeEvents component
 import HistoryOfChoir from './routes/historyofchoir.jsx'; // Import the new HistoryOfChoir component
 import ChurchEventsActivities from './routes/churcheventsactivities.jsx'; // Import the new ChurchEventsActivities component
+import Obituaries from './routes/obituaries.jsx'; // Import the new Obituaries component
+import Birthdays from './routes/birthdays.jsx'; // Import the new Birthdays component
+import Graduations from './routes/graduations.jsx'; // Import the new Graduations component
 
 const router = createBrowserRouter([
   {
@@ -90,6 +93,18 @@ const router = createBrowserRouter([
       {
         path: "churcheventsactivities/",
         element: <ChurchEventsActivities />,
+      },
+      {
+        path: "obituaries/",
+        element: <Obituaries />, // Add route for Obituaries
+      },
+      {
+        path: "birthdays/",
+        element: <Birthdays />, // Add route for Birthdays
+      },
+      {
+        path: "graduations/",
+        element: <Graduations />, // Add route for Graduations
       },
     ]
   },

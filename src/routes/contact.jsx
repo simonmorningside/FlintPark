@@ -54,7 +54,7 @@ export default function Team() {
     ];
 
     return (
-        <div className="team-container" style={{ marginTop: "60px" }}>
+        <div className="team-container">
             <div className="border-box"><h1>Meet the Team</h1></div>
             <div className="team-grid">
                 {teamMembers.map((member, index) => (

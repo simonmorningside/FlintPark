@@ -2,70 +2,75 @@
 
 /* General styling for the history section */
 .history-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 20px 0;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Style the headings (h4) inside each history item */
-  .history-item h4 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Add left-aligned photo to the header of each history item */
-  .history-item h4 img {
-    max-width: 40px; /* Adjust size */
-    height: auto;
-    margin-right: 10px; /* Space between image and header text */
-  }
-  
-  /* Style the paragraphs inside each history item */
-  .history-item p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  /* Add a maximum width for the image to ensure it doesn’t overflow */
-  .history-item img.history-image {
-    max-width: 150px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin-top: 10px; /* Slight space from text */
-    margin-right: 10px; /* Space between images */
-  }
-  
-  /* Add a container for the image and text to make them more aligned */
-  .history-item .history-image-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  
-  /* Align text and images next to each other for some items */
-  .history-item img.history-image + p {
-    margin-left: 20px;
-  }
-  
-  /* Add some margin to separate history items */
-  .history-item + .history-item {
-    margin-top: 30px;
-  }
-  
-  /* Optional: Add hover effect for history items */
-  .history-item:hover {
-    background-color: #e9ecef;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px 0;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the headings (h4) inside each history item */
+.history-item h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Add left-aligned photo to the header of each history item */
+.history-item h4 img {
+  max-width: 40px; /* Adjust size */
+  height: auto;
+  margin-right: 10px; /* Space between image and header text */
+}
+
+/* Style the paragraphs inside each history item */
+.history-item p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Add a maximum width for the image to ensure it doesn’t overflow */
+.history-item img.history-image {
+  max-width: 150px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-top: 10px; /* Slight space from text */
+  margin-right: 10px; /* Space between images */
+}
+
+/* Add a container for the image and text to make them more aligned */
+.history-item .history-image-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Align text and images next to each other for some items */
+.history-item img.history-image + p {
+  margin-left: 20px;
+}
+
+/* Add some margin to separate history items */
+.history-item + .history-item {
+  margin-top: 30px;
+}
+
+/* Optional: Add hover effect for history items */
+.history-item:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.history-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* Ensures the image fits within the dimensions */
+}
