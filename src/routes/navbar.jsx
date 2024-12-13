@@ -16,6 +16,7 @@ export default function Navbar() {
       <nav className="top-nav">
         {/* Logo Section */}
         <div className="logo-container">
+          <Link to="/home">
           {onHover ? (
             <img
               src={whiteLogoInteractive}
@@ -31,6 +32,7 @@ export default function Navbar() {
               onMouseEnter={() => setOnHover(true)}
             />
           )}
+          </Link>
         </div>
 
         {/* Hamburger Menu Icon */}
