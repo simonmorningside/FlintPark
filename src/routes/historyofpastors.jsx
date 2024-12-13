@@ -3,15 +3,42 @@ import '../App.css';
 import './historyofpastors.css';
 
 export default function HistoryOfPastors() {
+  const [loading, setLoading] = useState(true);
+  const [media, setMedia] = useState({ images: [], videos: [] });
+
+  useEffect(() => {
+    // Fetch media data from the API
+    const fetchMedia = async () => {
+      try {
+        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/churches'); // Update to the correct API URL if necessary
+        if (!response.ok) {
+          throw new Error('Failed to fetch media data');
+        }
+        const data = await response.json();
+        console.log('Fetched Media Data:', data); // Log the fetched data to the console
+        setMedia(data);
+      } catch (error) {
+        console.error('Error fetching media:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMedia();
+  }, []);
+
+
   return (
     <div className="page-container">
       <header className="header">
         <div className="header-content">
-        <img
-            src="https://storage.googleapis.com/flint-floral-park/Churches/OliveLogo.png" // Church logo image
-            alt="Church Logo"
-            className="header-logo"
-          />
+        {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
           <h1>History of Pastors at Mount Olive Missionary Baptist Church</h1>
         </div>
       </header>
