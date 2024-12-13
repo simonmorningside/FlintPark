@@ -10,9 +10,9 @@ export default function HistoryOfLifeEvents() {
       </header>
 
       <section className="links-section">
-        <Link to="/obituaries" className="event-link">Obituaries</Link>
-        <Link to="/graduations" className="event-link">Graduations</Link>
-        <Link to="/birthdays" className="event-link">Birthdays</Link>
+        <Link to={'/obituaries/'} className="event-link">Obituaries</Link>
+        <Link to={'/graduations/'} className="event-link">Graduations</Link>
+        <Link to={'/birthdays/'} className="event-link">Birthdays</Link>
       </section>
 
       <footer>
