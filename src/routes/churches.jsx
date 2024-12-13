@@ -4,21 +4,44 @@ import '../App.css';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
+  const [media, setMedia] = useState({ images: [], videos: [] });
 
   useEffect(() => {
-    // Simulating data loading
-    setTimeout(() => setLoading(false), 1000);
+    // Fetch media data from the API
+    const fetchMedia = async () => {
+      try {
+        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/churches'); // Update to the correct API URL if necessary
+        if (!response.ok) {
+          throw new Error('Failed to fetch media data');
+        }
+        const data = await response.json();
+        console.log('Fetched Media Data:', data); // Log the fetched data to the console
+        setMedia(data);
+      } catch (error) {
+        console.error('Error fetching media:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMedia();
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="page-container" style={{ marginTop: "60px" }}>
+    <div className="page-container" style={{ marginTop: '60px' }}>
       <header className="header">
         <div className="header-content">
-          <img
-            src="https://storage.googleapis.com/flint-floral-park/Churches/OliveLogo.png"
-            alt="Church Logo"
-            className="header-logo"
-          />
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
           <h1>History of Mount Olive Missionary Baptist Church</h1>
         </div>
       </header>
@@ -48,10 +71,14 @@ export default function Churches() {
           </Link>
         </div>
         <div className="history-video">
-          <video controls className="video-placeholder">
-            <source src="https://via.placeholder.com/300" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {media.videos.length > 0 ? (
+            <video controls className="video-placeholder">
+              <source src={media.videos[0].url} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <p>No videos available</p>
+          )}
         </div>
       </section>
 
