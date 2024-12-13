@@ -941,3 +941,20 @@ body {
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.text-section {
+  flex: 1; /* Takes up available space */
+  text-align: left;
+}
+
+.about-image {
+  flex-shrink: 0; /* Prevents image from shrinking */
+  width: 300px; /* Adjust image width */
+  height: auto; /* Maintain aspect ratio */
+}
