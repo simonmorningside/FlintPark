@@ -2,24 +2,27 @@ import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
-  Router,
   RouterProvider,
 } from "react-router-dom";
-import './index.css'
-import './App.css'
+import './index.css';
+import './App.css';
 import Navbar from './routes/navbar.jsx';
 import ErrorPage from './error-page.jsx';
 import Team from './routes/contact.jsx';
-import Home from './routes/home.jsx'
-import People from './routes/people.jsx'
-import About from './routes/about.jsx'
-import Streets from './routes/streets.jsx'
-import FlintPark from './routes/flintfloralpark.jsx'
-import StJohn from './routes/stjohns.jsx'
-import Churches from './routes/churches.jsx'
-import DirectoryDetail from './routes/directorydetail.jsx'
-import SubdirectoryDetail from './routes/subdirectorydetail.jsx'
-
+import Home from './routes/home.jsx';
+import People from './routes/people.jsx';
+import About from './routes/about.jsx';
+import Streets from './routes/streets.jsx';
+import FlintPark from './routes/flintfloralpark.jsx';
+import StJohn from './routes/stjohns.jsx';
+import Churches from './routes/churches.jsx';
+import DirectoryDetail from './routes/directorydetail.jsx';
+import SubdirectoryDetail from './routes/subdirectorydetail.jsx';
+import ChurchesAbout from './routes/churchesabout.jsx';
+import HistoryOfPastors from './routes/historyofpastors.jsx';
+import HistoryOfLifeEvents from './routes/historyoflifeevents.jsx'; // Import the new HistoryOfLifeEvents component
+import HistoryOfChoir from './routes/historyofchoir.jsx'; // Import the new HistoryOfChoir component
+import ChurchEventsActivities from './routes/churcheventsactivities.jsx'; // Import the new ChurchEventsActivities component
 
 const router = createBrowserRouter([
   {
@@ -67,6 +70,26 @@ const router = createBrowserRouter([
       {
         path: "/directory/:directory/:subdirectory",
         element: <SubdirectoryDetail />,
+      },
+      {
+        path: "churchesabout/",
+        element: <ChurchesAbout />,
+      },
+      {
+        path: "historyofpastors/",
+        element: <HistoryOfPastors />,
+      },
+      {
+        path: "historyoflifeevents/",
+        element: <HistoryOfLifeEvents />,
+      },
+      {
+        path: "historyofchoir/",
+        element: <HistoryOfChoir />,
+      },
+      {
+        path: "churcheventsactivities/",
+        element: <ChurchEventsActivities />,
       },
     ]
   },

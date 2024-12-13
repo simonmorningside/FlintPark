@@ -4,7 +4,7 @@ var map = new ol.Map({
     renderer: 'canvas',
     layers: layersList,
     view: new ol.View({
-         maxZoom: 28, minZoom: 1, projection: new ol.proj.Projection({
+         maxZoom: 28, minZoom: 3, projection: new ol.proj.Projection({
             code: 'EPSG:3857',
             //extent: [-20037508.342789, -20037508.342789, 20037508.342789, 20037508.342789],
             units: 'm'})
@@ -12,7 +12,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([-9316945.939034, 5312614.341204, -9313501.117054, 5314447.759971], map.getSize());
+map.getView().fit([-9317585.212465, 5317009.104938, -9311093.535614, 5320862.272799], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -39,7 +39,7 @@ map.getView().fit([-9316945.939034, 5312614.341204, -9313501.117054, 5314447.759
         })(),
     });
     map.addControl(bottomLeftContainer)
-  
+
     //top right container
     var topRightContainer = new ol.control.Control({
         element: (() => {
@@ -75,8 +75,8 @@ var overlayPopup = new ol.Overlay({
     element: container
 });
 map.addOverlay(overlayPopup)
-    
-    
+
+
 var NO_POPUP = 0
 var ALL_FIELDS = 1
 
@@ -202,7 +202,7 @@ function onPointerMove(evt) {
                         popupText += '<li><table>'
                         popupText += '<a>' + '<b>' + layer.get('popuplayertitle') + '</b>' + '</a>';
                         popupText += createPopupField(currentFeature, currentFeatureKeys, layer);
-                        popupText += '</table></li>';    
+                        popupText += '</table></li>';
                     }
                 }
             } else {
@@ -221,7 +221,7 @@ function onPointerMove(evt) {
     } else {
         popupText += '</ul>';
     }
-    
+
 	if (doHighlight) {
         if (currentFeature !== highlight) {
             if (highlight) {
@@ -283,7 +283,7 @@ function onPointerMove(evt) {
         if (popupText) {
             overlayPopup.setPosition(coord);
             content.innerHTML = popupText;
-            container.style.display = 'block';        
+            container.style.display = 'block';
         } else {
             container.style.display = 'none';
             closer.blur();
@@ -306,64 +306,33 @@ function updatePopup() {
         container.style.display = 'none';
         closer.blur();
     }
-} 
+}
 
 function onSingleClickFeatures(evt) {
     if (doHover || sketch) {
         return;
     }
-    if (!featuresPopupActive) {
-        featuresPopupActive = true;
-    }
+
     var pixel = map.getEventPixel(evt.originalEvent);
-    var coord = evt.coordinate;
-    var popupField;
-    var currentFeature;
-    var currentFeatureKeys;
-    var clusteredFeatures;
-    var popupText = '<ul>';
-    
+    var urlOpened = false;
+
     map.forEachFeatureAtPixel(pixel, function(feature, layer) {
         if (layer && feature instanceof ol.Feature && (layer.get("interactive") || layer.get("interactive") === undefined)) {
-            var doPopup = false;
-            for (var k in layer.get('fieldImages')) {
-                if (layer.get('fieldImages')[k] !== "Hidden") {
-                    doPopup = true;
-                }
-            }
-            currentFeature = feature;
-            clusteredFeatures = feature.get("features");
-            if (typeof clusteredFeatures !== "undefined") {
-                if (doPopup) {
-                    for(var n = 0; n < clusteredFeatures.length; n++) {
-                        currentFeature = clusteredFeatures[n];
-                        currentFeatureKeys = currentFeature.getKeys();
-                        popupText += '<li><table>';
-                        popupText += '<a><b>' + layer.get('popuplayertitle') + '</b></a>';
-                        popupText += createPopupField(currentFeature, currentFeatureKeys, layer);
-                        popupText += '</table></li>';    
-                    }
-                }
-            } else {
-                currentFeatureKeys = currentFeature.getKeys();
-                if (doPopup) {
-                    popupText += '<li><table>';
-                    popupText += '<a><b>' + layer.get('popuplayertitle') + '</b></a>';
-                    popupText += createPopupField(currentFeature, currentFeatureKeys, layer);
-                    popupText += '</table>';
-                }
+            // Check for a specific field containing a URL
+            var url = feature.get("URL"); // Match the field name in your data
+            if (url) {
+                window.open(url, "_blank"); // Open the URL in a new tab
+                urlOpened = true;
+                return true; // Stop further processing
             }
         }
     });
-    if (popupText === '<ul>') {
-        popupText = '';
-    } else {
-        popupText += '</ul>';
+
+    // Optionally, hide the popup if no URL was found
+    if (!urlOpened) {
+        container.style.display = 'none';
+        closer.blur();
     }
-	
-	popupContent = popupText;
-    popupCoord = coord;
-    updatePopup();
 }
 
 function onSingleClickWMS(evt) {
@@ -383,10 +352,10 @@ function onSingleClickWMS(evt) {
                 evt.coordinate, viewResolution, viewProjection, {
                     'INFO_FORMAT': 'text/html',
                 });
-            if (url) {				
-                const wmsTitle = wms_layers[i][0].get('popuplayertitle');					
+            if (url) {
+                const wmsTitle = wms_layers[i][0].get('popuplayertitle');
                 var ldsRoller = '<div id="lds-roller"><img class="lds-roller-img" style="height: 25px; width: 25px;"></img></div>';
-				
+
                 popupCoord = coord;
 				popupContent += ldsRoller;
                 updatePopup();
@@ -419,7 +388,7 @@ function onSingleClickWMS(evt) {
                     setTimeout(() => {
                         var loaderIcon = document.querySelector('#lds-roller');
 						loaderIcon.remove();
-                    }, 500); // (0.5 second)	
+                    }, 500); // (0.5 second)
                 });
             }
         }
@@ -451,16 +420,6 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 
 //geocoder
 
-var geocoder = new Geocoder('nominatim', {
-  provider: 'osm',
-  lang: 'en-US',
-  placeholder: 'Search place or address ...',
-  limit: 5,
-  keepOpen: true,
-});
-map.addControl(geocoder);
-document.getElementsByClassName('gcd-gl-btn')[0].className += ' fa fa-search';
-
 
 //layer search
 
@@ -474,7 +433,7 @@ var searchLayer = new SearchLayer({
 map.addControl(searchLayer);
 document.getElementsByClassName('search-layer')[0].getElementsByTagName('button')[0].className += ' fa fa-binoculars';
 document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search feature ...';
-    
+
 
 //scalebar
 
@@ -486,7 +445,7 @@ var layerSwitcher = new ol.control.LayerSwitcher({
     target: 'top-right-container'
 });
 map.addControl(layerSwitcher);
-    
+
 
 
 
@@ -504,7 +463,7 @@ var attributionList = document.createElement('li');
 attributionList.innerHTML = `
 	<a href="https://github.com/tomchadwin/qgis2web">qgis2web</a> &middot;
 	<a href="https://openlayers.org/">OpenLayers</a> &middot;
-	<a href="https://qgis.org/">QGIS</a>	
+	<a href="https://qgis.org/">QGIS</a>
 `;
 bottomAttribution.element.appendChild(attributionList);
 
@@ -517,7 +476,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (doHover || doHighlight) {
 		var controlElements = document.getElementsByClassName('ol-control');
 		for (var i = 0; i < controlElements.length; i++) {
-			controlElements[i].addEventListener('mouseover', function() { 
+			controlElements[i].addEventListener('mouseover', function() {
 				doHover = false;
 				doHighlight = false;
 			});

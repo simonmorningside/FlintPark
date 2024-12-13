@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import '../App.css';
+import '../index.css';
 
 const DirectoryDetail = () => {
-  const { directory } = useParams();  // Get the directory from the URL
+  const { directory } = useParams(); // Get the directory from the URL
   const [subdirectories, setSubdirectories] = useState([]);
   const [images, setImages] = useState([]);
+  const [textFiles, setTextFiles] = useState([]); // Store text files content
   const [loading, setLoading] = useState(true);
 
-  // Fetch subdirectories and images for the specific directory
+  // Fetch subdirectories, images, and text files for the specific directory
   useEffect(() => {
     fetch(`https://floral-park-webserver-861401374674.us-central1.run.app/api/directory/${directory}`)
       .then((response) => response.json())
       .then((data) => {
         setSubdirectories(data.subdirectories);
         setImages(data.images);
+        setTextFiles(data.text_files); // Populate text files from API
         setLoading(false);
       })
       .catch((error) => {
@@ -27,27 +31,35 @@ const DirectoryDetail = () => {
   }
 
   return (
-    <div style={{ marginTop: "60px" }}> {/* Adjust the value to match the navbar height */}
-      <h2>Directory: {directory}</h2>
-  
-      {/* Display subdirectories as buttons */}
+    <div style={{ marginTop: "60px" }}>
+      <div className="border-box">
+      <h2>{directory}</h2>
+
+      {/* Display text files */}
+      {textFiles.length > 0 && (
+      <div>
+          {textFiles.map((file, index) => (
+        <div key={index}>
+        <p>{file.content}</p> {/* Displaying content as normal text */}
+        </div>
+        ))}
+      </div>
+    )}
+      </div>
+      {/* Display subdirectories as links */}
       {subdirectories.length > 0 && (
         <div>
-          <h3>Subdirectories</h3>
+          <h3>Streets</h3>
           <div className="streets-grid">
             {subdirectories.map((subdir, index) => (
-              <Link 
-                key={index} 
-                to={`/directory/${directory}/${subdir}`} 
-                className="street-button"
-              >
+              <Link key={index} to={`/directory/${directory}/${subdir}`} className="street-button">
                 {subdir}
               </Link>
             ))}
           </div>
         </div>
       )}
-  
+
       {/* Display images */}
       {images.length > 0 && (
         <div>
@@ -59,8 +71,20 @@ const DirectoryDetail = () => {
           </div>
         </div>
       )}
+{/* Display text files */}
+      {textFiles.length > 0 && (
+        <div>
+          <h3>Text Files</h3>
+          {textFiles.map((file, index) => (
+            <div key={index}>
+              <h4>{file.name}</h4>
+              <pre>{file.content}</pre> {/* Displaying content as preformatted text */}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-  );  
+  );
 };
 
 export default DirectoryDetail;

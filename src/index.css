@@ -85,18 +85,23 @@ button:focus-visible {
 
 /* New Styles for the Home Page Layout */
 .home-page {
-  display: flex; /* Enables flexbox for layout */
-  flex-direction: row; /* Aligns children side by side */
-  justify-content: space-between; /* Creates space between sections */
-  align-items: flex-start; /* Aligns items at the top */
-  gap: 20px; /* Adds space between text and map */
-  padding: 20px; /* Adds padding around the layout */
-  margin-top: 20px; /* Match this to the navbar height */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
 }
 
+
 .content {
-  flex: 1; /* Makes the content section flexible */
-  max-width: 50%; /* Limits the width of the content section */
+  flex: 1;
+  max-width: 75%; /* Increased from 50% to 60% */
+  padding: 20px;
+  border: 2px solid #009640;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .content h1 {
@@ -115,10 +120,13 @@ button:focus-visible {
 }
 
 
+.front-column-image {
+  max-width: 400px; /* Decrease from 400px or current size */
+  height: auto; /* Maintain aspect ratio */
+}
+
 .front-map {
-  flex: 1; /* Makes the map section flexible */
-  max-width: 400px;
-  height: 800px; /* Limits the width of the map section */
+  width: 500px;
 }
 
 
@@ -158,6 +166,14 @@ button:focus-visible {
   }
 }
 
+.border-box {
+  border: 2px solid #009640;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Streets Page Styles */
 .streets-container {
   max-width: 1280px;
@@ -176,6 +192,8 @@ button:focus-visible {
 
 .streets-description p {
   margin-bottom: 20px;
+  font-size: 1.1em;
+  line-height: 1.6;
 }
 
 .streets-links {
@@ -298,12 +316,7 @@ button:focus-visible {
   border-radius: 10px;
 }
 
-.front-column-image {
-  width: 100%;
-  height: 550px;  /* Set a fixed height */
-  object-fit: cover;  /* Ensure the image covers the area without distortion */
-  border-radius: 10px;
-}
+
 
 .column-link {
   text-decoration: none;
@@ -312,7 +325,7 @@ button:focus-visible {
 }
 
 .column-link:hover { 
-  color: #005999;
+  color: #f2c386;
 }
 /* Example CSS */
 .streets-container {
@@ -373,24 +386,566 @@ button:focus-visible {
 /* Styling for the grid of street buttons */
 .streets-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
-  gap: 10px; /* Space between the grid items */
-  margin-top: 20px;
+  grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns */
+  gap: 16px; /* Space between the grid items */
 }
 
 .street-button {
-  display: inline-block;
-  background-color: #f2c386;
-  color: black;
-  padding: 15px;
+  background-color: #f2c386; /* Example styling */
+  border: 1px solid #8d693a;
+  padding: 10px;
   text-align: center;
-  text-decoration: none; /* Remove underline from links */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: background-color 0.3s, transform 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  border-radius: 4px;
 }
 
 .street-button:hover {
-  background-color: #f0f0f0;
+  background-color: #f8dfbf;
   transform: scale(1.05);
 }
+
+/* Team Page Styles */
+.team-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.team-container h1 {
+  font-size: 2rem; /* Reduced font size */
+  margin-bottom: 30px;
+  font-family: "bomboniere", sans-serif;
+  font-weight: 700;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr)); /* Make each column at least 250px wide */
+  gap: 20px;
+  padding: 20px;
+}
+
+.team-card {
+  background-color: #ffffff;
+  padding: 15px; /* Reduced padding */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-10px); /* Hover effect */
+}
+
+.team-card h3 {
+  font-size: 1.4rem; /* Reduced font size */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.role {
+  font-size: 1.1rem; /* Smaller font size */
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 10px; /* Reduced margin */
+}
+
+.description {
+  font-size: 0.9rem; /* Smaller font size */
+  color: #777;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+  }
+
+  .team-card {
+    padding: 10px; /* Further reduced padding on small screens */
+  }
+
+  .team-card h3 {
+    font-size: 1.3rem; /* Slightly smaller font size */
+  }
+
+  .role {
+    font-size: 1rem; /* Slightly smaller font size */
+  }
+
+  .description {
+    font-size: 0.85rem; /* Slightly smaller font size */
+  }
+}
+
+.text-files-container {
+  align-self: center; /* Centers the div relative to its flex container */
+  text-align: left; /* Ensures text inside is aligned to the left */
+  max-width: 400px; /* Optional: Limit the width of the container */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px; /* Add spacing */
+  background-color: #f5f5f5; /* Optional: Background for better visibility */
+  border: 2px solid #009640; /* Optional: Border for styling */
+  border-radius: 8px; /* Optional: Rounds the corners */
+}
+
+.featured-video {
+  margin-top: 20px; /* Adjust spacing from other elements */
+}
+
+.align-left {
+  text-align: left; /* Align the video container's content to the left */
+}
+
+.featured-video video {
+  display: block; /* Ensures the video takes up the full width of its container */
+  margin-left: 0; /* Removes any default centering */
+}
+
+.featured-video-label {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #333; /* Adjust the label color if needed */
+  text-align: left; /* Align the label to the left as well */
+}
+
+.front-column-image {
+  max-width: 400px; /* Decrease from 400px or current size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.front-map {
+  width: 500px;
+}
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f9;
+}
+
+/* Header Styling */
+.header {
+  background-color: #fff; /* White bar */
+  padding: 10px 20px; /* Internal padding */
+  border: 2px solid #ccc; /* Border around the header */
+  border-radius: 10px; /* Rounded edges */
+  margin: 20px auto; /* Adds spacing around the header */
+  width: calc(100% - 40px); /* Spans width but avoids touching edges */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px; /* Prevent overlap */
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Keeps content within a specific width */
+}
+
+.header-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+  text-align: left;
+}
+
+/* Layout Container */
+.about-container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* History and Video Section Container */
+.history-video-container {
+  display: flex;
+  flex-direction: row; /* Align text and video side by side */
+  gap: 20px;
+  width: 100%;
+  align-items: stretch; /* Ensure both sections fill their container */
+  justify-content: space-between; /* Ensure space between the sections */
+}
+
+/* History Section */
+.history-section {
+  flex: 1; /* Allow the section to take equal space */
+  background-color: #fff; /* White background for history section */
+  padding: 20px;
+  border: 2px solid #ccc; /* Border around the history section */
+  border-radius: 10px; /* Rounded edges */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: auto; /* Handle overflow if content exceeds space */
+  margin-bottom: 20px; /* Add space below the history section */
+  min-width: 300px; /* Prevent it from becoming too narrow */
+}
+
+/* Video Section */
+.video-section {
+  flex: 1; /* Allow the section to take equal space */
+  background-color: #fff; /* White background for video section */
+  padding: 20px;
+  border: 2px solid #ccc; /* Border around the video section */
+  border-radius: 10px; /* Rounded edges */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px; /* Add space below the video section */
+  min-width: 300px; /* Prevent it from becoming too narrow */
+}
+
+.video-placeholder {
+  width: 50%;
+  height: 200px;
+  background-color: #ddd;
+  display: left;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Pastor Section */
+.pastors-section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pastor-card {
+  text-align: center;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.pastor-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.pastor-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+.learn-more-link {
+  color: #009640;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.learn-more-link:hover {
+  text-decoration: underline;
+}
+
+.about-text {
+  margin: 20px;
+}
+
+
+/* General Page Styling */
+.page-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4e1b2; /* Tan background for the whole page */
+}
+
+/* Header Styling */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header-logo {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* History Section */
+.history-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.history-text {
+  flex: 1;
+  background-color: #fff; /* White background for the text */
+  padding: 20px;
+  border-radius: 30px; /* Bubble-like effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #555;
+  position: relative;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.history-text::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #fff; /* White background for the bubble */
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.history-video {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-placeholder {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+/* Pastors Section */
+.pastors-section {
+  display: flex;
+  justify-content: flex-start; /* Aligns names to the left */
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pastor-card {
+  background-color: #fff; /* White background for the pastor card */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px; /* Fixed width for consistency */
+}
+
+.pastor-card img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.pastor-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.pastor-card p {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Bullet Points Styling */
+.pastor-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.pastor-card ul li {
+  margin-bottom: 5px;
+}
+
+/* Link Styling */
+.learn-more-link {
+  color: #009640;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.learn-more-link:hover {
+  text-decoration: underline;
+}
+
+/* General Page Styling */
+.page-container {
+  font-family: Arial, sans-serif;
+  background-color: #f1e1c6; /* Tan color matching the page background */
+  padding: 20px;
+}
+
+/* Header Styling */
+.header {
+  background-color: #fff; /* Tan color to match the page */
+  padding: 20px;
+  text-align: center;
+}
+
+.header-content h1 {
+  color: #333;
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* About Text Section */
+.about-text {
+  background-color: #fff; /* White background for text */
+  border-radius: 8px; /* Rounded corners for text section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Paragraph Styling */
+.about-text p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* List Styling */
+.about-text ul {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0;
+}
+
+.about-text li {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #333;
+  background-image: url('https://via.placeholder.com/10'); /* Custom bullet image (optional) */
+  background-repeat: no-repeat;
+  background-position: 0 5px;
+}
+
+.about-text ul li::before {
+  content: '•';
+  color: #f1e1c6; /* Tan color for bullets */
+  font-size: 1.5rem;
+  padding-right: 10px;
+}
+
+.about-text ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* For small screens or mobile-first adjustments */
+@media screen and (max-width: 768px) {
+  .about-text {
+    padding: 15px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-text li {
+    font-size: 1rem;
+  }
+}
+
+.history-link {
+  color: #fff; /* 
+  font-size: 1.2rem; /* Slightly larger font size */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold text for emphasis */
+  padding: 10px 20px; /* Add some padding around the text */
+  border-radius: 5px; /* Round the corners of the link */
+  background-color: #009640; 
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the link */
+.history-link:hover {
+  background-color: #009640; 
+  color: #fff; /* Ensure the text stays white */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* General link styling */
+.history-link,
+.archive-link {
+  color: #fff; /* White text */
+  font-size: 1.2rem; /* Slightly larger font size */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold text for emphasis */
+  padding: 10px 20px; /* Add some padding around the text */
+  border-radius: 5px; /* Round the corners of the link */
+  background-color: #009640; /* Green background color */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for links */
+.history-link:hover,
+.archive-link:hover {
+  background-color: #007b35; /* Darker green on hover */
+  color: #fff; /* Ensure the text stays white */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Styling for the archive section */
+.archive-section {
+  text-align: center;
+  margin: 30px 0;
+  padding: 20px 0;
+  background-color: #f9f9f9; /* Light background for distinction */
+  border-top: 2px solid #ddd; /* Top border for separation */
+}
+
+.archive-header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Container for archive links */
+.archive-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Space between links */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+

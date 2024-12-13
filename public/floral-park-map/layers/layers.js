@@ -1,5 +1,5 @@
 ol.proj.proj4.register(proj4);
-//ol.proj.get("EPSG:3857").setExtent([-9316945.939034, 5312614.341204, -9313501.117054, 5314447.759971]);
+//ol.proj.get("EPSG:3857").setExtent([-9317585.212465, 5317009.104938, -9311093.535614, 5320862.272799]);
 var wms_layers = [];
 
 
@@ -26,13 +26,13 @@ var lyr_StJohnsAerial_1 = new ol.layer.Image({
                                 imageExtent: [-9316125.467226, 5317106.894316, -9313588.543544, 5321120.460122]
                             })
                         });
-var lyr_FloralParkAerial_2 = new ol.layer.Image({
+var lyr_SouthSideAerial_2 = new ol.layer.Image({
                             opacity: 1,
-                            title: "FloralParkAerial",
+                            title: "SouthSideAerial",
                             
                             
                             source: new ol.source.ImageStatic({
-                               url: "./layers/FloralParkAerial_2.png",
+                               url: "./layers/SouthSideAerial_2.png",
     attributions: ' ',
                                 projection: 'EPSG:3857',
                                 alwaysInRange: true,
@@ -54,12 +54,30 @@ var lyr_FlintStreets_3 = new ol.layer.Vector({
                 interactive: true,
                 title: '<img src="styles/legend/FlintStreets_3.png" /> Flint Streets'
             });
+var format_School_4 = new ol.format.GeoJSON();
+var features_School_4 = format_School_4.readFeatures(json_School_4, 
+            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+var jsonSource_School_4 = new ol.source.Vector({
+    attributions: ' ',
+});
+jsonSource_School_4.addFeatures(features_School_4);
+var lyr_School_4 = new ol.layer.Vector({
+                declutter: false,
+                source:jsonSource_School_4, 
+                style: style_School_4,
+                popuplayertitle: "School",
+                interactive: true,
+                title: '<img src="styles/legend/School_4.png" /> School'
+            });
 
-lyr_GoogleSatellite_0.setVisible(true);lyr_StJohnsAerial_1.setVisible(true);lyr_FloralParkAerial_2.setVisible(true);lyr_FlintStreets_3.setVisible(true);
-var layersList = [lyr_GoogleSatellite_0,lyr_StJohnsAerial_1,lyr_FloralParkAerial_2,lyr_FlintStreets_3];
-lyr_FlintStreets_3.set('fieldAliases', {'Name': 'Name', 'URL': 'URL', });
-lyr_FlintStreets_3.set('fieldImages', {'Name': 'TextEdit', 'URL': 'TextEdit', });
-lyr_FlintStreets_3.set('fieldLabels', {'Name': 'no label', 'URL': 'no label', });
-lyr_FlintStreets_3.on('precompose', function(evt) {
+lyr_GoogleSatellite_0.setVisible(true);lyr_StJohnsAerial_1.setVisible(true);lyr_SouthSideAerial_2.setVisible(true);lyr_FlintStreets_3.setVisible(true);lyr_School_4.setVisible(true);
+var layersList = [lyr_GoogleSatellite_0,lyr_StJohnsAerial_1,lyr_SouthSideAerial_2,lyr_FlintStreets_3,lyr_School_4];
+lyr_FlintStreets_3.set('fieldAliases', {'id': 'id', 'Name': 'Name', 'URL': 'URL', });
+lyr_School_4.set('fieldAliases', {'id': 'id', 'School': 'School', 'URL': 'URL', });
+lyr_FlintStreets_3.set('fieldImages', {'id': 'TextEdit', 'Name': 'TextEdit', 'URL': 'TextEdit', });
+lyr_School_4.set('fieldImages', {'id': 'TextEdit', 'School': 'TextEdit', 'URL': 'TextEdit', });
+lyr_FlintStreets_3.set('fieldLabels', {'id': 'no label', 'Name': 'inline label - always visible', 'URL': 'inline label - always visible', });
+lyr_School_4.set('fieldLabels', {'id': 'no label', 'School': 'inline label - always visible', 'URL': 'inline label - always visible', });
+lyr_School_4.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });

@@ -73,3 +73,26 @@
     background: rgba(0, 0, 0, 0.7);  /* Optional: semi-transparent background */
     box-sizing: border-box;   /* Include padding in width calculation */
   }
+
+.button {
+    display: inline-block;
+    background-color: #009640; /* Primary button color */
+    color: white;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+.button:hover {
+    background-color: #f2c386; /* Darker shade on hover */
+  }
+  
+.download-link {
+    margin-bottom: 10px; /* Add spacing between buttons */
+  }
+  
