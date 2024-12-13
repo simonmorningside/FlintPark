@@ -8,39 +8,25 @@ export default function HistoryOfPastors() {
    const [media, setMedia] = useState({ images: [], videos: [] });
  
    useEffect(() => {
-    // Fetch media data from both endpoints
-    const fetchMedia = async () => {
-      try {
-        // Fetch from the old and new URLs simultaneously
-        const [oldResponse, newResponse] = await Promise.all([
-          fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/media'),
-          fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pastors')
-        ]);
-  
-        // Check if both responses are okay
-        if (!oldResponse.ok || !newResponse.ok) {
-          throw new Error('Failed to fetch data from one or both endpoints');
-        }
-  
-        // Parse responses into JSON
-        const oldData = await oldResponse.json();
-        const newData = await newResponse.json();
-  
-        console.log('Fetched Media Data:', oldData);
-        console.log('Fetched Pastors Data:', newData);
-  
-        // Combine the data as needed (example: concatenation)
-        setMedia([...oldData, ...newData]);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-  
-    fetchMedia();
-  }, []);
-  
+     // Fetch media data from the API
+     const fetchMedia = async () => {
+       try {
+         const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pastors'); // Update to the correct API URL if necessary
+         if (!response.ok) {
+           throw new Error('Failed to fetch media data');
+         }
+         const data = await response.json();
+         console.log('Fetched Media Data:', data); // Log the fetched data to the console
+         setMedia(data);
+       } catch (error) {
+         console.error('Error fetching media:', error);
+       } finally {
+         setLoading(false);
+       }
+     };
+ 
+     fetchMedia();
+   }, []);
  
    if (loading) {
      return <div>Loading...</div>;
