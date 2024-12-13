@@ -27,6 +27,14 @@ export default function About() {
           className="about-image"
         />
       </div>
+      <div className="text-section border-box">
+          <h2>Interactive Maps</h2>
+          <p>
+          Lennx Brown streamlined access to house images by leveraging QGIS to georeference map images. He 
+          meticulously mapped each street and linked them to their corresponding house images, creating an 
+          organized and user-friendly system.
+          </p>
+      </div>
     </div>
   );
 }
