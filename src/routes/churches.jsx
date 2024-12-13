@@ -11,7 +11,7 @@ export default function Churches() {
   }, []);
 
   return (
-    <div className="page-container">
+    <div className="page-container" style={{ marginTop: "60px" }}>
       <header className="header">
         <div className="header-content">
           <img
