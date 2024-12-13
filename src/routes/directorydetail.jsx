@@ -72,18 +72,7 @@ const DirectoryDetail = () => {
         </div>
       )}
 {/* Display text files */}
-      {textFiles.length > 0 && (
-        <div>
-          <h3>Text Files</h3>
-          {textFiles.map((file, index) => (
-            <div key={index}>
-              <h4>{file.name}</h4>
-              <pre>{file.content}</pre> {/* Displaying content as preformatted text */}
-            </div>
-          ))}
         </div>
-      )}
-    </div>
   );
 };
 
