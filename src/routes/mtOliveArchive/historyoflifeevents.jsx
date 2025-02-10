@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import '../App.css';
-import './mtolivearchive.css';
+import '../../App.css';
+import './mtOliveArchive.css';
 
 export default function HistoryOfLifeEvents() {
   return (

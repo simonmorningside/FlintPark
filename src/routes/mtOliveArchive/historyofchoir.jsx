@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 import './mtolivearchive.css';
 
-export default function ChurchEventsActivities() {
+export default function HistoryOfChoir() {
   const [pdfs, setPdfs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch signed URLs for church event-related PDFs
-    fetch("http://localhost:3000/api.church-events-activities-pdfs") // Replace with actual API endpoint
+    // Fetch signed URLs for choir-related PDFs
+    fetch("http://localhost:3000/api.history-of-choir-pdfs") // Replace with your actual API endpoint
       .then(response => response.json())
       .then(data => {
         setPdfs(data.pdfs || []); // Save the fetched signed URLs
@@ -24,7 +24,7 @@ export default function ChurchEventsActivities() {
   return (
     <div className="page-container">
       <header className="header">
-        <h1>Church Events & Activities</h1>
+        <h1>History of Choir</h1>
       </header>
       <section className="content-section">
         {loading ? (
@@ -40,7 +40,7 @@ export default function ChurchEventsActivities() {
                   rel="noopener noreferrer"
                   className="pdf-link"
                 >
-                  Event PDF {index + 1}
+                  Choir PDF {index + 1}
                 </a>
               ))
             ) : (

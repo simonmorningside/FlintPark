@@ -6,26 +6,26 @@ import {
 } from "react-router-dom";
 import './index.css';
 import './App.css';
-import Navbar from './routes/navbar.jsx';
+import Navbar from './routes/navigationBar/navbar.jsx';
 import ErrorPage from './error-page.jsx';
-import Team from './routes/contact.jsx';
-import Home from './routes/home.jsx';
-import People from './routes/people.jsx';
-import About from './routes/about.jsx';
-import Streets from './routes/streets.jsx';
-import FlintPark from './routes/flintfloralpark.jsx';
-import StJohn from './routes/stjohns.jsx';
-import Churches from './routes/churches.jsx';
-import DirectoryDetail from './routes/directorydetail.jsx';
-import SubdirectoryDetail from './routes/subdirectorydetail.jsx';
-import ChurchesAbout from './routes/churchesabout.jsx';
-import HistoryOfPastors from './routes/historyofpastors.jsx';
-import HistoryOfLifeEvents from './routes/historyoflifeevents.jsx'; // Import the new HistoryOfLifeEvents component
-import HistoryOfChoir from './routes/historyofchoir.jsx'; // Import the new HistoryOfChoir component
-import ChurchEventsActivities from './routes/churcheventsactivities.jsx'; // Import the new ChurchEventsActivities component
-import Obituaries from './routes/obituaries.jsx'; // Import the new Obituaries component
-import Birthdays from './routes/birthdays.jsx'; // Import the new Birthdays component
-import Graduations from './routes/graduations.jsx'; // Import the new Graduations component
+import Team from './routes/navigationBar/teamPage.jsx';
+import Home from './routes/navigationBar/homePage.jsx';
+import People from './routes/navigationBar/videoPage.jsx';
+import About from './routes/navigationBar/aboutPage.jsx';
+import Streets from './routes/navigationBar/neighborhoodsPage.jsx';
+import FlintPark from './routes/streetsDirectory/flintfloralpark.jsx';
+import StJohn from './routes/streetsDirectory/stjohns.jsx';
+import Churches from './routes/mtOliveArchive/churches.jsx';
+import DirectoryDetail from './routes/streetsDirectory/directorydetail.jsx';
+import SubdirectoryDetail from './routes/streetsDirectory/subdirectorydetail.jsx';
+import ChurchesAbout from './routes/mtOliveArchive/churchesabout.jsx';
+import HistoryOfPastors from './routes/mtOliveArchive/historyofpastors.jsx';
+import HistoryOfLifeEvents from './routes/mtOliveArchive/historyoflifeevents.jsx'; // Import the new HistoryOfLifeEvents component
+import HistoryOfChoir from './routes/mtOliveArchive/historyofchoir.jsx'; // Import the new HistoryOfChoir component
+import ChurchEventsActivities from './routes/mtOliveArchive/churcheventsactivities.jsx'; // Import the new ChurchEventsActivities component
+import Obituaries from './routes/mtOliveArchive/obituaries.jsx'; // Import the new Obituaries component
+import Birthdays from './routes/mtOliveArchive/birthdays.jsx'; // Import the new Birthdays component
+import Graduations from './routes/mtOliveArchive/graduations.jsx'; // Import the new Graduations component
 
 const router = createBrowserRouter([
   {

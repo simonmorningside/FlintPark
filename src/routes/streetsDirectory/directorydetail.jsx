@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import '../App.css';
-import '../index.css';
+import '../../App.css';
+import '../../index.css';
 
 const DirectoryDetail = () => {
   const { directory } = useParams(); // Get the directory from the URL
