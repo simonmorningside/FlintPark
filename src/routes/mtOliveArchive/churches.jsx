@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../index.css';
-import '../fillerstylepageuntilwearesorted.css';
+import '../../styles/index.css';
+import '../../fillerstylepageuntilwearesorted.css';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
