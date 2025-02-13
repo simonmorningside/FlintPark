@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/index.css';
 import '../../fillerstylepageuntilwearesorted.css';
+import '../mtOliveArchive/mtOliveArchive.css';
+import '../../mtolivearchive.css';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
