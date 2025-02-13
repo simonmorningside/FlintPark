@@ -72,6 +72,8 @@ export default function Churches() {
           </Link>
         </div>
       </section>
+
+
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
@@ -93,6 +95,16 @@ export default function Churches() {
           alt="Placeholder for image 3"
           className="founders-image"
           />
+          </p>
+        </div>
+      </section>
+
+      <section className="founders-section">
+        <div className="founders-header">
+          <h2 className="founders-header-text">
+            Founders
+          </h2>
+          <p className="founders-images">
           </p>
         </div>
       </section>
