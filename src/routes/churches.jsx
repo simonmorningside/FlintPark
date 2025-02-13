@@ -79,6 +79,8 @@ export default function Churches() {
           <h2 className="founders-header-text">
             Founders
           </h2>
+          </div>
+          <div className="founders-images-div">
           <p className="founders-images">
           <img
           src="unknown"
@@ -102,9 +104,67 @@ export default function Churches() {
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
-            Founders
+            Buildings
           </h2>
           <p className="founders-images">
+          </p>
+        </div>
+          <div className="founders-images-div">
+          <p className="founders-images">
+          <img
+          src="unknown"
+          alt="Placeholder for image 1"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 2"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 3"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 4"
+          className="pastors-image"
+          />
+          </p>
+        </div>
+      </section>
+
+      <section className="founders-section">
+        <div className="founders-header">
+          <h2 className="founders-header-text">
+            Parsonages
+          </h2>
+          <p className="founders-images">
+          </p>
+        </div>
+          <div className="founders-images-div">
+          <p className="founders-images">
+          <img
+          src="unknown"
+          alt="Placeholder for image 1"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 2"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 3"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 4"
+          className="pastors-image"
+          />
           </p>
         </div>
       </section>
