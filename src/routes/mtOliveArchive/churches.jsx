@@ -108,7 +108,7 @@ export default function Churches() {
         </div>
       </section>
 
-
+{/* Founders Section */}
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
@@ -143,6 +143,7 @@ export default function Churches() {
         </div>
       </section>
 
+{/* Pastors Section */}
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
@@ -183,6 +184,7 @@ export default function Churches() {
         </div>
       </section>
 
+{/* Buildings Section */}
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
@@ -193,30 +195,39 @@ export default function Churches() {
         </div>
           <div className="founders-images-div">
           <p className="founders-images">
-          <img
-          src="unknown"
-          alt="Placeholder for image 1"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 2"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 3"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 4"
-          className="pastors-image"
-          />
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="building-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="building-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="building-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="building-photo"
+            />
+          )}
           </p>
         </div>
       </section>
 
+{/* Parsonages Section */}
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
@@ -227,26 +238,27 @@ export default function Churches() {
         </div>
           <div className="founders-images-div">
           <p className="founders-images">
-          <img
-          src="unknown"
-          alt="Placeholder for image 1"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 2"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 3"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 4"
-          className="pastors-image"
-          />
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="parsonage-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="parsonage-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="parsonage-photo"
+            />
+          )}
           </p>
         </div>
       </section>
