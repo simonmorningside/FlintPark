@@ -1,9 +1,8 @@
 import { Outlet, Link } from 'react-router-dom';
 import { useState } from 'react';
-import whiteLogo from '../assets/Asset_WHITE.svg';
-import whiteLogoInteractive from '../assets/Asset_WHITE_Interactive.svg';
-import '../App.css';
-import '../index.css';
+import whiteLogo from '../../assets/Asset_WHITE.svg';
+import whiteLogoInteractive from '../../assets/Asset_WHITE_Interactive.svg';
+import '../../styles/index.css'; // Global styles
 
 export default function Navbar() {
   const [onHover, setOnHover] = useState(false);
