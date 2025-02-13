@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import '../../App.css';
-import '../../index.css';
+import '../../styles/index.css'; // Global styles
+import '../../styles/team-page.css'; // Streets-specific styles
+
 
 export default function Team() {
     const teamMembers = [

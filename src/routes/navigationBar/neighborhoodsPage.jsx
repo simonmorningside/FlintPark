@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../index.css';
+import '../../styles/index.css'; // Global styles
+import '../../styles/streets-page.css'; // Streets-specific styles
 
 export default function Streets() {
   return (

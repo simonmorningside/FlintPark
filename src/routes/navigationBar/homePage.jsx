@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import '../../App.css';
-import '../../index.css';
+import '../../styles/index.css'; // Global styles
+import '../../styles/home-page.css'; // Streets-specific styles
 
 export default function Home() {
   const [maps, setMaps] = useState([]);
