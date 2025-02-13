@@ -1,0 +1,31 @@
+.text-files-container {
+    align-self: center;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 2px solid #009640;
+    border-radius: 8px;
+  }
+  
+  .featured-video {
+    margin-top: 20px;
+  }
+  
+  .align-left {
+    text-align: left;
+  }
+  
+  .featured-video video {
+    display: block;
+    margin-left: 0;
+  }
+  
+  .featured-video-label {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+  }
+  

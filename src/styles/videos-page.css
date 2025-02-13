@@ -1,0 +1,43 @@
+.people-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .people-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+  }
+  
+  .featured-video-label {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .other-videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+  }
+  
+  .people-video video {
+    border-radius: 8px;
+  }
+  
+  .people-video-label {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: normal;
+  }
+  
