@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../index.css';
+import '../fillerstylepageuntilwearesorted.css';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
@@ -70,15 +71,29 @@ export default function Churches() {
             Learn More...
           </Link>
         </div>
-        <div className="history-video">
-          {media.videos.length > 0 ? (
-            <video controls className="video-placeholder">
-              <source src={media.videos[0].url} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          ) : (
-            <p>No videos available</p>
-          )}
+      </section>
+      <section className="founders-section">
+        <div className="founders-header">
+          <h2 className="founders-header-text">
+            Founders
+          </h2>
+          <p className="founders-images">
+          <img
+          src="unknown"
+          alt="Placeholder for image 1"
+          className="founders-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 2"
+          className="founders-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 3"
+          className="founders-image"
+          />
+          </p>
         </div>
       </section>
 
