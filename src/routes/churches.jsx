@@ -1,24 +1,49 @@
+
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../../App.css';
+import '../index.css';
+import '../fillerstylepageuntilwearesorted.css';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
+  const [media, setMedia] = useState({ images: [], videos: [] });
 
   useEffect(() => {
-    // Simulating data loading
-    setTimeout(() => setLoading(false), 1000);
+    // Fetch media data from the API
+    const fetchMedia = async () => {
+      try {
+        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/churches'); // Update to the correct API URL if necessary
+        if (!response.ok) {
+          throw new Error('Failed to fetch media data');
+        }
+        const data = await response.json();
+        console.log('Fetched Media Data:', data); // Log the fetched data to the console
+        setMedia(data);
+      } catch (error) {
+        console.error('Error fetching media:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMedia();
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="page-container" style={{ marginTop: "60px" }}>
+    <div className="page-container" style={{ marginTop: '60px' }}>
       <header className="header">
         <div className="header-content">
-          <img
-            src="https://storage.googleapis.com/flint-floral-park/Churches/OliveLogo.png"
-            alt="Church Logo"
-            className="header-logo"
-          />
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
           <h1>History of Mount Olive Missionary Baptist Church</h1>
         </div>
       </header>
@@ -47,11 +72,101 @@ export default function Churches() {
             Learn More...
           </Link>
         </div>
-        <div className="history-video">
-          <video controls className="video-placeholder">
-            <source src="https://via.placeholder.com/300" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+      </section>
+
+
+      <section className="founders-section">
+        <div className="founders-header">
+          <h2 className="founders-header-text">
+            Founders
+          </h2>
+          </div>
+          <div className="founders-images-div">
+          <p className="founders-images">
+          <img
+          src="unknown"
+          alt="Placeholder for image 1"
+          className="founders-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 2"
+          className="founders-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 3"
+          className="founders-image"
+          />
+          </p>
+        </div>
+      </section>
+
+      <section className="founders-section">
+        <div className="founders-header">
+          <h2 className="founders-header-text">
+            Buildings
+          </h2>
+          <p className="founders-images">
+          </p>
+        </div>
+          <div className="founders-images-div">
+          <p className="founders-images">
+          <img
+          src="unknown"
+          alt="Placeholder for image 1"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 2"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 3"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 4"
+          className="pastors-image"
+          />
+          </p>
+        </div>
+      </section>
+
+      <section className="founders-section">
+        <div className="founders-header">
+          <h2 className="founders-header-text">
+            Parsonages
+          </h2>
+          <p className="founders-images">
+          </p>
+        </div>
+          <div className="founders-images-div">
+          <p className="founders-images">
+          <img
+          src="unknown"
+          alt="Placeholder for image 1"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 2"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 3"
+          className="pastors-image"
+          />
+          <img
+          src="unknown"
+          alt="Placeholder for image 4"
+          className="pastors-image"
+          />
+          </p>
         </div>
       </section>
 

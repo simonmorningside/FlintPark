@@ -1,0 +1,179 @@
+.page-container {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+  gap: 15px; /* Adds space between the images */
+  justify-items: center; /* Centers the images horizontally within each column */
+  text-align: center;
+}
+
+.placeholder-image {
+  width: 150px; /* You can adjust this size based on your preference */
+  height: 150px; /* You can adjust this size based on your preference */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio */
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.history-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+.history-link:hover {
+  text-decoration: underline;
+}
+
+.page-container {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.links-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between the links */
+  margin-bottom: 20px; /* Space between links and images */
+}
+
+.event-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: #009640;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.event-link:hover {
+  background-color: #009640;
+  color: white;
+}
+
+.content-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+  gap: 15px; /* Adds space between the images */
+  justify-items: center;
+  text-align: center;
+}
+
+.placeholder-image {
+  width: 150px; /* You can adjust this size based on your preference */
+  height: 150px; /* You can adjust this size based on your preference */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio */
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.history-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+}
+
+.history-link:hover {
+  text-decoration: underline;
+}
+
+.obituaries {
+  text-align: center;
+  padding: 20px;
+}
+
+.pdf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pdf-link {
+  display: block;
+  padding: 10px 15px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.pdf-link:hover {
+  background-color: #e0e0e0;
+}
+
+.graduations {
+  text-align: center;
+  padding: 20px;
+}
+
+.pdf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pdf-link {
+  display: block;
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.pdf-link:hover {
+  background-color: #ddd;
+}
+
+.birthdays {
+  text-align: center;
+  padding: 20px;
+}
+
+.pdf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pdf-link {
+  display: block;
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #009640;
+  font-weight: bold;
+}
+
+.pdf-link:hover {
+  background-color: #ddd;
+}
+
