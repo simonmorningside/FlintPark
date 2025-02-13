@@ -9,6 +9,7 @@ import '../../mtolivearchive.css';
 export default function Churches() {
   const [loading, setLoading] = useState(true);
   const [media, setMedia] = useState({ images: [], videos: [] });
+  const [pastors, setPastors] = useState({ images: [], videos: [] });
 
   useEffect(() => {
     // Fetch media data from the API
@@ -31,6 +32,27 @@ export default function Churches() {
     fetchMedia();
   }, []);
 
+  useEffect(() => {
+    // Fetch media data from the API
+    const fetchPastors = async () => {
+      try {
+        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pastors'); // Update to the correct API URL if necessary
+        if (!response.ok) {
+          throw new Error('Failed to fetch media data');
+        }
+        const data = await response.json();
+        console.log('Fetched Media Data:', data); // Log the fetched data to the console
+        setPastors(data);
+      } catch (error) {
+        console.error('Error fetching media:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPastors();
+  }, []);
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -49,6 +71,16 @@ export default function Churches() {
           <h1>History of Mount Olive Missionary Baptist Church</h1>
         </div>
       </header>
+
+      <section className="founders-header-text">
+        <div className="video-header">
+        <video controls width = "75%" height = "20%"
+        src={media.videos[0].url}
+        alt="church video"
+        className="church-video"
+        />
+        </div>
+      </section>
 
       <section className="history-section">
         <div className="history-text">
@@ -85,21 +117,68 @@ export default function Churches() {
           </div>
           <div className="founders-images-div">
           <p className="founders-images">
-          <img
-          src="unknown"
-          alt="Placeholder for image 1"
-          className="founders-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 2"
-          className="founders-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 3"
-          className="founders-image"
-          />
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
+          <text>Ms Sarah Howards</text>
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
+          </p>
+        </div>
+      </section>
+
+      <section className="founders-section">
+        <div className="founders-header">
+          <h2 className="founders-header-text">
+            Pastors
+          </h2>
+          </div>
+          <div className="founders-images-div">
+          <p className="founders-images">
+          {pastors.images.length > 0 && (
+            <img
+              src={pastors.images[10].url}
+              alt="Church Logo"
+              className="pastor-photo"
+            />
+          )}
+          {pastors.images.length > 0 && (
+            <img
+              src={pastors.images[1].url}
+              alt="Church Logo"
+              className="pastor-photo"
+            />
+          )}
+          {pastors.images.length > 0 && (
+            <img
+              src={pastors.images[20].url}
+              alt="Church Logo"
+              className="pastor-photo"
+            />
+          )}
+          {pastors.images.length > 0 && (
+            <img
+              src={pastors.images[7].url}
+              alt="Church Logo"
+              className="pastor-photo"
+            />
+          )}
           </p>
         </div>
       </section>

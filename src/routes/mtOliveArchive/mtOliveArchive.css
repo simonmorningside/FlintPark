@@ -177,3 +177,9 @@ footer {
   background-color: #ddd;
 }
 
+.pastor-photo {
+  width: 20%;
+  height: auto;
+  margin: 25px 0px 0px 25px;
+}
+

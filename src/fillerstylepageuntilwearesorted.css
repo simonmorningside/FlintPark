@@ -51,4 +51,14 @@
     margin-bottom: 20px;
   }*/
 
-  
+  .video-header {
+    background-color: #009640;
+    text-align: center;
+    color: #e4f0af;
+  }
+
+  .church-video {
+    margin-top: 10px;
+    width: 75%;
+    height: 400px;
+  }
