@@ -266,18 +266,53 @@ export default function Churches() {
       <section className="archive-section">
         <h2 className="archive-header">Mount Olive Archive</h2>
         <div className="archive-links">
-          <Link to="/historyofpastors" className="archive-link">
-            History of Pastors
+          <p className="block-style">
+          <Link to="/historyofpastors" className="archive-link-styling">
+          Life Events
           </Link>
-          <Link to="/historyoflifeevents" className="archive-link">
-            History of Life Events
+          <br></br>
+          Funeral Programs
+          <br></br>
+          Obituaries
+          <br></br>
+          Graduations
+          <br></br>
+          </p>
+          <p className="block-style">
+          <Link to="/historyoflifeevents" className="archive-link-styling">
+          Choir Records
           </Link>
-          <Link to="/historyofchoir" className="archive-link">
-            History of Choir
+          <br></br>
+          Recordings
+          <br></br>
+          Meetings Minutes
+          </p>
+          <p className="block-style">
+          <Link to="/historyofchoir" className="archive-link-styling">
+          Church Materials
           </Link>
-          <Link to="/churcheventsactivities" className="archive-link">
-            Church Events & Activities
+          <br></br>
+          Bulletins
+          <br></br>
+          Newsletters (The Olive Branch)
+          <br></br>
+          Flyers
+          <br></br>
+          Anniversaries
+          <br></br>
+          Directories
+          </p>
+          <p className="block-style">
+          <Link to="/churcheventsactivities" className="archive-link-styling">
+          Photographs
           </Link>
+          <br></br>
+          Sunday School
+          <br></br>
+          Events
+          <br></br>
+          Summer Enrichment Program
+          </p>
         </div>
       </section>
     </div>
