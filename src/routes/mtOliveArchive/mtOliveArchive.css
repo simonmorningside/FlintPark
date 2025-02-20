@@ -1,3 +1,9 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .page-container {
   padding: 20px;
 }
@@ -55,7 +61,7 @@ footer {
 .event-link {
   text-decoration: none;
   font-size: 18px;
-  color: #009640;
+  color: #edc211;
   padding: 10px 20px;
   background-color: #f0f0f0;
   border-radius: 5px;
@@ -63,7 +69,7 @@ footer {
 }
 
 .event-link:hover {
-  background-color: #009640;
+  background-color: #edc211;
   color: white;
 }
 
@@ -169,7 +175,7 @@ footer {
   border: 1px solid #ccc;
   border-radius: 5px;
   text-decoration: none;
-  color: #009640;
+  color: #273e06;
   font-weight: bold;
 }
 
@@ -197,6 +203,7 @@ footer {
 
 .archive-link-styling {
   text-decoration: underline;
+  color: #273e06;
 }
 
 .archive-links{
@@ -205,8 +212,106 @@ footer {
   justify-content: center;
 }
 
+.archive-link-styling:hover {
+  text-decoration: none;
+  color: #edc211;
+}
+
 .block-style {
   width: 25%;
   height: auto;
-  color: #009640;
+  color: #273e06;
+}
+
+.nav-church-logo {
+  height: 75px;
+  width: auto;
+  
+}
+
+
+.church-top-nav {
+  width: 100%;
+  background-color: #273e06;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.church-nav-links {
+  font-family: "century-gothic", sans-serif;
+  list-style-type: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.church-nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #fbb03b;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.church-nav-links.open li {
+  margin: 0.5px 0;
+}
+
+.church-nav-links li {
+  margin: 5px 10px;
+}
+
+.church-nav-links a {
+  text-decoration: none;
+  font-size: 0.9em;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.church-nav-links a:hover {
+  color: #edc211;
+}
+
+
+/* Start of styling for the History Page*/
+
+.history-title {
+  text-align: center;
+  font-size: 2em;
+  text-decoration: underline;
+  margin-bottom: 20px;
+  color: #4b5c09;
+  width: 100%;
+  height: auto;
+}
+
+.history-header {
+  text-align: left;
+  font-size: 1.5em;
+  color: #4b5c09;
+  justify-content: left;
+  background-color:#FFFDD0;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.history-header p {
+  text-align: left;
+  font-size: .75em;
+  color: #4b5c09;
+  justify-content: left;
 }

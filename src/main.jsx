@@ -24,6 +24,11 @@ import StJohn from './routes/streetsDirectory/stjohns.jsx';
 import Churches from './routes/mtOliveArchive/churches.jsx';
 import DirectoryDetail from './routes/streetsDirectory/directorydetail.jsx';
 import SubdirectoryDetail from './routes/streetsDirectory/subdirectorydetail.jsx';// Import the new Graduations component
+import Churchesnavbar from './routes/mtOliveArchive/churchesnavbar.jsx';
+import History from './routes/mtOliveArchive/history.jsx';
+import Archive from './routes/mtOliveArchive/archive.jsx';
+import Pastors from './routes/mtOliveArchive/pastors.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -53,10 +58,6 @@ const router = createBrowserRouter([
         element: <Streets />,
       },
       {
-        path: "churches/",
-        element: <Churches />,
-      },
-      {
         path: "flintfloralpark/",
         element: <FlintPark />,
       },
@@ -74,6 +75,30 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path: 'churches/',
+    element: <Churchesnavbar />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: false, element: <Churches /> },
+      {
+        path: '/churches/',
+        element: <Churches />,
+      },
+      {
+        path: "history/",
+        element: <History />,
+      },
+      {
+        path: "archive/",
+        element: <Archive />,
+      },
+      {
+        path: "pastors/",
+        element: <Pastors />,
+      }
+    ]
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

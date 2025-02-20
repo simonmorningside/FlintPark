@@ -116,7 +116,7 @@ export default function Churches() {
             cemeteries. Their descendants continued their community-building
             work here and in American cities across the urban north.
           </p>
-          <Link to="/churchesabout" className="learn-more-link">
+          <Link to="history/" className="learn-more-link">
             Learn More...
           </Link>
         </div>
