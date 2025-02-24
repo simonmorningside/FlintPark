@@ -1,23 +1,29 @@
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import '../../styles/index.css';
 import '../../fillerstylepageuntilwearesorted.css';
+import '../mtOliveArchive/mtOliveArchive.css';
+import '../../mtolivearchive.css';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
   const [media, setMedia] = useState({ images: [], videos: [] });
+  const [pastors, setPastors] = useState({ images: [], videos: [] });
+  const [startIndex, setStartIndex] = useState(0);
+  const imagesPerPage = 4;
+  const selectedImageIndices = [4, 32, 10, 20, 7, 13, 17, 9, 5, 8, 9];
 
   useEffect(() => {
-    // Fetch media data from the API
     const fetchMedia = async () => {
       try {
-        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/churches'); // Update to the correct API URL if necessary
+        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/churches');
         if (!response.ok) {
           throw new Error('Failed to fetch media data');
         }
         const data = await response.json();
-        console.log('Fetched Media Data:', data); // Log the fetched data to the console
+        console.log('Fetched Media Data:', data);
         setMedia(data);
       } catch (error) {
         console.error('Error fetching media:', error);
@@ -28,6 +34,38 @@ export default function Churches() {
 
     fetchMedia();
   }, []);
+
+  useEffect(() => {
+    const fetchPastors = async () => {
+      try {
+        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pastors');
+        if (!response.ok) {
+          throw new Error('Failed to fetch media data');
+        }
+        const data = await response.json();
+        console.log('Fetched Pastors Data:', data);
+        setPastors({ images: selectedImageIndices.map(index => data.images[index]).filter(Boolean) });
+      } catch (error) {
+        console.error('Error fetching media:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPastors();
+  }, []);
+
+  const handleNext = () => {
+    if (startIndex + imagesPerPage < pastors.images.length) {
+      setStartIndex(startIndex + imagesPerPage);
+    }
+  };
+
+  const handlePrev = () => {
+    if (startIndex - imagesPerPage >= 0) {
+      setStartIndex(startIndex - imagesPerPage);
+    }
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -47,6 +85,16 @@ export default function Churches() {
           <h1>History of Mount Olive Missionary Baptist Church</h1>
         </div>
       </header>
+
+      <section className="founders-header-text">
+        <div className="video-header">
+        <video controls width = "75%" height = "20%"
+        src={media.videos[0].url}
+        alt="church video"
+        className="church-video"
+        />
+        </div>
+      </section>
 
       <section className="history-section">
         <div className="history-text">
@@ -68,13 +116,13 @@ export default function Churches() {
             cemeteries. Their descendants continued their community-building
             work here and in American cities across the urban north.
           </p>
-          <Link to="/churchesabout" className="learn-more-link">
+          <Link to="history/" className="learn-more-link">
             Learn More...
           </Link>
         </div>
       </section>
 
-
+{/* Founders Section */}
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
@@ -83,25 +131,53 @@ export default function Churches() {
           </div>
           <div className="founders-images-div">
           <p className="founders-images">
-          <img
-          src="unknown"
-          alt="Placeholder for image 1"
-          className="founders-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 2"
-          className="founders-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 3"
-          className="founders-image"
-          />
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
+          <text>Ms Sarah Howards</text>
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="header-logo"
+            />
+          )}
           </p>
         </div>
       </section>
 
+{/* Pastors Section */}
+<section className="founders-section">
+        <div className="founders-header">
+          <h2 className="founders-header-text">Pastors</h2>
+        </div>
+        <div className="founders-images-div" style={{ display: 'flex', alignItems: 'center' }}>
+          <button onClick={handlePrev} disabled={startIndex === 0} style={{ marginRight: '10px' }}>
+            <ChevronLeft size={24} />
+          </button>
+          <div className="founders-images" style={{ display: 'flex', gap: '10px' }}>
+            {pastors.images.slice(startIndex, startIndex + imagesPerPage).map((image, index) => (
+              <img key={index} src={image.url} alt="Pastor" className="pastor-photo" />
+            ))}
+          </div>
+          <button onClick={handleNext} disabled={startIndex + imagesPerPage >= pastors.images.length} style={{ marginLeft: '10px' }}>
+            <ChevronRight size={24} />
+          </button>
+        </div>
+      </section>
+
+{/* Buildings Section */}
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
@@ -112,30 +188,39 @@ export default function Churches() {
         </div>
           <div className="founders-images-div">
           <p className="founders-images">
-          <img
-          src="unknown"
-          alt="Placeholder for image 1"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 2"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 3"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 4"
-          className="pastors-image"
-          />
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="building-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="building-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="building-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="building-photo"
+            />
+          )}
           </p>
         </div>
       </section>
 
+{/* Parsonages Section */}
       <section className="founders-section">
         <div className="founders-header">
           <h2 className="founders-header-text">
@@ -146,26 +231,27 @@ export default function Churches() {
         </div>
           <div className="founders-images-div">
           <p className="founders-images">
-          <img
-          src="unknown"
-          alt="Placeholder for image 1"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 2"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 3"
-          className="pastors-image"
-          />
-          <img
-          src="unknown"
-          alt="Placeholder for image 4"
-          className="pastors-image"
-          />
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="parsonage-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="parsonage-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
+              src={media.images[0].url}
+              alt="Church Logo"
+              className="parsonage-photo"
+            />
+          )}
           </p>
         </div>
       </section>
@@ -173,18 +259,53 @@ export default function Churches() {
       <section className="archive-section">
         <h2 className="archive-header">Mount Olive Archive</h2>
         <div className="archive-links">
-          <Link to="/historyofpastors" className="archive-link">
-            History of Pastors
+          <p className="block-style">
+          <Link to="/historyofpastors" className="archive-link-styling">
+          Life Events
           </Link>
-          <Link to="/historyoflifeevents" className="archive-link">
-            History of Life Events
+          <br></br>
+          Funeral Programs
+          <br></br>
+          Obituaries
+          <br></br>
+          Graduations
+          <br></br>
+          </p>
+          <p className="block-style">
+          <Link to="/historyoflifeevents" className="archive-link-styling">
+          Choir Records
           </Link>
-          <Link to="/historyofchoir" className="archive-link">
-            History of Choir
+          <br></br>
+          Recordings
+          <br></br>
+          Meetings Minutes
+          </p>
+          <p className="block-style">
+          <Link to="/historyofchoir" className="archive-link-styling">
+          Church Materials
           </Link>
-          <Link to="/churcheventsactivities" className="archive-link">
-            Church Events & Activities
+          <br></br>
+          Bulletins
+          <br></br>
+          Newsletters (The Olive Branch)
+          <br></br>
+          Flyers
+          <br></br>
+          Anniversaries
+          <br></br>
+          Directories
+          </p>
+          <p className="block-style">
+          <Link to="/churcheventsactivities" className="archive-link-styling">
+          Photographs
           </Link>
+          <br></br>
+          Sunday School
+          <br></br>
+          Events
+          <br></br>
+          Summer Enrichment Program
+          </p>
         </div>
       </section>
     </div>
