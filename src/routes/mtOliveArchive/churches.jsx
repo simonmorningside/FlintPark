@@ -77,7 +77,7 @@ export default function Churches() {
         <div className="header-content">
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[2].url}
               alt="Church Logo"
               className="header-logo"
             />
@@ -133,7 +133,7 @@ export default function Churches() {
           <p className="founders-images">
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[2].url}
               alt="Church Logo"
               className="header-logo"
             />
@@ -141,14 +141,14 @@ export default function Churches() {
           <text>Ms Sarah Howards</text>
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[2].url}
               alt="Church Logo"
               className="header-logo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[2].url}
               alt="Church Logo"
               className="header-logo"
             />
@@ -197,26 +197,29 @@ export default function Churches() {
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[1].url}
               alt="Church Logo"
               className="building-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[3].url}
               alt="Church Logo"
               className="building-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[2].url}
               alt="Church Logo"
               className="building-photo"
             />
           )}
           </p>
+        </div>
+        <div>
+          <p>Words</p>
         </div>
       </section>
 
@@ -233,21 +236,21 @@ export default function Churches() {
           <p className="founders-images">
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[2].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[2].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[2].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
