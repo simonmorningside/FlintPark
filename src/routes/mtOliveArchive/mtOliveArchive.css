@@ -315,3 +315,10 @@ footer {
   color: #4b5c09;
   justify-content: left;
 }
+
+/* start of mock pastor page*/
+
+.pastor-page-text {
+  text-align: left;
+  font-size: 1.5em;
+}
