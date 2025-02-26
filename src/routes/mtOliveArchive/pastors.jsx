@@ -83,7 +83,7 @@ export default function Pastors() {
         <img src={pastors.images[0]} alt="Rev. Wade Hampton McKinney" className="founders-image" />
           </div>
           <div>
-            <p>
+            <p className="pastor-page-text">
             Wade McKinney (1892-1963) was born in Cleveland, Ga., to Wade and Mary Brown McKinney. He attended Atlanta Baptist College Academy, Morehouse College, and Colgate Rochester Theological Seminary and served in the U.S. Army in World War I. He came to Mt Olive in 1923 and lived at 1617 Harrison St. until moving to the parsonage at 1608 Park St. In 1924 he married Annie Ruth Berry (1900-1966), from Birmingham, Alabama. Ruth Berry McKinney had been educated at Spelman College and Columbia University. 
 
 By the time he began in 1923, the mass migration to Flint had begun and the church was ramping up to meet the needs of recent migrants in the city. In June 1924 a singing group known as “The Ford Eight” visited Flint and performed at Mt Olive. The entrance fee was 25 cents. In 1925 the NAACP met at Mt Olive. In November of that same year a week-long series of evangelical events was held at Mt Olive with a visiting preacher from Connecticut. Miss Dorothy Green sang “ Steal Away to Jesus” and Mrs. Ruth McKinney sang “Stand By Me.”
