@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./SubdirectoryDetail.css";
+import "../../styles/subdirectorydetail.css";
 import '../../styles/index.css'; // Global styles
 
 // Helper function to extract the last 1 to 4 alphanumeric characters from the image name
