@@ -4,20 +4,19 @@ import '../../styles/index.css'; // Global styles
 import '../../styles/streets-page.css'; // Streets-specific styles
 
 const DirectoryDetail = () => {
-  const { directory } = useParams(); // Get the directory from the URL
+  const { directory } = useParams();
   const [subdirectories, setSubdirectories] = useState([]);
   const [images, setImages] = useState([]);
-  const [textFiles, setTextFiles] = useState([]); // Store text files content
+  const [textFiles, setTextFiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch subdirectories, images, and text files for the specific directory
   useEffect(() => {
     fetch(`https://floral-park-webserver-861401374674.us-central1.run.app/api/directory/${directory}`)
       .then((response) => response.json())
       .then((data) => {
         setSubdirectories(data.subdirectories);
         setImages(data.images);
-        setTextFiles(data.text_files); // Populate text files from API
+        setTextFiles(data.text_files);
         setLoading(false);
       })
       .catch((error) => {
@@ -31,26 +30,24 @@ const DirectoryDetail = () => {
   }
 
   return (
-    <div style={{ marginTop: "60px" }}>
+    <div className="directory-container">
+      {/* Title and text in the same styled box */}
       <div className="border-box">
-      <h2>{directory}</h2>
+        <h2>{directory}</h2>
+        {textFiles.length > 0 && (
+          <div>
+            {textFiles.map((file, index) => (
+              <p key={index}>{file.content}</p>
+            ))}
+          </div>
+        )}
+      </div>
 
-      {/* Display text files */}
-      {textFiles.length > 0 && (
-      <div>
-          {textFiles.map((file, index) => (
-        <div key={index}>
-        <p>{file.content}</p> {/* Displaying content as normal text */}
-        </div>
-        ))}
-      </div>
-    )}
-      </div>
-      {/* Display subdirectories as links */}
+      {/* Street buttons */}
       {subdirectories.length > 0 && (
         <div>
           <h3>Streets</h3>
-          <div className="streets-grid">
+          <div className="streets-button-container">
             {subdirectories.map((subdir, index) => (
               <Link key={index} to={`/directory/${directory}/${subdir}`} className="street-button">
                 {subdir}
@@ -64,15 +61,14 @@ const DirectoryDetail = () => {
       {images.length > 0 && (
         <div>
           <h3>Images</h3>
-          <div>
+          <div className="images-container">
             {images.map((image, index) => (
-              <img key={index} src={image} alt={`Image ${index}`} />
+              <img key={index} src={image} alt={`Image ${index}`} className="directory-image" />
             ))}
           </div>
         </div>
       )}
-{/* Display text files */}
-        </div>
+    </div>
   );
 };
 
