@@ -6,6 +6,7 @@ import '../../styles/index.css';
 import '../../fillerstylepageuntilwearesorted.css';
 import '../mtOliveArchive/mtOliveArchive.css';
 import '../../mtolivearchive.css';
+import Timeline from '../mtOliveArchive/timeline.jsx';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
@@ -66,6 +67,7 @@ export default function Churches() {
       setStartIndex(startIndex - imagesPerPage);
     }
   };
+  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -173,6 +175,9 @@ export default function Churches() {
           <button onClick={handleNext} disabled={startIndex + imagesPerPage >= pastors.images.length} style={{ marginLeft: '10px' }}>
             <ChevronRight size={24} />
           </button>
+        </div>
+        <div>
+          <Timeline />
         </div>
       </section>
 
