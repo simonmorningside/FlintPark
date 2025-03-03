@@ -14,7 +14,7 @@ export default function Churches() {
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
   const imagesPerPage = 4;
-  const selectedImageIndices = [4, 41, 32, 41, 35, 36, 41, 7, 41, 41, 41, 40, 13, 17, 41, 9, 5];
+  const selectedImageIndices = [4, 41, 32, 41, 35, 36, 41, 7, 41, 41, 41, 40, 13, 17, 41, 9, 41, 5];
 
   useEffect(() => {
     const fetchMedia = async () => {
