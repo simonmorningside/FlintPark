@@ -37,7 +37,8 @@ export default function LifeEvents() {
 <section className="founders-section">
           <h2 className="founders-header-text">Rev. Wade Hampton McKinney</h2>
           <div>
-            <iframe src={data.urls[0]} width="100%" height="800px" title="Life Events"></iframe>
+            <iframe src={data.urls[2]} width="600px" height="800px" title="Life Events"></iframe>
+            <image src={data.urls[8]} alt="Rev. Wade Hampton McKinney" />
           </div>
         </section>
       </>
