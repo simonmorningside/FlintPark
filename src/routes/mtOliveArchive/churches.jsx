@@ -6,6 +6,7 @@ import '../../styles/index.css';
 import '../../fillerstylepageuntilwearesorted.css';
 import '../mtOliveArchive/mtOliveArchive.css';
 import '../../mtolivearchive.css';
+import Timeline from '../mtOliveArchive/timeline.jsx';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
@@ -13,7 +14,7 @@ export default function Churches() {
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
   const imagesPerPage = 4;
-  const selectedImageIndices = [4, 32, 10, 20, 7, 13, 17, 9, 5, 8, 9];
+  const selectedImageIndices = [4, 41, 32, 41, 35, 36, 41, 7, 41, 41, 41, 40, 13, 17, 41, 9, 41, 5];
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -66,6 +67,7 @@ export default function Churches() {
       setStartIndex(startIndex - imagesPerPage);
     }
   };
+  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -133,24 +135,23 @@ export default function Churches() {
           <p className="founders-images">
           {media.images.length > 0 && (
             <img
-              src={media.images[2].url}
+              src={media.images[8].url}
               alt="Church Logo"
-              className="header-logo"
-            />
-          )}
-          <text>Ms Sarah Howards</text>
-          {media.images.length > 0 && (
-            <img
-              src={media.images[2].url}
-              alt="Church Logo"
-              className="header-logo"
+              className="founder-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
+              src={media.images[9].url}
+              alt="Church Logo"
+              className="founder-photo"
+            />
+          )}
+          {media.images.length > 0 && (
+            <img
               src={media.images[2].url}
               alt="Church Logo"
-              className="header-logo"
+              className="founder-photo"
             />
           )}
           </p>
@@ -175,6 +176,9 @@ export default function Churches() {
             <ChevronRight size={24} />
           </button>
         </div>
+        <div>
+          <Timeline />
+        </div>
       </section>
 
 {/* Buildings Section */}
@@ -190,7 +194,7 @@ export default function Churches() {
           <p className="founders-images">
           {media.images.length > 0 && (
             <img
-              src={media.images[0].url}
+              src={media.images[4].url}
               alt="Church Logo"
               className="building-photo"
             />
@@ -236,21 +240,21 @@ export default function Churches() {
           <p className="founders-images">
           {media.images.length > 0 && (
             <img
-              src={media.images[2].url}
+              src={media.images[5].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[2].url}
+              src={media.images[6].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[2].url}
+              src={media.images[7].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
