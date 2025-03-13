@@ -267,7 +267,7 @@ export default function Churches() {
         <h2 className="archive-header">Mount Olive Archive</h2>
         <div className="archive-links">
           <p className="block-style">
-          <Link to="/historyofpastors" className="archive-link-styling">
+          <Link to={`lifeEvents/`} className="archive-link-styling">
           Life Events
           </Link>
           <br></br>
@@ -279,7 +279,7 @@ export default function Churches() {
           <br></br>
           </p>
           <p className="block-style">
-          <Link to="/historyoflifeevents" className="archive-link-styling">
+          <Link to={`choirRecords/`} className="archive-link-styling">
           Choir Records
           </Link>
           <br></br>
@@ -288,7 +288,7 @@ export default function Churches() {
           Meetings Minutes
           </p>
           <p className="block-style">
-          <Link to="/historyofchoir" className="archive-link-styling">
+          <Link to={`churchMaterials/`} className="archive-link-styling">
           Church Materials
           </Link>
           <br></br>
@@ -303,7 +303,7 @@ export default function Churches() {
           Directories
           </p>
           <p className="block-style">
-          <Link to="/churcheventsactivities" className="archive-link-styling">
+          <Link to={`photographs/`} className="archive-link-styling">
           Photographs
           </Link>
           <br></br>
