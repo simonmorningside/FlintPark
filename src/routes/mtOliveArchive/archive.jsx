@@ -104,7 +104,7 @@ export default function Archive() {
         alt="church video"
         className="church-video"
         />
-        <img src={pdfs.jpeg[0].url} alt="church" className="church-image"/>
+        <img src={pdfs.jpeg[0].url} alt="church" className="church-image" />
         </div>
       </section>
 </>
