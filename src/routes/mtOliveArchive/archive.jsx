@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -9,104 +8,114 @@ import '../../mtolivearchive.css';
 
 export default function Archive() {
   const [loading, setLoading] = useState(true);
-  const [media, setMedia] = useState({ images: [], videos: [] });
-  const [pastors, setPastors] = useState({ images: [], videos: [] });
-  const [startIndex, setStartIndex] = useState(0);
-  const imagesPerPage = 4;
-  const selectedImageIndices = [4, 32, 10, 20, 7, 13, 17, 9, 5, 8, 9];
-  const [pdfs, setpdfs] = useState({ jpeg: [], pdf: [] });
+  const [pdfs, setPdfs] = useState({ jpeg: [], pdf: [] });
+  const [choirPdfs, setChoirPdfs] = useState([]);
+  const [churchEventPdfs, setChurchEventPdfs] = useState([]);  // New state for church events PDFs
+  const [error, setError] = useState(null);
 
+  // Fetch PDFs, Choir data, and Church Events data in parallel
   useEffect(() => {
-    const fetchMedia = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/churches');
-        if (!response.ok) {
-          throw new Error('Failed to fetch media data');
+        const [pdfResponse, choirResponse, churchEventResponse] = await Promise.all([
+          fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf'),
+          fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/choir'),
+          fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events') // New API call
+        ]);
+
+        // Check for errors in responses
+        if (!pdfResponse.ok || !choirResponse.ok || !churchEventResponse.ok) {
+          throw new Error('One or more API calls failed');
         }
-        const data = await response.json();
-        console.log('Fetched Media Data:', data);
-        setMedia(data);
+
+        // Parse both responses
+        const pdfData = await pdfResponse.json();
+        const choirData = await choirResponse.json();
+        const churchEventData = await churchEventResponse.json(); // New data from church events
+
+        // Combine the PDF and JPEG data
+        setPdfs(pdfData);
+        setChoirPdfs(choirData.pdf); // Assuming choir data is under `pdf`
+        setChurchEventPdfs(churchEventData.pdfs); // Store church event PDFs
+
       } catch (error) {
-        console.error('Error fetching media:', error);
+        setError(error.message);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchMedia();
-  }, []);
-
-  useEffect(() => {
-    const fetchPastors = async () => {
-      try {
-        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pastors');
-        if (!response.ok) {
-          throw new Error('Failed to fetch media data');
-        }
-        const data = await response.json();
-        console.log('Fetched Pastors Data:', data);
-        setPastors({ images: selectedImageIndices.map(index => data.images[index]).filter(Boolean) });
-      } catch (error) {
-        console.error('Error fetching media:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPastors();
-  }, []);
-
-
-  useEffect(() => {
-    // Replace with your actual API URL
-    const fetchPdfs = async () => {
-      try {
-        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf');
-        if (!response.ok) {
-          throw new Error('Failed to fetch media data');
-        }
-        const data = await response.json();
-        console.log('Fetched Media Data:', data);
-        setpdfs(data);
-      } catch (error) {
-        console.error('Error fetching media:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPdfs();
-  }, []);
-
-  const handleNext = () => {
-    if (startIndex + imagesPerPage < pastors.images.length) {
-      setStartIndex(startIndex + imagesPerPage);
-    }
-  };
-
-  const handlePrev = () => {
-    if (startIndex - imagesPerPage >= 0) {
-      setStartIndex(startIndex - imagesPerPage);
-    }
-  };
+    fetchData();
+  }, []); // Run once on component mount
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  return (
-   <>
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
+  return (
+    <>
       <section className="founders-header-text">
         <div className="video-header">
-        <video controls width = "75%" height = "20%"
-        src={media.videos[0].url}
-        alt="church video"
-        className="church-video"
-        />
-        <img src={pdfs.jpeg[0].url} alt="church" className="church-image" />
+          {/* Render JPEG image from PDF data */}
+          {pdfs.jpeg.length > 0 && (
+            <img src={pdfs.jpeg[0].url} alt="church image" className="founder-photo" />
+          )}
         </div>
       </section>
-</>
+
+      {/* Render PDF and JPEG from Life directory */}
+      <section>
+        <h2>Life PDFs</h2>
+        {pdfs.pdf.length > 0 ? (
+          <ul>
+            {pdfs.pdf.map((pdf, index) => (
+              <li key={index}>
+                <a href={pdf.url} target="_blank" rel="noopener noreferrer">
+                  {pdf.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No Life PDFs available</p>
+        )}
+
+        {/* Render Choir PDFs */}
+        <h2>Choir PDFs</h2>
+        {choirPdfs.length > 0 ? (
+          <ul>
+            {choirPdfs.map((pdf, index) => (
+              <li key={index}>
+                <a href={pdf.url} target="_blank" rel="noopener noreferrer">
+                  {pdf.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No Choir PDFs available</p>
+        )}
+
+        {/* Render Church Events PDFs */}
+        <h2>Church Events PDFs</h2>
+        {churchEventPdfs.length > 0 ? (
+          <ul>
+            {churchEventPdfs.map((pdf, index) => (
+              <li key={index}>
+                <a href={pdf.url} target="_blank" rel="noopener noreferrer">
+                  {pdf.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No Church Events PDFs available</p>
+        )}
+      </section>
+    </>
   );
 }
