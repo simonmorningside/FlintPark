@@ -14,6 +14,7 @@ export default function Archive() {
   const [startIndex, setStartIndex] = useState(0);
   const imagesPerPage = 4;
   const selectedImageIndices = [4, 32, 10, 20, 7, 13, 17, 9, 5, 8, 9];
+  const [pdfs, setpdfs] = useState({ jpeg: [], pdf: [] });
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -55,6 +56,28 @@ export default function Archive() {
     fetchPastors();
   }, []);
 
+
+  useEffect(() => {
+    // Replace with your actual API URL
+    const fetchPdfs = async () => {
+      try {
+        const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf');
+        if (!response.ok) {
+          throw new Error('Failed to fetch media data');
+        }
+        const data = await response.json();
+        console.log('Fetched Media Data:', data);
+        setpdfs(data);
+      } catch (error) {
+        console.error('Error fetching media:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPdfs();
+  }, []);
+
   const handleNext = () => {
     if (startIndex + imagesPerPage < pastors.images.length) {
       setStartIndex(startIndex + imagesPerPage);
@@ -81,6 +104,7 @@ export default function Archive() {
         alt="church video"
         className="church-video"
         />
+        <img src={pdfs.jpeg[0].url} alt="church" className="church-image"/>
         </div>
       </section>
 </>
