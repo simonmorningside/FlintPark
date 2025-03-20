@@ -1,3 +1,7 @@
+//import { useState, useEffect } from 'react';
+import '../../styles/index.css'; // Global styles
+import '../../styles/about-page.css'; // Streets-specific styles
+
 export default function About() {
   return (
     <div className="about-container" style={{ marginTop: "60px" }}>

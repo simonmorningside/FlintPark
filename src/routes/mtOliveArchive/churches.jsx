@@ -76,18 +76,33 @@ export default function Churches() {
   return (
     <div className="page-container" style={{ marginTop: '60px' }}>
       <header className="header">
-        <div className="header-content">
-          {media.images.length > 0 && (
-            <img
-              src={media.images[2].url}
-              alt="Church Logo"
-              className="header-logo"
-            />
-          )}
-          <h1>History of Mount Olive Missionary Baptist Church</h1>
+  <div className="header-content">
+    <div className="header-logo-container">
+      {media.images.length > 0 && (
+        <img
+          src={media.images[2].url}
+          alt="Church Logo"
+          className="header-logo"
+        />
+      )}
+    </div>
+    <div className="title-video-container">
+      <h1>History of Mount Olive Missionary Baptist Church</h1>
+      <section className="founders-header-text">
+        <div className="video-header">
+          <video
+            controls
+            width="75%"
+            height="20%"
+            src={media.videos[0].url}
+            alt="church video"
+            className="church-video"
+          />
         </div>
-      </header>
-
+      </section>
+    </div>
+  </div>
+</header>
       <section className="founders-header-text">
         <div className="video-header">
         <video controls width = "75%" height = "20%"
@@ -267,7 +282,7 @@ export default function Churches() {
         <h2 className="archive-header">Mount Olive Archive</h2>
         <div className="archive-links">
           <p className="block-style">
-          <Link to={`lifeEvents/`} className="archive-link-styling">
+          <Link to="/historyofpastors" className="archive-link-styling">
           Life Events
           </Link>
           <br></br>
@@ -279,7 +294,7 @@ export default function Churches() {
           <br></br>
           </p>
           <p className="block-style">
-          <Link to={`choirRecords/`} className="archive-link-styling">
+          <Link to="/historyoflifeevents" className="archive-link-styling">
           Choir Records
           </Link>
           <br></br>
@@ -288,7 +303,7 @@ export default function Churches() {
           Meetings Minutes
           </p>
           <p className="block-style">
-          <Link to={`churchMaterials/`} className="archive-link-styling">
+          <Link to="/historyofchoir" className="archive-link-styling">
           Church Materials
           </Link>
           <br></br>
@@ -303,7 +318,7 @@ export default function Churches() {
           Directories
           </p>
           <p className="block-style">
-          <Link to={`photographs/`} className="archive-link-styling">
+          <Link to="/churcheventsactivities" className="archive-link-styling">
           Photographs
           </Link>
           <br></br>
