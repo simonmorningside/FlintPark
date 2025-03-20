@@ -58,17 +58,9 @@ export default function Archive() {
 
   return (
     <>
-      <section className="founders-header-text">
-        <div className="video-header">
-          {/* Render JPEG image from PDF data */}
-          {pdfs.jpeg.length > 0 && (
-            <img src={pdfs.jpeg[0].url} alt="church image" className="founder-photo" />
-          )}
-        </div>
-      </section>
-
       {/* Render PDF and JPEG from Life directory */}
-      <section>
+      <section className="archive-container">
+        <div className="archive-list">
         <h2>Life PDFs</h2>
         {pdfs.pdf.length > 0 ? (
           <ul>
@@ -83,7 +75,8 @@ export default function Archive() {
         ) : (
           <p>No Life PDFs available</p>
         )}
-
+        </div>
+        <div className="archive-list">
         {/* Render Choir PDFs */}
         <h2>Choir PDFs</h2>
         {choirPdfs.length > 0 ? (
@@ -99,8 +92,9 @@ export default function Archive() {
         ) : (
           <p>No Choir PDFs available</p>
         )}
-
+        </div>
         {/* Render Church Events PDFs */}
+        <div className="archive-list">
         <h2>Church Events PDFs</h2>
         {churchEventPdfs.length > 0 ? (
           <ul>
@@ -115,6 +109,7 @@ export default function Archive() {
         ) : (
           <p>No Church Events PDFs available</p>
         )}
+        </div>
       </section>
     </>
   );
