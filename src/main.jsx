@@ -29,6 +29,10 @@ import Churchesnavbar from './routes/mtOliveArchive/churchesnavbar.jsx';
 import History from './routes/mtOliveArchive/history.jsx';
 import Archive from './routes/mtOliveArchive/archive.jsx';
 import Pastors from './routes/mtOliveArchive/pastors.jsx';
+import ChoirRecords from './routes/mtOliveArchive/choirRecords.jsx';
+import LifeEvents from './routes/mtOliveArchive/lifeEvents.jsx';
+import ChurchMaterials from './routes/mtOliveArchive/churchMaterials.jsx';
+import Photographs from './routes/mtOliveArchive/photographs.jsx';
 
 
 const router = createBrowserRouter([
@@ -97,7 +101,23 @@ const router = createBrowserRouter([
       {
         path: "pastors/",
         element: <Pastors />,
-      }
+      },
+      {
+        path: "choirRecords/",
+        element: <ChoirRecords/>,
+      },
+      {
+        path: "lifeEvents/",
+        element: <LifeEvents/>,
+      },
+      {
+        path: "churchMaterials/",
+        element: <ChurchMaterials/>,
+      },
+      {
+        path: "photographs/",
+        element: <Photographs/>,
+      },
     ]
   }
 ]);

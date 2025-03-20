@@ -11,6 +11,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  width: auto;
+}
+
 body {
   font-family: "Century Gothic", sans-serif;
   font-weight: 400;
