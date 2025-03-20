@@ -1,7 +1,6 @@
 html, body {
   margin: 0;
   padding: 0;
-<<<<<<< HEAD
   width: 100%;
   overflow-x: hidden; /* Prevents horizontal scrolling */
   background-color: rgb(234, 234, 181); /* Your background color */
@@ -10,9 +9,7 @@ html, body {
 .founders-section, .history-section, .archive-section {
   max-width: 100%;
   overflow: hidden;
-=======
   width: auto;
->>>>>>> f824716cd3e03b407578115dd4944c44b3e24602
 }
 
 .page-container {
@@ -419,7 +416,6 @@ footer {
   margin: 25px 0px 0px 25px;
 }
 
-<<<<<<< HEAD
 /*MOBILE SCREENS*/
 /* Improve layout for smaller screens */
 @media (max-width: 768px) {
@@ -463,9 +459,24 @@ footer {
   .header, .history-title {
     font-size: 1.5em;
   }
-=======
+
 .pdf-image {
   width: 225px;
   height: 300px;
->>>>>>> f824716cd3e03b407578115dd4944c44b3e24602
+}
+
+.archive-lists {
+  flex: 1;
+  max-width: 30%;;
+}
+
+.archive-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25%;
+  padding-top: 25px;
+}
+
+.pastor-timeline {
+  padding-top: 40px;
 }
