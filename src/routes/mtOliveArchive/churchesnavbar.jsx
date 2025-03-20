@@ -4,19 +4,18 @@ import '../../styles/index.css';
 import '../mtOliveArchive/mtOliveArchive.css';
 
 export default function Churchesnavbar() {
-  const [onHover, setOnHover] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [media, setMedia] = useState({images: [], videos: []});
+  const [media, setMedia] = useState({ images: [], videos: [] });
   const [loading, setLoading] = useState(true);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   useEffect(() => {
     const fetchMedia = async () => {
       try {
         const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/churches');
-        if (!response.ok) {
-          throw new Error('Failed to fetch media data');
-        }
+        if (!response.ok) throw new Error('Failed to fetch media data');
+        
         const data = await response.json();
         console.log('Fetched Media Data:', data);
         setMedia(data);
@@ -36,13 +35,13 @@ export default function Churchesnavbar() {
         {/* Logo Section */}
         <div className="logo-container">
           <Link to="/churches">
-          {media.images.length > 0 && (
-            <img
-              src={media.images[2].url}
-              alt="Church Logo"
-              className="nav-church-logo"
-            />
-          )}
+            {media.images.length > 0 && (
+              <img
+                src={media.images[2].url}
+                alt="Church Logo"
+                className="nav-church-logo"
+              />
+            )}
           </Link>
         </div>
 
@@ -53,7 +52,7 @@ export default function Churchesnavbar() {
           <div className={`bar ${menuOpen ? 'rotate-bar2' : ''}`}></div>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links (only appear when menuOpen is true) */}
         <ul className={`church-nav-links ${menuOpen ? 'open' : ''}`}>
           <li>
             <Link to={`/churches/`} onClick={() => setMenuOpen(false)}>

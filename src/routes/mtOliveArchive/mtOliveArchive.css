@@ -2,30 +2,170 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  background-color: rgb(234, 234, 181); /* Your background color */
+}
+
+.founders-section, .history-section, .archive-section {
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .page-container {
   padding: 20px;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
+/*NAVIGATION BAR*/
+.logo-container {
+  flex: 0 0 auto;
+  margin-right: 20px; /* Adjust space between logo and title/video */
+}
+
+.church-top-nav {
+  width: 100%;
+  background-color: #273e06;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.church-nav-links {
+  display: flex; /* Ensure the links are visible by default on larger screens */
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .church-nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: #fbb03b;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .church-nav-links.open {
+    display: flex; /* Show when menu is toggled */
+  }
+
+  .hamburger-menu {
+    display: block;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.church-nav-links.open li {
+  margin: 0.5px 0;
+}
+
+.church-nav-links li {
+  margin: 5px 10px;
+}
+
+.church-nav-links a {
+  text-decoration: none;
+  font-size: 0.9em;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.church-nav-links a:hover {
+  color: #4b5c09;
+}
+
+/*HEADER*/
 .header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
+/* Add a rule to center content */
+.header-content {
+  display: flex;
+  align-items: center; /* Aligns the logo and text vertically */
+  justify-content: flex-start; /* Aligns everything to the left */
+  text-align: left; /* Ensure text is aligned left */
+  gap: 20px; /* Space between image and text */
+  width: 100%;
+  max-width: none;
+}
+
+.title-video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1; /* Takes up remaining space */
+}
+
+.header-logo-container {
+  flex: 0 0 auto;
+  margin-right: 20px; /* Adjust space between logo and title/video */
+}
+
+.header-logo {
+  max-width: 100%; /* Ensures it won't exceed the width of the container */
+  width: 500px;
+  height: auto;
+  display: inline-block; /* Ensures it doesn't take up extra space */
+}
+
+h1 {
+  margin-top: 5px;
+  font-size: 1.5em; /* Adjust size if needed */
+  text-align: center;
+}
+
+.video-header {
+  margin-top: 20px;
+}
+
+.church-video {
+  width: 100%;
+  max-width: 800px; /* Adjust the maximum width for responsiveness */
+}
+
+/* Make content sections adjust to screen size */
 .content-section {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-  gap: 15px; /* Adds space between the images */
-  justify-items: center; /* Centers the images horizontally within each column */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusts columns based on screen size */
+  gap: 15px;
+  justify-items: center;
   text-align: center;
 }
 
-.placeholder-image {
-  width: 150px; /* You can adjust this size based on your preference */
-  height: 150px; /* You can adjust this size based on your preference */
-  object-fit: cover; /* Ensures the image maintains its aspect ratio */
+/* Ensure images resize properly on smaller screens */
+.placeholder-image, 
+.pastor-photo, 
+.building-photo, 
+.parsonage-photo, 
+.founder-photo {
+  max-width: 100%; 
+  height: auto; 
 }
+
 
 footer {
   text-align: center;
@@ -226,64 +366,8 @@ footer {
 .nav-church-logo {
   height: 75px;
   width: auto;
-  
 }
 
-
-.church-top-nav {
-  width: 100%;
-  background-color: #273e06;
-  padding: 0px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.church-nav-links {
-  font-family: "century-gothic", sans-serif;
-  list-style-type: none;
-  display: flex;
-  gap: 40px;
-  margin: 0;
-  transition: transform 0.3s ease-in-out;
-}
-
-.church-nav-links.open {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  background-color: #fbb03b;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.church-nav-links.open li {
-  margin: 0.5px 0;
-}
-
-.church-nav-links li {
-  margin: 5px 10px;
-}
-
-.church-nav-links a {
-  text-decoration: none;
-  font-size: 0.9em;
-  color: #fff;
-  transition: color 0.3s ease;
-}
-
-.church-nav-links a:hover {
-  color: #edc211;
-}
 
 
 /* Start of styling for the History Page*/
@@ -323,12 +407,55 @@ footer {
   font-size: 1.5em;
 }
 
-
-
 /* founder portion css*/
 
 .founder-photo {
   width: 225px;
   height: 300px;
   margin: 25px 0px 0px 25px;
+}
+
+/*MOBILE SCREENS*/
+/* Improve layout for smaller screens */
+@media (max-width: 768px) {
+  .church-nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: #fbb03b;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .church-nav-links.open {
+    display: flex; /* Show when menu is toggled */
+  }
+
+  .hamburger-menu {
+    display: block;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+/* Further adjustments for mobile screens */
+@media (max-width: 480px) {
+  .content-section {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust columns for mobile */
+  }
+
+  .church-nav-links {
+    gap: 10px;
+  }
+
+  .header, .history-title {
+    font-size: 1.5em;
+  }
 }
