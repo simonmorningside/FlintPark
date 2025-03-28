@@ -120,7 +120,7 @@ const PastorLine = () => {
         secondary: "#483D8B",
         cardBgColor: "#E6E6FA",
         cardForeColor: "#483D8B",
-      }}
+      }} 
       mode="VERTICAL_ALTERNATING"
     />
   );
