@@ -1,34 +1,37 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import '../../styles/index.css';
-import '../../fillerstylepageuntilwearesorted.css';
-import '../mtOliveArchive/mtOliveArchive.css';
-import '../../mtolivearchive.css';
+import "../../styles/index.css";
+import "../../fillerstylepageuntilwearesorted.css";
+import "../mtOliveArchive/mtOliveArchive.css";
+import "../../mtolivearchive.css";
 
 export default function Archive() {
   const [loading, setLoading] = useState(true);
   const [pdfs, setPdfs] = useState({ jpeg: [], pdf: [] });
   const [choirPdfs, setChoirPdfs] = useState([]);
-  const [churchEventPdfs, setChurchEventPdfs] = useState([]);  // New state for church events PDFs
+  const [churchEventPdfs, setChurchEventPdfs] = useState([]); // New state for church events PDFs
   const [error, setError] = useState(null);
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 25; // 5 x 5 grid per page
 
   // Fetch PDFs, Choir data, and Church Events data in parallel
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [pdfResponse, choirResponse, churchEventResponse] = await Promise.all([
-          fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf'),
-          fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/choir'),
-          fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events') // New API call
+          fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf"),
+          fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/choir"),
+          fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events") // New API call
         ]);
 
         // Check for errors in responses
         if (!pdfResponse.ok || !choirResponse.ok || !churchEventResponse.ok) {
-          throw new Error('One or more API calls failed');
+          throw new Error("One or more API calls failed");
         }
 
-        // Parse both responses
+        // Parse all responses
         const pdfData = await pdfResponse.json();
         const choirData = await choirResponse.json();
         const churchEventData = await churchEventResponse.json(); // New data from church events
@@ -37,7 +40,6 @@ export default function Archive() {
         setPdfs(pdfData);
         setChoirPdfs(choirData.pdf); // Assuming choir data is under `pdf`
         setChurchEventPdfs(churchEventData.pdfs); // Store church event PDFs
-
       } catch (error) {
         setError(error.message);
       } finally {
@@ -56,59 +58,57 @@ export default function Archive() {
     return <div>Error: {error}</div>;
   }
 
+  // Pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = churchEventPdfs.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(churchEventPdfs.length / itemsPerPage);
+
+  // Handle page navigation
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
   return (
     <>
-      {/* Render PDF and JPEG from Life directory */}
+      {/* Render Church Events PDFs */}
       <section className="archive-container">
-        <div className="archive-list">
-        <h2>Life PDFs</h2>
-        {pdfs.pdf.length > 0 ? (
-          <ul>
-            {pdfs.pdf.map((pdf, index) => (
-              <li key={index}>
-                <a href={pdf.url} target="_blank" rel="noopener noreferrer">
-                  {pdf.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No Life PDFs available</p>
-        )}
-        </div>
-        <div className="archive-list">
-        {/* Render Choir PDFs */}
-        <h2>Choir PDFs</h2>
-        {choirPdfs.length > 0 ? (
-          <ul>
-            {choirPdfs.map((pdf, index) => (
-              <li key={index}>
-                <a href={pdf.url} target="_blank" rel="noopener noreferrer">
-                  {pdf.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No Choir PDFs available</p>
-        )}
-        </div>
-        {/* Render Church Events PDFs */}
-        <div className="archive-list">
         <h2>Church Events PDFs</h2>
-        {churchEventPdfs.length > 0 ? (
-          <ul>
-            {churchEventPdfs.map((pdf, index) => (
-              <li key={index}>
+
+        {currentItems.length > 0 ? (
+          <div className="grid-container">
+            {currentItems.map((pdf, index) => (
+              <div className="grid-item" key={index}>
                 <a href={pdf.url} target="_blank" rel="noopener noreferrer">
                   {pdf.name}
                 </a>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>No Church Events PDFs available</p>
         )}
+
+        {/* Pagination Controls */}
+        <div className="pagination-controls">
+          <button onClick={prevPage} disabled={currentPage === 1} className="nav-btn">
+            <ChevronLeft size={20} />
+          </button>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button onClick={nextPage} disabled={currentPage === totalPages} className="nav-btn">
+            <ChevronRight size={20} />
+          </button>
         </div>
       </section>
     </>
