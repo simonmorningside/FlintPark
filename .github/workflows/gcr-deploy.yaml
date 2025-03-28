@@ -17,18 +17,18 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
 
       - name: Setup Node.js (NPM)
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@master
         with:
           node-version: '18.18'
 
       - name: Use cached node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@master
         with:
           path: node_modules
-          key: nodeModules-${{ hashFiles('**/package-lock.json') }}
+          key: nodeModules-${{ hashFiles('**/package.lock') }}
           restore-keys: |
             nodeModules-
 
@@ -39,7 +39,7 @@ jobs:
         env:
           CI: true
 
-      # Rebuild @swc/core to ensure correct native bindings
+      # Rebuild @swc/core to fix native binding error
       - name: Rebuild Native Modules
         run: npm rebuild @swc/core --force
 
@@ -47,7 +47,7 @@ jobs:
         run: npm run build
 
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@main
         with:
           name: dist
           path: dist
@@ -59,10 +59,10 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@main
         with:
           name: dist
           path: .docker/dist
