@@ -79,7 +79,7 @@ export default function Churches() {
     <div className="header-logo-container">
       {media.images.length > 0 && (
         <img
-          src={media.images[4].url}
+          src={media.images[2].url}
           alt="Church Logo"
           className="header-logo"
         />
