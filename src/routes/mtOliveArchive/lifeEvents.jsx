@@ -9,7 +9,7 @@ import '../../mtolivearchive.css';
 
 export default function LifeEvents() {
   const [loading, setLoading] = useState(true);
-  const [pdfs, setpdfs] = useState({ jpeg: [], life: [] });
+  const [pdfs, setpdfs] = useState({ jpeg: [], pdf: [] });
 
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function LifeEvents() {
 <section className="founders-section">
           <h2 className="founders-header-text">Rev. Wade Hampton McKinney</h2>
           <div>
-            <iframe src={pdfs.life[0].url} title="Rev. Wade Hampton McKinney" className = "pdf-iframe"></iframe>
+            <iframe src={pdfs.pdf[0].url} title="Rev. Wade Hampton McKinney" className = "pdf-iframe"></iframe>
             <img src={pdfs.jpeg[1].url} alt="Rev. Wade Hampton McKinney" className = "pdf-image"></img>
           </div>
         </section>

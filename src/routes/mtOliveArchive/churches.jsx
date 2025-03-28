@@ -6,7 +6,6 @@ import '../../styles/index.css';
 import '../../fillerstylepageuntilwearesorted.css';
 import '../mtOliveArchive/mtOliveArchive.css';
 import '../../mtolivearchive.css';
-import Timeline from '../mtOliveArchive/timeline.jsx';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
@@ -79,7 +78,7 @@ export default function Churches() {
   <div className="header-content">
     <div className="header-logo-container">
       {media.images.length > 0 && (
-        <img src={media.images[2].url} alt="Church Logo" className="header-logo" />
+        <img src={media.images[3].url} alt="Church Logo" className="header-logo" />
       )}
     </div>
     <div className="title-video-container">
@@ -172,9 +171,6 @@ export default function Churches() {
           <button onClick={handleNext} disabled={startIndex + imagesPerPage >= pastors.images.length} style={{ marginLeft: '10px' }}>
             <ChevronRight size={24} />
           </button>
-        </div>
-        <div>
-          <Timeline />
         </div>
       </section>
 

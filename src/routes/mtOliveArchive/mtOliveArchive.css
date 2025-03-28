@@ -482,4 +482,25 @@ footer {
   .header, .history-title {
     font-size: 1.5em;
   }
+
+.pdf-image {
+  width: 225px;
+  height: 300px;
+}
+
+.archive-lists {
+  flex: 1;
+  max-width: 30%;;
+}
+
+.archive-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25%;
+  padding-top: 25px;
+}
+}
+
+.pastor-timeline {
+  padding-top: 40px;
 }
