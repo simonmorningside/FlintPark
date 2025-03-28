@@ -74,43 +74,29 @@ export default function Churches() {
 
   return (
     <div className="page-container" style={{ marginTop: '60px' }}>
-      <header className="header">
+<header className="header">
   <div className="header-content">
     <div className="header-logo-container">
       {media.images.length > 0 && (
         <img
-          src={media.images[3].url}
+          src={media.images[4].url}
           alt="Church Logo"
           className="header-logo"
         />
       )}
     </div>
     <div className="title-video-container">
-      <h1>History of Mount Olive Missionary Baptist Church</h1>
+      <h1>History of Mount Olive<br />Missionary Baptist Church</h1>
       <section className="founders-header-text">
         <div className="video-header">
-          <video
-            controls
-            width="75%"
-            height="20%"
-            src={media.videos[0].url}
-            alt="church video"
-            className="church-video"
-          />
+          <video controls src={media.videos[0].url} className="church-video" />
         </div>
       </section>
     </div>
   </div>
+  <div className="green-strip"></div>
 </header>
-      <section className="founders-header-text">
-        <div className="video-header">
-        <video controls width = "75%" height = "20%"
-        src={media.videos[0].url}
-        alt="church video"
-        className="church-video"
-        />
-        </div>
-      </section>
+
 
       <section className="history-section">
         <div className="history-text">
