@@ -17,30 +17,37 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
 
       - name: Setup Node.js (NPM)
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v3
         with:
           node-version: '18.18'
 
       - name: Use cached node_modules
-        uses: actions/cache@master
+        uses: actions/cache@v3
         with:
           path: node_modules
-          key: nodeModules-${{ hashFiles('**/package.lock') }}
+          key: nodeModules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             nodeModules-
+
       - name: Install dependencies
-        run: npm install --frozen-lockfile
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --frozen-lockfile
         env:
           CI: true
+
+      # Rebuild @swc/core to ensure correct native bindings
+      - name: Rebuild Native Modules
+        run: npm rebuild @swc/core --force
 
       - name: Build Development
         run: npm run build
 
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist
@@ -52,10 +59,10 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
 
       - name: Download Artifact
-        uses: actions/download-artifact@main
+        uses: actions/download-artifact@v3
         with:
           name: dist
           path: .docker/dist
