@@ -7,9 +7,7 @@ import "../../mtolivearchive.css";
 
 export default function Archive() {
   const [loading, setLoading] = useState(true);
-  const [pdfs, setPdfs] = useState({ jpeg: [], pdf: [] });
-  const [choirPdfs, setChoirPdfs] = useState([]);
-  const [churchEventPdfs, setChurchEventPdfs] = useState([]); // New state for church events PDFs
+  const [pdfsWithMetadata, setPdfsWithMetadata] = useState([]); // Now storing the PDFs with metadata
   const [error, setError] = useState(null);
 
   // Pagination states
@@ -19,30 +17,23 @@ export default function Archive() {
   // Search state
   const [searchQuery, setSearchQuery] = useState(""); // Search input state
 
-  // Fetch PDFs, Choir data, and Church Events data in parallel
+  // Fetch PDFs with metadata in parallel
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [pdfResponse, choirResponse, churchEventResponse] = await Promise.all([
-          fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf"),
-          fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/choir"),
-          fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events")
-        ]);
+        const churchEventResponse = await fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events_metadata");
 
-        // Check for errors in responses
-        if (!pdfResponse.ok || !choirResponse.ok || !churchEventResponse.ok) {
-          throw new Error("One or more API calls failed");
+        // Check for errors in the response
+        if (!churchEventResponse.ok) {
+          throw new Error("Failed to fetch church events data");
         }
 
-        // Parse all responses
-        const pdfData = await pdfResponse.json();
-        const choirData = await choirResponse.json();
+        // Parse the JSON response
         const churchEventData = await churchEventResponse.json();
 
-        // Combine the PDF and JPEG data
-        setPdfs(pdfData);
-        setChoirPdfs(choirData.pdf);
-        setChurchEventPdfs(churchEventData.pdfs); // Store church event PDFs
+        // Store PDFs with metadata
+        setPdfsWithMetadata(churchEventData.pdfs_with_metadata || []); // Default to empty array if no data
+
       } catch (error) {
         setError(error.message);
       } finally {
@@ -61,9 +52,9 @@ export default function Archive() {
     return <div>Error: {error}</div>;
   }
 
-  // Filter PDFs based on search query
-  const filteredItems = churchEventPdfs.filter((pdf) =>
-    pdf.name.toLowerCase().includes(searchQuery.toLowerCase())
+  // Filter PDFs based on search query - now using Title in the metadata
+  const filteredItems = pdfsWithMetadata.filter((pdf) =>
+    pdf.metadata?.Title.toLowerCase().includes(searchQuery.toLowerCase()) // Search based on Title
   );
 
   // Pagination logic after filtering
@@ -101,7 +92,7 @@ export default function Archive() {
         <div className="search-container">
           <input
             type="text"
-            placeholder="Search PDFs..."
+            placeholder="Search PDFs by Title..."
             value={searchQuery}
             onChange={handleSearchChange}
             className="search-input"
@@ -113,9 +104,12 @@ export default function Archive() {
           <div className="grid-container">
             {currentItems.map((pdf, index) => (
               <div className="grid-item" key={index}>
-                <a href={pdf.url} target="_blank" rel="noopener noreferrer">
-                  {pdf.name}
+                {/* Only show the Title from metadata */}
+                <a href={pdf.url} target="_blank" rel="noopener noreferrer" className="pdf-link-button">
+                  {pdf.metadata?.Title || pdf.name}  {/* If Title exists, show it, else fallback to PDF name */}
                 </a>
+
+                {/* Optionally display additional metadata (like Identifier, Date) below the button */}
               </div>
             ))}
           </div>
