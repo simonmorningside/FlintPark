@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -14,6 +13,13 @@ export default function Churches() {
   const [startIndex, setStartIndex] = useState(0);
   const imagesPerPage = 4;
   const selectedImageIndices = [32, 35, 36, 7, 40, 13, 17, 9, 5];
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [showTextBox, setShowTextBox] = useState(false);
+
+  const handleImageClick = (index) => {
+    setSelectedImage(index); // Store the clicked image index
+    setShowTextBox(true); // Show the text box
+  };
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -72,6 +78,8 @@ export default function Churches() {
     return <div>Loading...</div>;
   }
 
+  
+
   return (
     <div className="page-container" style={{ marginTop: '60px' }}>
 <header className="header">
@@ -87,7 +95,7 @@ export default function Churches() {
     </div>
     <div className="title-video-container">
       <h1>History of Mount Olive Missionary Baptist Church</h1>
-      <section className="founders-header-text">
+      <section className="header-text">
         <div className="video-header">
           <video controls src={media.videos[0].url} className="church-video" />
         </div>
@@ -125,127 +133,125 @@ export default function Churches() {
       </section>
 
 {/* Founders Section */}
-      <section className="founders-section">
-        <div className="founders-header">
-          <h2 className="founders-header-text">
-            Founders
-          </h2>
-          </div>
-          <div className="founders-images-div">
-          <p className="founders-images">
-          {media.images.length > 0 && (
-            <img
-              src={media.images[18].url}
-              alt="Church Logo"
-              className="founder-photo"
-            />
-          )}
-          {media.images.length > 0 && (
-            <img
-              src={media.images[0].url}
-              alt="Church Logo"
-              className="founder-photo"
-            />
-          )}
-          </p>
-        </div>
-      </section>
+<section className="section-container">
+  <div className="section-header">
+    <h2 className="header-text">FOUNDERS</h2>
+  </div>
+  <div className="section-content">
+    <p className="founders-images">
+      {media.images.length > 0 && (
+        <img
+          src={media.images[18].url}
+          alt="Founder Photo"
+          className="founder-photo"
+        />
+      )}
+      {media.images.length > 0 && (
+        <img
+          src={media.images[0].url}
+          alt="Founder Photo"
+          className="founder-photo"
+        />
+      )}
+    </p>
+  </div>
+</section>
+
 
 {/* Pastors Section */}
-<section className="founders-section">
-        <div className="founders-header">
-          <h2 className="founders-header-text">Pastors</h2>
-        </div>
-        <div className="founders-images-div" style={{ display: 'flex', alignItems: 'center' }}>
-          <button onClick={handlePrev} disabled={startIndex === 0} style={{ marginRight: '10px' }}>
-            <ChevronLeft size={24} />
-          </button>
-          <div className="founders-images" style={{ display: 'flex', gap: '10px' }}>
-            {pastors.images.slice(startIndex, startIndex + imagesPerPage).map((image, index) => (
-              <img key={index} src={image.url} alt="Pastor" className="pastor-photo" />
-            ))}
-          </div>
-          <button onClick={handleNext} disabled={startIndex + imagesPerPage >= pastors.images.length} style={{ marginLeft: '10px' }}>
-            <ChevronRight size={24} />
-          </button>
-        </div>
-      </section>
+<section className="section-container">
+  <div className="section-header">
+    <h2 className="header-text">PASTORS</h2>
+  </div>
+  <div className="section-content" style={{ display: 'flex', alignItems: 'center' }}>
+    <button onClick={handlePrev} disabled={startIndex === 0} style={{ marginRight: '10px' }}>
+      <ChevronLeft size={24} />
+    </button>
+    <div className="founders-images" style={{ display: 'flex', gap: '10px' }}>
+      {pastors.images.slice(startIndex, startIndex + imagesPerPage).map((image, index) => (
+        <img key={index} src={image.url} alt="Pastor" className="pastor-photo" />
+      ))}
+    </div>
+    <button onClick={handleNext} disabled={startIndex + imagesPerPage >= pastors.images.length} style={{ marginLeft: '10px' }}>
+      <ChevronRight size={24} />
+    </button>
+  </div>
+</section>
+
 
 {/* Buildings Section */}
-      <section className="founders-section">
-        <div className="founders-header">
-          <h2 className="founders-header-text">
-            Buildings
-          </h2>
-          <p className="founders-images">
-          </p>
-        </div>
-          <div className="founders-images-div">
-          <p className="founders-images">
-          {media.images.length > 0 && (
-            <img
-              src={media.images[12].url}
-              alt="Church Logo"
-              className="building-photo"
-            />
-          )}
-          {media.images.length > 0 && (
-            <img
-              src={media.images[3].url}
-              alt="Church Logo"
-              className="building-photo"
-            />
-          )}
-          {media.images.length > 0 && (
-            <img
-              src={media.images[7].url}
-              alt="Church Logo"
-              className="building-photo"
-            />
-          )}
-          </p>
-        </div>
-      </section>
+<section className="section-container">
+  <div className="section-header">
+    <h2 className="header-text">BUILDINGS</h2>
+  </div>
+  <div className="section-content">
+    <div className="founders-images-div">
+      {media.images.length > 0 && (
+        <img
+          src={media.images[12].url}
+          alt="Building Photo"
+          className="building-photo"
+        />
+      )}
+      {media.images.length > 0 && (
+        <img
+          src={media.images[3].url}
+          alt="Building Photo"
+          className="building-photo"
+        />
+      )}
+      {media.images.length > 0 && (
+        <img
+          src={media.images[7].url}
+          alt="Building Photo"
+          className="building-photo"
+        />
+      )}
+    </div>
+  </div>
+</section>
+
 
 {/* Parsonages Section */}
-      <section className="founders-section">
-        <div className="founders-header">
-          <h2 className="founders-header-text">
-            Parsonages
-          </h2>
-          <p className="founders-images">
-          </p>
-        </div>
-          <div className="founders-images-div">
-          <p className="founders-images">
-          {media.images.length > 0 && (
-            <img
-              src={media.images[14].url}
-              alt="Church Logo"
-              className="parsonage-photo"
-            />
-          )}
-          {media.images.length > 0 && (
-            <img
-              src={media.images[15].url}
-              alt="Church Logo"
-              className="parsonage-photo"
-            />
-          )}
-          {media.images.length > 0 && (
-            <img
-              src={media.images[16].url}
-              alt="Church Logo"
-              className="parsonage-photo"
-            />
-          )}
-          </p>
-        </div>
-      </section>
+<section className="section-container">
+  <div className="section-header">
+    <h2 className="header-text">PARSONAGES</h2>
+  </div>
+  <div className="section-content">
+    <div className="founders-images-div">
+      {media.images.length > 0 && (
+        <img
+          src={media.images[14].url}
+          alt="Parsonage Photo"
+          className="parsonage-photo"
+        />
+      )}
+      {media.images.length > 0 && (
+        <img
+          src={media.images[15].url}
+          alt="Parsonage Photo"
+          className="parsonage-photo"
+        />
+      )}
+      {media.images.length > 0 && (
+        <img
+          src={media.images[16].url}
+          alt="Parsonage Photo"
+          className="parsonage-photo"
+        />
+      )}
+    </div>
+  </div>
+</section>
 
-      <section className="archive-section">
-        <h2 className="archive-header">Mount Olive Archive</h2>
-        <div className="archive-links">
+
+      <section className="section-container">
+      <div className="section-header">
+        <h2 className="header-text">
+            ARCHIVE
+          </h2>
+        </div>
+          <div className="archive-links">
           <p className="block-style">
           <Link to={'archive/'}className="archive-link-styling">
           Life Events

@@ -234,6 +234,166 @@ h1 {
   text-align: center;
 }
 
+/*BUTTON*/
+.learn-more-link {
+  padding: 10px 20px;  /* Adjust the padding to your liking */
+  background-color: #4b5c09;  /* Set the background color */
+  color: white;  /* Set the text color */
+  border: none;  /* Remove the default border */
+  border-radius: 25px;  /* This makes the button rounded */
+  font-size: 16px;  /* Set the font size */
+  cursor: pointer;  /* Change cursor to pointer when hovering */
+  transition: background-color 0.3s;  /* Smooth transition on hover */
+}
+
+.learn-more-link:hover {
+  color: #b3cb54  /* Darker shade on hover */
+}
+
+/*SECTIONS*/
+.section-header {
+  width: 100%;
+  height: 50px;
+  background-color: #c5931e;
+  position: absolute;
+  left: 0;
+  padding: 0;
+  color: white; /* Set text color to white */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  padding-left: 65px; /* Add left padding for spacing from the edge */
+}
+
+.section-container {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.header-text {
+  margin: 0; /* Remove any default margin */
+}
+
+.section-content {
+  margin-top: 40px; /* Add space between the header and the content */
+  padding: 20px;    /* Optional padding for extra space inside the content section */
+}
+
+/*PHOTO POPUP BOX*/
+/* Styling for the images */
+.founders-images {
+  display: flex;
+  gap: 20px;
+}
+
+.founder-photo {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.founder-photo:hover {
+  transform: scale(1.05);
+}
+
+/* Popup text box styling */
+.popup-text-box {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: scroll;
+  z-index: 10;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popup-header button {
+  background-color: #c5931e;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.popup-header button:hover {
+  background-color: #a47f1d;
+}
+
+/* Content of the popup */
+.popup-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/*ARCHIVE*/
+
+.archive-links {
+  max-width: 1200px;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  padding-top: 45px;
+  }
+
+.search-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  background-color: #e0e0e0;
+}
+
+.grid-item a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
 /* Ensure images resize properly on smaller screens */
 .placeholder-image, 
 .pastor-photo, 
