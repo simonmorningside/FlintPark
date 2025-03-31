@@ -64,7 +64,15 @@
   }
 
   .archive-container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
+    text-align: center;
+    padding-top: 45px;
+  }
+
+  .search-container {
+    margin-bottom: 20px;
     text-align: center;
   }
   
@@ -72,7 +80,6 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
-    justify-items: center;
     margin-top: 20px;
   }
   
@@ -93,6 +100,7 @@
   
   .grid-item:hover {
     transform: scale(1.05);
+    background-color: #e0e0e0;
   }
   
   .grid-item a {
@@ -130,4 +138,11 @@
     background-color: #45a049;
   }
   
-  
+  .search-input {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}

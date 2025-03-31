@@ -16,6 +16,9 @@ export default function Archive() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 25; // 5 x 5 grid per page
 
+  // Search state
+  const [searchQuery, setSearchQuery] = useState(""); // Search input state
+
   // Fetch PDFs, Choir data, and Church Events data in parallel
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +26,7 @@ export default function Archive() {
         const [pdfResponse, choirResponse, churchEventResponse] = await Promise.all([
           fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf"),
           fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/choir"),
-          fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events") // New API call
+          fetch("https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events")
         ]);
 
         // Check for errors in responses
@@ -34,11 +37,11 @@ export default function Archive() {
         // Parse all responses
         const pdfData = await pdfResponse.json();
         const choirData = await choirResponse.json();
-        const churchEventData = await churchEventResponse.json(); // New data from church events
+        const churchEventData = await churchEventResponse.json();
 
         // Combine the PDF and JPEG data
         setPdfs(pdfData);
-        setChoirPdfs(choirData.pdf); // Assuming choir data is under `pdf`
+        setChoirPdfs(choirData.pdf);
         setChurchEventPdfs(churchEventData.pdfs); // Store church event PDFs
       } catch (error) {
         setError(error.message);
@@ -58,12 +61,17 @@ export default function Archive() {
     return <div>Error: {error}</div>;
   }
 
-  // Pagination logic
+  // Filter PDFs based on search query
+  const filteredItems = churchEventPdfs.filter((pdf) =>
+    pdf.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Pagination logic after filtering
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = churchEventPdfs.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
 
-  const totalPages = Math.ceil(churchEventPdfs.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
   // Handle page navigation
   const nextPage = () => {
@@ -78,12 +86,29 @@ export default function Archive() {
     }
   };
 
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(1); // Reset to first page after search
+  };
+
   return (
     <>
-      {/* Render Church Events PDFs */}
       <section className="archive-container">
         <h2>Church Events PDFs</h2>
 
+        {/* Search Bar */}
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search PDFs..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className="search-input"
+          />
+        </div>
+
+        {/* Render Filtered Church Events PDFs */}
         {currentItems.length > 0 ? (
           <div className="grid-container">
             {currentItems.map((pdf, index) => (
@@ -95,7 +120,7 @@ export default function Archive() {
             ))}
           </div>
         ) : (
-          <p>No Church Events PDFs available</p>
+          <p>No matching PDFs found</p>
         )}
 
         {/* Pagination Controls */}
@@ -106,7 +131,7 @@ export default function Archive() {
           <span>
             Page {currentPage} of {totalPages}
           </span>
-          <button onClick={nextPage} disabled={currentPage === totalPages} className="nav-btn">
+          <button onClick={nextPage} disabled={currentPage === totalPages || totalPages === 0} className="nav-btn">
             <ChevronRight size={20} />
           </button>
         </div>
