@@ -86,7 +86,7 @@ export default function Churches() {
       )}
     </div>
     <div className="title-video-container">
-      <h1>History of Mount Olive<br />Missionary Baptist Church</h1>
+      <h1>History of Mount Olive Missionary Baptist Church</h1>
       <section className="founders-header-text">
         <div className="video-header">
           <video controls src={media.videos[0].url} className="church-video" />

@@ -6,22 +6,44 @@ html, body {
   background-color: rgb(234, 234, 181); /* Your background color */
 }
 
-.founders-section, .history-section, .archive-section {
-  max-width: 100%;
-  overflow: hidden;
-}
-
 .page-container {
   padding: 20px;
-  min-height: 100vh;
-  width: 100vw;
+  min-height: 100%;
+  width: 100%;
   overflow-x: hidden;
+  box-sizing: border-box;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.founders-section, .history-section, .archive-section, .content-section {
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .page-container,
+  .founders-section,
+  .history-section,
+  .archive-section,
+  .content-section {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
 }
 
 /*NAVIGATION BAR*/
 .logo-container {
-  flex: 0 0 auto;
-  margin-right: 20px; /* Adjust space between logo and title/video */
+  display: flex;
+  align-items: center;
+  max-width: none; /* Remove width restrictions */
+}
+
+.nav-church-logo {
+  padding-top: 5px;
+  width: 125px; /* Adjust as needed */
+  height: auto; 
 }
 
 .church-top-nav {
@@ -94,82 +116,114 @@ html, body {
 
 /*HEADER*/
 .header {
-  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  position: relative;
-  padding-bottom: 20px;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column; /* Make sure logo and video are stacked on smaller screens */
 }
 
 .header-content {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
+  max-width: 1200px; /* Adjust based on your design */
   align-items: center;
-  width: 90%;
-  max-width: 1200px;
-  position: relative;
-  z-index: 2; /* Ensures content is above the green strip */
+  justify-content: center; /* Center content */
+  z-index: 2;
 }
 
 .header-logo-container {
-  flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the logo */
+  padding: 20px;
+  z-index: 2;
 }
 
-.header-logo {
-  width: 300px; /* Default larger size */
+.header-logo img {
+  width: 125px; /* Set a fixed width for the logo */
   height: auto;
+  transition: width 0.3s ease; /* Smooth transition when resizing */
 }
 
 .title-video-container {
-  flex: 2;
+  width: 100%; /* Make video container full width */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 0 50px;
+  z-index: 2;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 20px;
   margin-bottom: 10px;
+  color: #273e06;
+}
+
+.video-header {
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .video-header video {
-  max-width: 100%;
+  width: 100%;
   height: auto;
-}
-
-.green-strip {
-  width: 100vw;
-  height: 60px;
-  background-color: green;
-  position: absolute;
-  top: 50%; /* Moves it to middle */
-  left: 0;
-  transform: translateY(-30%); /* Adjusts placement */
-  z-index: 1;
+  object-fit: cover; /* Ensures full coverage */
+  margin: 0;
+  padding: 0;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+  .header {
+    margin-top: 10px; /* Bring the header closer to the top */
+  }
+
+  .header-logo-container {
+    padding-top: 0; /* Remove extra padding to bring the logo closer to the top */
+  }
+
   .header-content {
     flex-direction: column;
     padding: 0 10px;
   }
+
   .header-logo {
-    width: 100px; /* Shrinks logo on smaller screens */
-  }
+    max-width: 150px; /* Shrinks logo on smaller screens */
+    }
+    
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 21px;
+  }
+
+  .video-header video {
+    width: 100%;
+    height: auto;
   }
 }
 
+/* HEADER GREEN STRIP */
+.green-strip {
+  width: 100%;
+  height: 200px;
+  background-color: #819727;
+  position: absolute;
+  top: 270px; /* Default for larger screens (strip starts lower) */
+  left: 0;
+  z-index: 1;
+}
+
+@media (max-width: 768px) { 
+  /* For smaller screens, move the green strip higher */
+  .green-strip {
+    top: 150px; /* Moves it closer to the middle on smaller screens */
+    height: 100px;
+  }
+}
 
 /* Make content sections adjust to screen size */
 .content-section {
@@ -189,7 +243,6 @@ h1 {
   max-width: 100%; 
   height: auto; 
 }
-
 
 footer {
   text-align: center;
@@ -387,13 +440,6 @@ footer {
   color: #273e06;
 }
 
-.nav-church-logo {
-  height: 75px;
-  width: auto;
-}
-
-
-
 /* Start of styling for the History Page*/
 
 .history-title {
@@ -502,5 +548,6 @@ footer {
 }
 
 .pastor-timeline {
-  padding-top: 40px;
+  background: white;
+  padding: 15px;
 }
