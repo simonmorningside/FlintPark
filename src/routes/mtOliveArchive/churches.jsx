@@ -13,7 +13,7 @@ export default function Churches() {
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
   const imagesPerPage = 4;
-  const selectedImageIndices = [4, 41, 32, 41, 35, 36, 41, 7, 41, 41, 41, 40, 13, 17, 41, 9, 41, 5];
+  const selectedImageIndices = [32, 35, 36, 7, 40, 13, 17, 9, 5];
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -79,7 +79,7 @@ export default function Churches() {
     <div className="header-logo-container">
       {media.images.length > 0 && (
         <img
-          src={media.images[4].url}
+          src={media.images[10].url}
           alt="Church Logo"
           className="header-logo"
         />
@@ -135,21 +135,14 @@ export default function Churches() {
           <p className="founders-images">
           {media.images.length > 0 && (
             <img
-              src={media.images[8].url}
+              src={media.images[18].url}
               alt="Church Logo"
               className="founder-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[9].url}
-              alt="Church Logo"
-              className="founder-photo"
-            />
-          )}
-          {media.images.length > 0 && (
-            <img
-              src={media.images[2].url}
+              src={media.images[0].url}
               alt="Church Logo"
               className="founder-photo"
             />
@@ -191,14 +184,7 @@ export default function Churches() {
           <p className="founders-images">
           {media.images.length > 0 && (
             <img
-              src={media.images[4].url}
-              alt="Church Logo"
-              className="building-photo"
-            />
-          )}
-          {media.images.length > 0 && (
-            <img
-              src={media.images[1].url}
+              src={media.images[12].url}
               alt="Church Logo"
               className="building-photo"
             />
@@ -212,15 +198,12 @@ export default function Churches() {
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[2].url}
+              src={media.images[7].url}
               alt="Church Logo"
               className="building-photo"
             />
           )}
           </p>
-        </div>
-        <div>
-          <p>Words</p>
         </div>
       </section>
 
@@ -237,21 +220,21 @@ export default function Churches() {
           <p className="founders-images">
           {media.images.length > 0 && (
             <img
-              src={media.images[5].url}
+              src={media.images[14].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[6].url}
+              src={media.images[15].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
           )}
           {media.images.length > 0 && (
             <img
-              src={media.images[7].url}
+              src={media.images[16].url}
               alt="Church Logo"
               className="parsonage-photo"
             />
