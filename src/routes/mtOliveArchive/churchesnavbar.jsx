@@ -37,7 +37,7 @@ export default function Churchesnavbar() {
           <Link to="/churches">
             {media.images.length > 0 && (
               <img
-                src={media.images[2].url}
+                src={media.images[8].url}
                 alt="Church Logo"
                 className="nav-church-logo"
               />
