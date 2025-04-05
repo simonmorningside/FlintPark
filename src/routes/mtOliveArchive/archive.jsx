@@ -45,7 +45,7 @@ export default function Archive() {
   }, []); // Run once on component mount
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading... This May Take A Minute</div>;
   }
 
   if (error) {
