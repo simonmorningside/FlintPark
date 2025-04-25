@@ -25,11 +25,6 @@ export default function About() {
             to ensure compatibility with web viewing and download by Simon Zychowski and Mackailee Longobricco.
           </p>
         </div>
-        <img
-          src="https://via.placeholder.com/300"
-          alt="Placeholder Image"
-          className="about-image"
-        />
       </div>
       <div className="text-section border-box">
           <h2>Interactive Maps</h2>
