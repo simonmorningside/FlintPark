@@ -1,0 +1,71 @@
+/* timeline-page.css */
+.pastor-timeline {
+    padding: 0;
+}
+.timeline-wrapper {
+    padding: 80px 0;
+    background-color: rgb(234, 234, 181);
+    width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Center the vertical line */
+.vertical-timeline::before {
+    background: #7C2529;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Make year text big and centered */
+.vertical-timeline-element-date {
+    font-size: 2.2rem !important;
+    font-weight: bold;
+    color: #7C2529;
+    text-align: center;
+    width: 100%;
+    font-family: 'Georgia', serif;
+    margin: 0 auto 1rem;
+    display: block;
+}
+
+/* Fix content box */
+.vertical-timeline-element-content {
+    box-shadow: none;
+    border-left: 5px solid #7C2529;
+    border-radius: 0;
+    padding: 1.5rem 2rem;
+    background-color: #fffbe9;
+    color: #333;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Fix icon alignment */
+.vertical-timeline-element-icon {
+    box-shadow: 0 0 0 4px #fff;
+}
+
+/* Title styling */
+.vertical-timeline-element-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .vertical-timeline-element-date {
+        font-size: 1.5rem !important;
+    }
+
+    .vertical-timeline-element-content {
+        padding: 1rem;
+    }
+
+    .vertical-timeline-element-title {
+        font-size: 1.1rem;
+    }
+}

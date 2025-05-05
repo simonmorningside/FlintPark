@@ -1,19 +1,24 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* Prevents horizontal scrolling */
-  background-color: rgb(234, 234, 181); /* Your background color */
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: rgb(234, 234, 181);
+}
+
+#root {
+  margin: 0;
+  padding: 0;
 }
 
 .page-container {
-  padding: 20px;
+  padding: 0;
+  margin: 0;
   min-height: 100%;
   width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
-  padding-left: 5%;
-  padding-right: 5%;
 }
 
 .founders-section, .history-section, .archive-section, .content-section {
@@ -212,7 +217,7 @@ h1 {
   height: 200px;
   background-color: #819727;
   position: absolute;
-  top: 270px; /* Default for larger screens (strip starts lower) */
+  top: 220px; /* Default for larger screens (strip starts lower) */
   left: 0;
   z-index: 1;
 }
@@ -226,12 +231,11 @@ h1 {
 }
 
 /* Make content sections adjust to screen size */
-.content-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusts columns based on screen size */
-  gap: 15px;
-  justify-items: center;
-  text-align: center;
+.history-section {
+  padding: 60px 5% 80px 5%;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
 }
 
 /*BUTTON*/
@@ -265,11 +269,26 @@ h1 {
 }
 
 .section-container {
-  flex: 1;
-  padding: 20px;
-  overflow: auto;
-  margin-bottom: 10px;
-  width: 100%;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 5%;
+  box-sizing: border-box;
+}
+
+.bg-light {
+  background-color: #ffffff;
+}
+
+.bg-ivory {
+  background-color: #ece8da;
 }
 
 .header-text {
@@ -281,6 +300,44 @@ h1 {
   padding: 20px;    /* Optional padding for extra space inside the content section */
 }
 
+.slideshow-controls {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: 10px auto;
+}
+
+.slideshow-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.pastors-slideshow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.arrow-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.left-arrow {
+  margin-right: 10px;
+}
+
+.right-arrow {
+  margin-left: 10px;
+}
+
 /*PHOTO POPUP BOX*/
 /* Styling for the images */
 .founders-images {
@@ -289,59 +346,321 @@ h1 {
 }
 
 .founder-photo {
-  width: 150px;
-  height: 200px;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  width: 225px;
+  height: auto;
+  margin: 0;
+}
+
+.founders-info-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  min-height: 320px;
+}
+
+.founders-content-row {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  min-height: 320px;
+}
+
+.founders-info-container {
+  display: flex;
+  align-items: center;
+  /* centers vertically */
+  gap: 60px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  min-height: 320px;
+  /* ensure consistent height across devices */
+}
+
+.founder-popup-box {
+  border: 2px solid #4b5c09;
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #273e06;
+  flex-shrink: 0;
+}
+
+.founder-placeholder {
+  color: #888;
+  font-style: italic;
 }
 
 .founder-photo:hover {
   transform: scale(1.05);
 }
 
-/* Popup text box styling */
-.popup-text-box {
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translateY(-50%);
-  width: 300px;
-  height: 200px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  overflow-y: scroll;
-  z-index: 10;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.popup-header {
+.founder-box {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  width: fit-content;
+  margin: 0 10px;
 }
 
-.popup-header button {
-  background-color: #c5931e;
-  color: white;
-  border: none;
-  padding: 5px 10px;
+.founder-name-tag {
+  margin-top: 8px;
+  width: 80%;
+  /* Smaller than image */
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 6px 0;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .founders-content-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .founder-popup-box {
+    margin-top: 20px;
+    align-self: center;
+    width: 90%;
+  }
+}
+
+/* Shared box and tag structure for buildings/parsonages */
+.image-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin: 0 10px;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
 }
 
-.popup-header button:hover {
-  background-color: #a47f1d;
+.image-name-tag {
+  margin-top: 8px;
+  width: 80%;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 6px 0;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* Content of the popup */
-.popup-content {
+/* Grid layout for image rows */
+.image-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Layout for row with images and popup */
+.content-row {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  min-height: 320px;
+}
+
+.info-popup-box {
+  border: 2px solid #4b5c09;
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
   font-size: 14px;
-  line-height: 1.5;
+  color: #273e06;
+  flex-shrink: 0;
+}
+
+.info-placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+.building-photo-custom {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
+.parsonage-photo-custom {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive stacking */
+@media (max-width: 768px) {
+  .content-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info-popup-box {
+    margin-top: 20px;
+    align-self: center;
+    width: 90%;
+  }
+}
+
+/* BUILDINGS SECTION */
+.building-photo-custom {
+  width: 230px;
+  height: auto;
+  object-fit: contain;
+}
+
+.building-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.building-name-tag {
+  margin-top: 6px;
+  background-color: #f2f2f2;
+  padding: 6px 0;
+  text-align: center;
+  width: 80%;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* PARSONAGES SECTION */
+.parsonage-photo-custom {
+  width: 230px;
+  height: auto;
+  object-fit: contain;
+}
+
+.parsonage-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.parsonage-name-tag {
+  margin-top: 6px;
+  background-color: #f2f2f2;
+  padding: 6px 0;
+  text-align: center;
+  width: 80%;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Shared Info Box */
+.info-popup-box {
+  border: 2px solid #4b5c09;
+  padding: 20px;
+  width: 600px;
+  max-height: 200px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #273e06;
+  flex-shrink: 0;
+}
+
+.info-popup-box,
+.founder-popup-box {
+  overflow-y: auto;
+  max-height: 200px;
+  /* already defined */
+  scrollbar-width: thin;
+  /* Firefox */
+}
+
+/* Optional: style scrollbar for WebKit browsers */
+.info-popup-box::-webkit-scrollbar,
+.founder-popup-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.info-popup-box::-webkit-scrollbar-thumb,
+.founder-popup-box::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.building-photo-custom:hover,
+.parsonage-photo-custom:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.building-content-row,
+.parsonage-content-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  /* smaller than founders */
+  flex-wrap: nowrap;
+  /* force side-by-side layout */
+  margin-top: 20px;
+  min-height: 300px;
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.centered-popup {
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.building-info-container,
+.parsonage-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive override for small screens */
+@media (max-width: 768px) {
+
+  .building-content-row,
+  .parsonage-content-row {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .building-content-row .info-popup-box,
+  .parsonage-content-row .info-popup-box {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+    .info-popup-box {
+      margin-top: 20px;
+      width: 90%;
+      align-self: center;
+    }
 }
 
 /*ARCHIVE*/
