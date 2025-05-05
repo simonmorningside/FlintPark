@@ -10,6 +10,7 @@ export default function Archive() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [subjectFilter, setSubjectFilter] = useState("");
+  const [previewData, setPreviewData] = useState(null); // metadata + url
 
   const containerRef = useRef(null);
   const [visibleCount, setVisibleCount] = useState(50);
@@ -37,7 +38,7 @@ export default function Archive() {
 
           buffer += decoder.decode(value, { stream: true });
           const lines = buffer.split("\n");
-          buffer = lines.pop(); // carry over last partial line
+          buffer = lines.pop();
 
           for (let line of lines) {
             if (line.trim()) {
@@ -72,7 +73,6 @@ export default function Archive() {
     return () => controller.abort();
   }, []);
 
-  // Filtered items based on search and subject
   const filteredItems = pdfsWithMetadata.filter((pdf) => {
     const titleMatch = pdf.metadata?.Title.toLowerCase().includes(searchQuery.toLowerCase());
     const subject = pdf.metadata?.Subject || "";
@@ -80,12 +80,9 @@ export default function Archive() {
     return titleMatch && subjectMatch;
   });
 
-  // Infinite scroll logic
   const handleScroll = useCallback(() => {
     if (!containerRef.current) return;
-
     const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
-
     if (scrollTop + clientHeight >= scrollHeight - 300) {
       setVisibleCount((prev) => Math.min(prev + batchSize, filteredItems.length));
     }
@@ -101,7 +98,7 @@ export default function Archive() {
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-    setVisibleCount(50); // reset scroll on new query
+    setVisibleCount(50);
   };
 
   return (
@@ -119,7 +116,7 @@ export default function Archive() {
         />
       </div>
 
-      {/* Subject Dropdown */}
+      {/* Subject Filter Dropdown */}
       <div className="filter-container">
         <label htmlFor="subjectFilter">Filter by Subject:</label>
         <select
@@ -152,7 +149,7 @@ export default function Archive() {
       {/* No Matches */}
       {!loading && filteredItems.length === 0 && <p>No matching PDFs found</p>}
 
-      {/* Grid of PDFs */}
+      {/* PDF Cards */}
       <div className="grid-container">
         {(loading && pdfsWithMetadata.length === 0
           ? Array.from({ length: 25 })
@@ -160,14 +157,12 @@ export default function Archive() {
         ).map((pdf, index) =>
           pdf ? (
             <div className="grid-item" key={index}>
-              <a
-                href={pdf.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setPreviewData({ metadata: pdf.metadata, url: pdf.url })}
                 className="pdf-link-button"
               >
                 {pdf.metadata?.Title || pdf.name}
-              </a>
+              </button>
             </div>
           ) : (
             <div className="grid-item skeleton" key={`skeleton-${index}`}></div>
@@ -176,6 +171,27 @@ export default function Archive() {
       </div>
 
       {loading && <p style={{ textAlign: "center" }}>Loading more items...</p>}
+
+      {/* Preview Modal */}
+      {previewData && (
+        <div className="pdf-preview-overlay" onClick={() => setPreviewData(null)}>
+          <div className="pdf-preview-modal" onClick={(e) => e.stopPropagation()}>
+            <h3>{previewData.metadata.Title}</h3>
+            <p><strong>Identifier:</strong> {previewData.metadata.Identifier}</p>
+            <p><strong>Subject:</strong> {previewData.metadata.Subject}</p>
+            <a
+              href={previewData.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-block", marginTop: "1rem", fontWeight: "bold", color: "#0077cc" }}
+            >
+              View Full PDF
+            </a>
+            <br />
+            <button onClick={() => setPreviewData(null)} style={{ marginTop: "1rem" }}>Close</button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
