@@ -300,50 +300,6 @@ h1 {
   transform: scale(1.05);
 }
 
-/* Popup text box styling */
-.popup-text-box {
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translateY(-50%);
-  width: 300px;
-  height: 200px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  overflow-y: scroll;
-  z-index: 10;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.popup-header button {
-  background-color: #c5931e;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.popup-header button:hover {
-  background-color: #a47f1d;
-}
-
-/* Content of the popup */
-.popup-content {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
 /*ARCHIVE*/
 
 .archive-links {
