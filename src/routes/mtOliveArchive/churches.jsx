@@ -61,27 +61,40 @@ export default function Churches() {
 
   if (loading) return <div>Loading...</div>;
 
-  const founderInfo = [
-    { title: "Sarah Howard", description: "Founder and early host of Mt. Olive's gatherings." },
-    { title: "Rev. Clarence E. Lapp", description: "Provided spiritual support and formalized the church's name." }
+    const founderInfo = [
+    {
+      title: "Mrs. Sarah F. (Jackson) Howard",
+      description:
+        "Mrs. Sarah F. (Jackson) Howard (1856/8–1927) came to Flint in her early 20s from the Black settlement in Chatham, Ontario. She had gone to school in Chatham—an opportunity that had not been permitted to her mother, Moriah Jackson, who had fled slavery in Kentucky. In Flint, Sarah married Charles A. Howard, also of Ontario, in 1883, and they had a number of children. In 1886 and 1897, Sarah Howard purchased two lots on 9th Street, 507 and 509, with an empty lot between them. In 1911, she purchased the lot in between. In the first decade of the 20th century, Sarah Howard regularly hosted gatherings of neighbors and visiting ministers working to organize a Black Baptist mission on the Southside. One such minister was evangelist T. H. Morris from Detroit. By this time, Sarah Howard was a widow in her 50s with one surviving child, her daughter, Neta. The Mt. Olive community—as a collection of neighbors, a mission, and eventually a church—met at her home on 9th Street for most of a decade before a designated church building was acquired. Mrs. Sarah Howard lived at 507 and 509 E. 9th Street for 40 years until she died of thyroid cancer in 1927. She is buried at River Rest Cemetery."
+    },
+    {
+      title: "Rev. William Isaac Lyons",
+      description:
+        "William Isaac Lyons (1842–1911), an elder newly arrived from the Lansing area, preached in Flint’s Black Baptist community during the first five years of its existence. He was never the pastor of an organized church in Flint, but he realized the importance of a Baptist church to Black life and worked together with his neighbors and with First Baptist Church to organize a community that would, after his death, become Mt. Olive Missionary Baptist Church. Lyons had come to Flint in the 1890s in his early fifties with his third wife, Margaret Ryers Lyons. He had been born in 1842 or 1843 in Ontario, just across the Detroit River in Amherstburg or Malden Township, and had come across into Michigan in the 1860s. He and his first wife, Mahala Lang (1846–1879), made their home in rural Mason, Michigan, just south of Lansing. They raised a large family there, while he worked as a laborer and as a preacher in both AME and Baptist groups in and around Lansing. After Mahala’s death, Lyons married twice again, and when he moved to Flint, his adult children (and at least one of his brothers) remained in Mason. His brother, A. M. Lyons, and his sister, Helen Scoville, also moved to Flint. William Lyons’ parents, James and Moriah, had fled Kentucky and Virginia, respectively, and arrived in what was then called Upper Canada, still a British colony. They lived in the settlement in Gosfield South, now called Kingsville. It was a small settlement, but William was able to learn to read and write there in the late 1840s, while his older brothers had not. By the time he was 20, he had lost his father and was soon to reverse his parents’ migration and move to the United States, where slavery had been recently outlawed. His work as an AME and Baptist minister was called “traditional” in that the services he led were described as being of the “old time order with much singing and praying.” He became a member of the Free and Accepted Masons “colored lodge” of Lansing and the Knights of Pythias. Lyons lived and worked in Mason, Lansing, and Flint, but maintained strong ties to the Ontario settlements where he had been born. He was known to return to Kingsville to preach. Margaret Ryers, the wife with whom he moved to Flint, had been a neighbor in Gosfield and part of the Ryers family for whom the Black settlement was named. In 1896, decades after his emigration into Michigan, Lyons organized a celebration to commemorate Canadian Emancipation Day in Lansing and invited government officials to recognize the important connection between Michigan’s Black communities and Canadian history. By 1899, William Lyons had moved to Flint and was working as a laborer and a leader at the established AME and the emerging Baptist communities. In 1906, he was living on Lyon Street and preaching in the AME church when the regular pastor was absent. In 1909, he assisted the AME minister in a special week of services. By April of 1911, “Elder William Lyons” and Margaret lived at 1608 Pine Street, a property very near the locations of all three future Mt. Olive properties, and which would be occupied by a number of future Mt. Olive ministers. In 1911, the Flint Journal reported that Lyons was to speak at “Mt. Olive” in the home of Sarah Howard at 507 9th Street. He and Margaret had two daughters in Flint: Edna Lyons Jones (1890–1977) and Lena Lyons (1893–1905). As the Mt. Olive community was organizing a church of their own, the AME church served the family’s formal needs. They held the funeral for their daughter Lena at Quinn Chapel. William Lyons died of diabetes on May 4, 1911, at the age of 68 and is buried at the Old Flint Cemetery. His obituary describes him as one of the best-known “colored” men in the city of Flint and as a man who preached at the “colored Baptist mission on East 9th Street.” He did not have his own church in Flint, his obituary reports, but was engaged in the work of founding one. At the time of his death, his brothers and children were living in Mason, Cleveland, Flint, Lansing, and Windsor. His wife, Margaret, continued to live at 1608 Pine Street and took in boarders who were factory workers, domestics, or clergymen. She would marry Lee Martin from North Carolina in 1924 in Flint. She remained a member of Mt. Olive mission and church until her death in 1954. She is buried at River Rest."
+    }
   ];
 
   const buildingInfo = [
-    { title: "Original Church", description: "Constructed in 1910 with the help of the local community." },
-    { title: "Second Sanctuary", description: "Built after expansion in 1945 with updated brickwork." },
-    { title: "Modern Structure", description: "Current location, renovated in 1998 to include more space." }
+    {
+      title: "420 Center/Ward/12th St.", description: "The Mt. Olive Baptist Church Society purchased a piece of land from members James and Julia Johnson on a land contract for $130 that spanned March 29, 1910 to May 1, 1911. This property was on Center St., a location that would become 420 Ward St. They built a small wooden church building there, shown in this 1915 Sanborn map. The members were meeting at 420 Ward by late 1913. That building was damaged by a wind storm in 1915 and the group decided that rather than rebuild, it was time to move to a larger and more substantial building. Ward St. ran East/West between Pine and Liberty just south of 12th and was later straightened to become an extension of 12th. This property was very close to the site of the current church." },
+    {
+      title: "1601-3 Pine/Clifford St.", description: "In 1915, Mt. Olive purchased the Arbeiter Dance Hall at 1601 Pine St. (later Clifford St.) from the German Arbeiter Society (by way of the Elm Park Land Company) for an $8000 land contract (which may have included the use of their property at 420 Ward as a down payment). The site was listed for sale for $2500, but the need to purchase it on contract cost the church members more than triple the listed price. This building was dedicated on Sept 26, 1915. The building contained a large open auditorium space and a basement suitable for activities and is remembered by some senior members of Mt. Olive as “the old church.” The Arbeiter Society was a German-American Social club and support society that held meetings and social events in halls such as the one at the corner of Pine and 11th. (This organization owned a very similar hall in the Black Bottom of Detroit which they sold in 1916 claiming that that neighborhood was becoming increasingly African-American.) In 1920, Mt. Olive purchased the adjacent property at 1603 Clifford on contract from Leland and Garnett Wood. Mt. Olive would occupy this building until June 1950. In early 1955, a Black newspaper entitled The North Star was to be published out of 1601 Clifford St. From 1955 - 1957 Quinn Chapel used the building while they were constructing a new church, their building at 121 E. Seventh St. being demolished for the building of the Flint Administration buildings. (The value of Quinn Chapel’s property and buildings were appraised and they were compensated for $40,000. Their new church at Lippincott and McPhail would cost $200,000.)  In March 1957 Quinn Chapel congregants attended service in their new building for the first time and thirteen members of Mt. Olive purchased 1601 Clifford St. and started First Trinity Missionary Baptist Church there. From 1961-1969 the property served as Flint’s Black Muslim Mosque, Masjid Muhammad No 53, formerly known as the Nation of Islam. The Muslim community met at 1601 Clifford St. until it was demolished for the building of I-475; they then moved to a small white building at Buick and Gillespie streets where they operated for at least another decade." },
+    {
+      title: "424 E. Kennelworth", description: "A property known as “the old Taylor home-site” at the corner of Liberty and Kennelworth was acquired in 1944 for a new and larger church site. A building fund was begun under the leadership of Mrs. T.I. Wheeler and Mrs. Mark Hammond. Mt. Olive broke ground on their new sanctuary July 23, 1949. A year later, on June 10, 1950, the membership marched from 1601 Clifford St. to dedicate their new building at 424 East Kennelworth. The first unit of the new building contained a sanctuary with two lectionaries and a capacity of 400, a chapel, a pastor’s study, choir rooms, a cloak corridor, lavatories, a furnace room, and two robing rooms for candidates for baptism which could also serve as a sacristy and conference room. The sanctuary was completed Jan 17, 1953 and the cost of the structure, $68,000, was liquidated, with the last $20,000 being raised in two and a half years. The celebration of the completion of the sacristy project was led by Mrs. Evelyn McNeely and Mrs. E.C. Robinson. In September 1956, the members of Mt.Olive broke ground on the Educational Unit, slated to cost $100,000.The 9, 400 square foot new unit would include a large fellowship hall(to be dedicated as Turpin Hall Family Life Center ), a recreation room, 8 classrooms, a kitchen, a parlor, a nursery, a pastor’s study, and work and storage rooms. The architect was Walter Kloske and the contractor R. N Bruce. The expanded building was dedicated on November 24, 1957. The congregation retired the $200,000 mortgage for this building project in December 1959, just a year after completing the project. In 1988-89 under the leadership of Rev.Roy Greer, the sanctuary was expanded by an east wind and a high ceilinged narthex with stained glass windows, restrooms, and a sound booth.The brick exterior was coated with plaster; the air conditioning, carpeting and pews were updated, and an addition was added that housed additional classrooms, pastor’s offices, restrooms, a conference room, dressing rooms, and an elevator. In 1999 the multi- level Family Life Center was built at a price of $1.5 million.The Family Life Center serves as a recreation space and features a regulation - size basketball court, a commercial kitchen, 10 classrooms, and restrooms.That center was declared the Roy I.Greer Family Life Center in 2014." }
   ];
 
   const parsonageInfo = [
-    { title: "Early Parsonage", description: "Used by the first pastor and his family in the 1920s." },
-    { title: "Mid-century Home", description: "Provided housing for pastors during the 1950s–70s." },
-    { title: "Modern Parsonage", description: "Still in use today, renovated in 2015." }
+    {
+      title: "1520 Park St.", description: "On the next block north of the first parsonage, McKinney’s successor, Rev. Lewis Johnson lived at 1520 Park St. during 1929 and 1930. It is unknown if this house was owned by the church as a parsonage. No other Mt. Olive ministers are listed as living at this address after Rev. Johnson’s time." },
+    {
+      title: " 1613 Linwood Ave.", description: "This house on Linwood Ave. was purchased as a parsonage for Rev. Greer. After his passing in 2008, his successor Rev. Stewart lived there for some time." },
+    { title: "1608 Park St.", description: "During the ministry of Rev. Joseph Nicholas (1917-23), the church purchased 1608 Park St. Nicholas lived there for some time, and in 1928, Rev. Wade McKinney and his wife Ruth lived there. By the 1930s, the house seems to have moved out of the church’s hands." }
   ];
 
   const pastorNameTags = [
+    { name: "Rev. H.L. Dungy", id: "dungy" },
     { name: "Rev. D.L. Jackson", id: "jackson" },
     { name: "Rev. D.C. Adams", id: "adams" },
-    { name: "Rev. H.L. Dungy", id: "dungy" },
     { name: "Rev. A. Bolen", id: "bolen" },
     { name: "Rev. J.C. Nicholas", id: "nicholas" },
     { name: "Rev. W.H. McKinney", id: "mckinney" },
@@ -112,7 +125,7 @@ export default function Churches() {
       <section className="history-section">
         <div className="history-text">
           <p>
-            Mount Olive Missionary Baptist Church was founded in 1907 by a determined group of families committed to faith and fellowship in Flint’s Southside. These founders, many of whom were descendants of freedom seekers from Canada, began meeting at the home of Sarah Howard and quickly grew into a thriving congregation. With the support of Rev. Clarence E. Lapp of First Baptist Church, the mission formally became Mt. Olive and laid roots that continue to grow through generations. Their vision and legacy remain central to the life of the church today.
+            Mt. Olive, the oldest Black Baptist church in Flint, began as a series of organizing meetings in the home of founder Sarah F. Howard at 509 9th St. In those meetings, Howard and founder Rev. William Isaac Lyons (who proposed the name Mt. Olive) organized what the Flint Journal would call the “colored Baptist mission” in 1907. 
           </p>
           <Link to="history/" className="learn-more-link">Learn More...</Link>
         </div>
@@ -162,24 +175,46 @@ export default function Churches() {
                   <ChevronLeft />
                 </button>
 
-                <div className="founders-images" style={{ display: 'flex', gap: '10px' }}>
+                <div
+                  className="pastor-slideshow-container"
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
+                    gap: '10px',
+                  }}
+                >
                   {pastors.images.slice(startIndex, startIndex + imagesPerPage).map((image, i) => {
                     const globalIndex = startIndex + i;
                     const tag = pastorNameTags[globalIndex];
                     return (
-                      <div key={i} className="founder-box">
-                        <img src={image.url} alt="Pastor" className="pastor-photo" />
+                      <div
+                        key={i}
+                        className="pastor-image-wrapper"
+                        style={{
+                          flex: '1 1 200px',
+                          maxWidth: '250px',
+                          textAlign: 'center',
+                        }}
+                      >
+                        <img
+                          src={image.url}
+                          alt="Pastor"
+                          className="pastor-photo"
+                          style={{ width: '100%', height: 'auto' }}
+                        />
                         {tag ? (
                           <Link to={`/churches/pastors#${tag.id}`} className="founder-name-tag">
                             {tag.name}
                           </Link>
                         ) : (
-                          <div className="founder-name-tag">Pastor</div> // fallback
+                          <div className="founder-name-tag">Pastor</div>
                         )}
                       </div>
                     );
                   })}
                 </div>
+
 
                 <button
                   onClick={handleNext}
