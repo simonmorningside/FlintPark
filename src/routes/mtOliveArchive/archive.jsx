@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import "../../styles/index.css";
-import "../../fillerstylepageuntilwearesorted.css";
 import "../mtOliveArchive/mtOliveArchive.css";
 import "../../mtolivearchive.css";
 
