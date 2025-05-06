@@ -4,15 +4,26 @@ import "../../fillerstylepageuntilwearesorted.css";
 import "../mtOliveArchive/mtOliveArchive.css";
 import "../../mtolivearchive.css";
 
+function debounce(func, delay) {
+  let timer;
+  return (...args) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
 export default function Archive() {
   const [loading, setLoading] = useState(true);
   const [pdfsWithMetadata, setPdfsWithMetadata] = useState([]);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [subjectFilter, setSubjectFilter] = useState("");
-  const [previewData, setPreviewData] = useState(null); // metadata + url
+  const [previewData, setPreviewData] = useState(null);
 
-  const containerRef = useRef(null);
+  const containerRef = useRef(null);            // Scroll container
+  const gridContainerRef = useRef(null);        // Grid container (content that grows)
   const [visibleCount, setVisibleCount] = useState(50);
   const batchSize = 25;
 
@@ -74,19 +85,32 @@ export default function Archive() {
   }, []);
 
   const filteredItems = pdfsWithMetadata.filter((pdf) => {
-    const titleMatch = pdf.metadata?.Title.toLowerCase().includes(searchQuery.toLowerCase());
+    const titleMatch = pdf.metadata?.Title?.toLowerCase().includes(searchQuery.toLowerCase());
     const subject = pdf.metadata?.Subject || "";
     const subjectMatch = !subjectFilter || subject.toLowerCase().includes(subjectFilter.toLowerCase());
     return titleMatch && subjectMatch;
   });
 
-  const handleScroll = useCallback(() => {
-    if (!containerRef.current) return;
-    const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
-    if (scrollTop + clientHeight >= scrollHeight - 300) {
-      setVisibleCount((prev) => Math.min(prev + batchSize, filteredItems.length));
-    }
-  }, [filteredItems.length]);
+  const handleScroll = useCallback(
+    debounce(() => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      const nearBottom = scrollTop + clientHeight >= scrollHeight - 300;
+
+      if (nearBottom) {
+        setVisibleCount((prev) => {
+          const next = prev + batchSize;
+          if (next < pdfsWithMetadata.length) {
+            setTimeout(() => handleScroll(), 100);
+          }
+          return next;
+        });
+      }
+    }, 200),
+    [pdfsWithMetadata.length, batchSize]
+  );
 
   useEffect(() => {
     const container = containerRef.current;
@@ -96,16 +120,46 @@ export default function Archive() {
     }
   }, [handleScroll]);
 
+  // Backup effect: if new content rendered and user is already at bottom
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = container;
+    if (scrollTop + clientHeight >= scrollHeight - 10 && visibleCount < pdfsWithMetadata.length) {
+      setVisibleCount((prev) => prev + batchSize);
+    }
+  }, [filteredItems.length, visibleCount, pdfsWithMetadata.length]);
+
+  // ResizeObserver for grid growth
+  useEffect(() => {
+    const gridEl = gridContainerRef.current;
+    const containerEl = containerRef.current;
+    if (!gridEl || !containerEl) return;
+
+    const observer = new ResizeObserver(() => {
+      const { scrollTop, scrollHeight, clientHeight } = containerEl;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 10;
+      if (atBottom && visibleCount < pdfsWithMetadata.length) {
+        setVisibleCount((prev) => prev + batchSize);
+      }
+    });
+
+    observer.observe(gridEl);
+    return () => observer.disconnect();
+  }, [pdfsWithMetadata.length, visibleCount]);
+
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
     setVisibleCount(50);
   };
 
+  const filteredVisible = filteredItems.slice(0, visibleCount);
+
   return (
     <section className="archive-container" ref={containerRef} style={{ height: "80vh", overflowY: "scroll" }}>
       <h2>Church Events PDFs</h2>
 
-      {/* Search Input */}
       <div className="search-container">
         <input
           type="text"
@@ -116,7 +170,6 @@ export default function Archive() {
         />
       </div>
 
-      {/* Subject Filter Dropdown */}
       <div className="filter-container">
         <label htmlFor="subjectFilter">Filter by Subject:</label>
         <select
@@ -143,17 +196,13 @@ export default function Archive() {
         </select>
       </div>
 
-      {/* Error Message */}
       {error && <div>Error: {error}</div>}
+      {!loading && filteredVisible.length === 0 && <p>No matching PDFs found</p>}
 
-      {/* No Matches */}
-      {!loading && filteredItems.length === 0 && <p>No matching PDFs found</p>}
-
-      {/* PDF Cards */}
-      <div className="grid-container">
+      <div className="grid-container" ref={gridContainerRef}>
         {(loading && pdfsWithMetadata.length === 0
           ? Array.from({ length: 25 })
-          : filteredItems.slice(0, visibleCount)
+          : filteredVisible
         ).map((pdf, index) =>
           pdf ? (
             <div className="grid-item" key={index}>
@@ -172,7 +221,6 @@ export default function Archive() {
 
       {loading && <p style={{ textAlign: "center" }}>Loading more items...</p>}
 
-      {/* Preview Modal */}
       {previewData && (
         <div className="pdf-preview-overlay" onClick={() => setPreviewData(null)}>
           <div className="pdf-preview-modal" onClick={(e) => e.stopPropagation()}>
