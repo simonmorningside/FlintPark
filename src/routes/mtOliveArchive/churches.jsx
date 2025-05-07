@@ -7,7 +7,6 @@ import '../mtOliveArchive/mtOliveArchive.css';
 import '../../mtolivearchive.css';
 
 export default function Churches() {
-  const [loading, setLoading] = useState(true);
   const [media, setMedia] = useState({ images: [], videos: [] });
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
@@ -26,8 +25,6 @@ export default function Churches() {
         setMedia(data);
       } catch (error) {
         console.error('Error fetching media:', error);
-      } finally {
-        setLoading(false);
       }
     };
     fetchMedia();
@@ -39,6 +36,9 @@ export default function Churches() {
         const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pastors');
         if (!response.ok) throw new Error('Failed to fetch media data');
         const data = await response.json();
+  
+        console.log('Fetched data:', data); // 👈 Add this line to inspect the full response
+  
         setPastors({ images: selectedImageIndices.map(index => data.images[index]).filter(Boolean) });
       } catch (error) {
         console.error('Error fetching media:', error);
@@ -46,7 +46,7 @@ export default function Churches() {
     };
     fetchPastors();
   }, []);
-
+  
   const handleNext = () => {
     if (startIndex + imagesPerPage < pastors.images.length) {
       setStartIndex(startIndex + imagesPerPage);
@@ -58,9 +58,7 @@ export default function Churches() {
       setStartIndex(startIndex - imagesPerPage);
     }
   };
-
-  if (loading) return <div>Loading...</div>;
-
+  
     const founderInfo = [
     {
       title: "Mrs. Sarah F. (Jackson) Howard",
