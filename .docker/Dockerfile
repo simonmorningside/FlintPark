@@ -1,22 +1,13 @@
-# Stage 1: Build the Vite app
-FROM node:18-alpine AS build
+# Use standard nginx with gzip support
+FROM nginx:alpine
 
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy the rest of the application code
-COPY . .
-
-# Stage 2: Serve the app with Nginx and Brotli support
-FROM fholzer/nginx-brotli:v1.12.2
-
-# Set the working directory to Nginx config directory
+# Copy custom nginx config that listens on port 8080
 WORKDIR /etc/nginx
-ADD nginx.conf /etc/nginx/nginx.conf
-# Copy the built Vite app from the build stage
-COPY --from=build /app/dist /usr/share/nginx/html
-# Expose port 8080 (or 80 if desired)
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy prebuilt Vite app (will be provided by GitHub Actions)
+COPY dist /usr/share/nginx/html
+
 EXPOSE 8080
 
-# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
