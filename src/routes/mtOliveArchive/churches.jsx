@@ -20,7 +20,7 @@ export default function Churches() {
   useEffect(() => {
     const updateImagesPerPage = () => {
       if (window.innerWidth < 640) {
-        setImagesPerPage(2);
+        setImagesPerPage(1);
       } else {
         setImagesPerPage(3); // or however many you want on large screens
       }
@@ -168,7 +168,7 @@ export default function Churches() {
               <div className="founders-info-container">
                 <div className="founders-content-row">
                   <div className="founders-images">
-                    {[18, 0].map((idx, i) => (
+                    {[18, 0, 0].map((idx, i) => (
                       media.images[idx] && (
                         <div className="founder-box" key={i}>
                           <img

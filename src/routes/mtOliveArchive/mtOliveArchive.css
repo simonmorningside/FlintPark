@@ -357,7 +357,7 @@ h1 {
 /* Styling for the images */
 .founders-images {
   display: flex;
-  gap: 20px;
+  gap: 5px;
 }
 
 .founder-photo {
@@ -372,14 +372,14 @@ h1 {
   align-items: center;
   gap: 120px;
   margin-top: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   min-height: 320px;
 }
 
 .founders-content-row {
   display: flex;
   align-items: center;
-  gap: 120px;
+  gap: 50px;
   flex-wrap: wrap;
   margin-top: 20px;
   min-height: 320px;
@@ -389,7 +389,7 @@ h1 {
   display: flex;
   align-items: center;
   /* centers vertically */
-  gap: 60px;
+  gap: 2s0px;
   margin-top: 20px;
   flex-wrap: wrap;
   min-height: 320px;
@@ -399,12 +399,35 @@ h1 {
 .founder-popup-box {
   border: 2px solid #4b5c09;
   padding: 20px;
-  width: 300px;
+  width: 200px;
   background-color: #fff;
   border-radius: 8px;
   font-size: 14px;
   color: #273e06;
   flex-shrink: 0;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .founders-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .founders-content-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .founder-box {
+    width: 45%;
+    max-width: 180px;
+  }
+
+  .founder-popup-box {
+    width: 90%;
+    margin-top: 20px;
+  }
 }
 
 .founder-placeholder {
@@ -464,16 +487,73 @@ h1 {
   color: white;
 }
 
+
 @media (max-width: 768px) {
+  .founders-info-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .founders-content-row {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .founders-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .founder-box {
+    width: 40%;
+    max-width: 140px;
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .founder-photo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+
+  .founder-name-tag {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    text-align: center;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .founder-popup-box {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     align-self: center;
-    width: 90%;
+  }
+
+  .founder-placeholder {
+    font-style: italic;
+    color: #666;
+    text-align: center;
   }
 }
 
