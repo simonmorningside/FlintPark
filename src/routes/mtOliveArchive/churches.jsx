@@ -92,15 +92,15 @@ export default function Churches() {
   ];
 
   const pastorNameTags = [
-    { name: "Rev. H.L. Dungy", id: "dungy" },
-    { name: "Rev. D.L. Jackson", id: "jackson" },
-    { name: "Rev. D.C. Adams", id: "adams" },
-    { name: "Rev. A. Bolen", id: "bolen" },
-    { name: "Rev. J.C. Nicholas", id: "nicholas" },
-    { name: "Rev. W.H. McKinney", id: "mckinney" },
-    { name: "Rev. R.R. Turpin", id: "turpin" },
-    { name: "Rev. R.I. Greer Jr.", id: "greer" },
-    { name: "Rev. M. Stewart", id: "stewart" }
+    { name: "Rev. Jevon Quintrell Catlett", id: "dungy" },
+    { name: "Rev. Ronald Wilson, interim", id: "jackson" },
+    { name: "Rev. Dr. Major Adam Stewart", id: "adams" },
+    { name: "Rev. Roosevelt Austin", id: "bolen" },
+    { name: "Rev. Dr. Roy Ivory Greer Jr.", id: "nicholas" },
+    { name: "Rev. Robert Roscoe Turpin", id: "mckinney" },
+    { name: "Rev. Edgar James Timmons", id: "turpin" },
+    { name: "Rev. Junius H. Thomas", id: "greer" },
+    { name: "Rev. Paschall Lee Sanders / Saunders", id: "stewart" }
   ];
 
   return (
