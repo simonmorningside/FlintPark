@@ -1,0 +1,464 @@
+
+/*ARCHIVE*/
+
+.archive-wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    padding-top: 40px;
+    background-color: #FFFDD0;
+    /* ivory background */
+}
+
+.archive-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.archive-links {
+    max-width: 1200px;
+    margin: 40px auto 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fdfaf2;
+    /* off-white for subtle separation */
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.grid-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    min-width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out, background-color 0.2s;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #273e06;
+    background-color: #fff;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    background-color: #edc211;
+    color: white;
+}
+
+.grid-item a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 1.2;
+}
+
+.header,
+.history-title {
+    text-align: center;
+    color: #4b5c09;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #edc211;
+    margin-bottom: 30px;
+}
+
+.filter-search-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* space between filter and search */
+    margin-bottom: 30px;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.subject-dropdown,
+.search-input {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 250px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Ensure images resize properly on smaller screens */
+.placeholder-image,
+.pastor-photo,
+.building-photo,
+.parsonage-photo,
+.founder-photo {
+    max-width: 200px;
+    max-height: 250px;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.history-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+}
+
+.history-link:hover {
+    text-decoration: underline;
+}
+
+.page-container {
+    padding: 0px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.links-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Space between the links */
+    margin-bottom: 20px;
+    /* Space between links and images */
+}
+
+.event-link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #edc211;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.event-link:hover {
+    background-color: #edc211;
+    color: white;
+}
+
+.content-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Creates 4 equal columns */
+    gap: 15px;
+    /* Adds space between the images */
+    justify-items: center;
+    text-align: center;
+}
+
+.placeholder-image {
+    width: 150px;
+    /* You can adjust this size based on your preference */
+    height: 150px;
+    /* You can adjust this size based on your preference */
+    object-fit: cover;
+    /* Ensures the image maintains its aspect ratio */
+}
+
+.history-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
+
+.history-link:hover {
+    text-decoration: underline;
+}
+
+.obituaries {
+    text-align: center;
+    padding: 20px;
+}
+
+.pdf-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pdf-link {
+    display: block;
+    padding: 10px 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.pdf-link:hover {
+    background-color: #e0e0e0;
+}
+
+.graduations {
+    text-align: center;
+    padding: 20px;
+}
+
+.pdf-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pdf-link {
+    display: block;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.pdf-link:hover {
+    background-color: #ddd;
+}
+
+.birthdays {
+    text-align: center;
+    padding: 20px;
+}
+
+.pdf-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pdf-link {
+    display: block;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #273e06;
+    font-weight: bold;
+}
+
+.pdf-link:hover {
+    background-color: #ddd;
+}
+
+.pastor-photo {
+    width: 200px;
+    height: 250px;
+    margin: 25px 0px 0px 25px;
+}
+
+.building-photo {
+    width: 20%;
+    height: auto;
+    margin: 25px 0px 0px 25px;
+}
+
+.parsonage-photo {
+    width: 28%;
+    height: 250px;
+    margin: 25px 0px 0px 25px;
+}
+
+.archive-link-styling {
+    text-decoration: underline;
+    color: #273e06;
+}
+
+.archive-links {
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+}
+
+.archive-link-styling:hover {
+    text-decoration: none;
+    color: #edc211;
+}
+
+.block-style {
+    width: 25%;
+    height: auto;
+    color: #273e06;
+}
+
+/* Start of styling for the History Page*/
+
+.history-title {
+    text-align: center;
+    font-size: 2em;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    color: #4b5c09;
+    width: 100%;
+    height: auto;
+}
+
+.history-header {
+    text-align: left;
+    font-size: 1.5em;
+    color: #4b5c09;
+    justify-content: left;
+    background-color: #FFFDD0;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.history-header p {
+    text-align: left;
+    font-size: .75em;
+    color: #4b5c09;
+    justify-content: left;
+}
+
+/* start of mock pastor page*/
+
+.pastor-page-text {
+    text-align: left;
+    font-size: 1.5em;
+}
+
+/* founder portion css*/
+
+.founder-photo {
+    width: 225px;
+    height: 300px;
+    margin: 25px 0px 0px 25px;
+}
+
+/*MOBILE SCREENS*/
+/* Improve layout for smaller screens */
+@media (max-width: 768px) {
+    .church-nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: #fbb03b;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .church-nav-links.open {
+        display: flex;
+        /* Show when menu is toggled */
+    }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 24px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+/* Further adjustments for mobile screens */
+@media (max-width: 480px) {
+    .content-section {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        /* Adjust columns for mobile */
+    }
+
+    .church-nav-links {
+        gap: 10px;
+    }
+
+    .header,
+    .history-title {
+        font-size: 1.5em;
+    }
+
+    .pdf-image {
+        width: 225px;
+        height: 300px;
+    }
+
+    .archive-lists {
+        flex: 1;
+        max-width: 30%;
+        ;
+    }
+
+    .archive-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 25%;
+        padding-top: 25px;
+    }
+}
+
+.pastor-timeline {
+    background: white;
+    padding: 15px;
+}
+
+.pdf-preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pdf-preview-modal {
+    background: #000000;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}

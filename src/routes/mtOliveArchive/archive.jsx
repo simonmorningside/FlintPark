@@ -1,8 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from "react";
-import "../../styles/index.css";
-import "../../fillerstylepageuntilwearesorted.css";
-import "../mtOliveArchive/mtOliveArchive.css";
-import "../../mtolivearchive.css";
+import "../mtOliveArchive/archive.css";
+
 
 export default function Archive() {
   const [loading, setLoading] = useState(true);
@@ -102,11 +100,12 @@ export default function Archive() {
   };
 
   return (
+    <div className="archive-wrapper">
     <section className="archive-container" ref={containerRef} style={{ height: "80vh", overflowY: "scroll" }}>
       <h2>Church Events PDFs</h2>
 
       {/* Search Input */}
-      <div className="search-container">
+      <div className="filer-container"><div className="search-container">
         <input
           type="text"
           placeholder="Search PDFs by Title..."
@@ -115,19 +114,20 @@ export default function Archive() {
           className="search-input"
         />
       </div>
+        </div>
 
       {/* Subject Filter Dropdown */}
-      <div className="filter-container">
-        <label htmlFor="subjectFilter">Filter by Subject:</label>
-        <select
-          id="subjectFilter"
-          value={subjectFilter}
-          onChange={(e) => {
-            setSubjectFilter(e.target.value);
-            setVisibleCount(50);
-          }}
-          className="subject-dropdown"
-        >
+        <div className="filter-container">
+          <label htmlFor="subjectFilter" className="filter-label">Filter by Subject:</label>
+          <select
+            id="subjectFilter"
+            value={subjectFilter}
+            onChange={(e) => {
+              setSubjectFilter(e.target.value);
+              setVisibleCount(50);
+            }}
+            className="subject-dropdown"
+          >
           <option value="">All Subjects</option>
           <option value="Anniversary">Anniversary</option>
           <option value="newsletter">Newsletter</option>
@@ -193,5 +193,6 @@ export default function Archive() {
         </div>
       )}
     </section>
+    </div>
   );
 }
