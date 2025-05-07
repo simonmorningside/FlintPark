@@ -5,18 +5,32 @@ import '../../styles/index.css';
 import '../../fillerstylepageuntilwearesorted.css';
 import '../mtOliveArchive/mtOliveArchive.css';
 import '../../mtolivearchive.css';
+//import thumbnail from '../../images/.png';
 
 export default function Churches() {
   const [loading, setLoading] = useState(true);
   const [media, setMedia] = useState({ images: [], videos: [] });
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
-  const imagesPerPage = 3;
+  const [imagesPerPage, setImagesPerPage] = useState(3); // default
   const selectedImageIndices = [32, 35, 36, 7, 40, 13, 17, 9, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
   const [selectedFounderIndex, setSelectedFounderIndex] = useState(null);
   const [selectedBuildingIndex, setSelectedBuildingIndex] = useState(null);
   const [selectedParsonageIndex, setSelectedParsonageIndex] = useState(null);
 
+  useEffect(() => {
+    const updateImagesPerPage = () => {
+      if (window.innerWidth < 640) {
+        setImagesPerPage(2);
+      } else {
+        setImagesPerPage(3); // or however many you want on large screens
+      }
+    };
+
+    updateImagesPerPage();
+    window.addEventListener('resize', updateImagesPerPage);
+    return () => window.removeEventListener('resize', updateImagesPerPage);
+  }, []);
   useEffect(() => {
     const fetchMedia = async () => {
       try {
@@ -130,7 +144,7 @@ export default function Churches() {
             <h1>History of Mount Olive Missionary Baptist Church</h1>
             <section className="header-text">
               <div className="video-header">
-                <video controls src={media.videos[0]?.url} className="church-video" />
+                <video controls src={media.videos[0]?.url} className="church-video" poster=''/>
               </div>
             </section>
           </div>
@@ -302,7 +316,12 @@ export default function Churches() {
                 ].map((group, i) => (
                   <p key={i} className="block-style">
                     <Link to={'archive/'} className="archive-link-styling">{group[0]}</Link><br />
-                    {group.slice(1).map((item, j) => <>{item}<br key={j} /></>)}
+                    <ul className="archive-sublist">
+                      {group.slice(1).map((item, j) => (
+                        <li key={j} style={{ marginBottom: '4px', listStyleType: 'circle' }}>{item}</li>
+                      ))}
+                    </ul>
+
                   </p>
                 ))}
               </div>
