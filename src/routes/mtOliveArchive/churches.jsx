@@ -8,12 +8,11 @@ import '../../mtolivearchive.css';
 //import thumbnail from '../../images/.png';
 
 export default function Churches() {
-  const [loading, setLoading] = useState(true);
   const [media, setMedia] = useState({ images: [], videos: [] });
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
   const [imagesPerPage, setImagesPerPage] = useState(3); // default
-  const selectedImageIndices = [32, 35, 36, 7, 40, 13, 17, 9, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+  const selectedImageIndices = [5, 35, 9, 43, 16, 13, 40, 50, 51, 52, 49, 46, 7, 53, 19, 10, 45, 1, 48, 47];
   const [selectedFounderIndex, setSelectedFounderIndex] = useState(null);
   const [selectedBuildingIndex, setSelectedBuildingIndex] = useState(null);
   const [selectedParsonageIndex, setSelectedParsonageIndex] = useState(null);
@@ -40,8 +39,6 @@ export default function Churches() {
         setMedia(data);
       } catch (error) {
         console.error('Error fetching media:', error);
-      } finally {
-        setLoading(false);
       }
     };
     fetchMedia();
@@ -53,6 +50,9 @@ export default function Churches() {
         const response = await fetch('https://floral-park-webserver-861401374674.us-central1.run.app/api/pastors');
         if (!response.ok) throw new Error('Failed to fetch media data');
         const data = await response.json();
+  
+        console.log('Fetched data:', data); // 👈 Add this line to inspect the full response
+  
         setPastors({ images: selectedImageIndices.map(index => data.images[index]).filter(Boolean) });
       } catch (error) {
         console.error('Error fetching media:', error);
@@ -60,7 +60,7 @@ export default function Churches() {
     };
     fetchPastors();
   }, []);
-
+  
   const handleNext = () => {
     if (startIndex + imagesPerPage < pastors.images.length) {
       setStartIndex(startIndex + imagesPerPage);
@@ -72,9 +72,7 @@ export default function Churches() {
       setStartIndex(startIndex - imagesPerPage);
     }
   };
-
-  if (loading) return <div>Loading...</div>;
-
+  
     const founderInfo = [
     {
       title: "Mrs. Sarah F. (Jackson) Howard",
