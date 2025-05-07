@@ -1,5 +1,5 @@
 # Stage 1: Build the Vite app
-FROM node:23-alpine AS build
+FROM node:18-alpine AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -7,9 +7,9 @@ WORKDIR /app
 # Copy the rest of the application code
 COPY . .
 
-FROM fholzer/nginx-brotli:latest
-
 # Stage 2: Serve the app with Nginx and Brotli support
+FROM fholzer/nginx-brotli:v1.12.2
+
 # Set the working directory to Nginx config directory
 WORKDIR /etc/nginx
 ADD nginx.conf /etc/nginx/nginx.conf
