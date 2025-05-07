@@ -1,11 +1,17 @@
-# Serve pre-built Vite app using serve
+# Stage 1: Build Vite app
+FROM node:18-alpine AS build
+
+WORKDIR /app
+COPY . .
+RUN npm install
+
+# Stage 2: Serve static site
 FROM node:18-alpine
 
 WORKDIR /app
 RUN npm install -g serve
 
-# dist/ will be copied here by GitHub Actions
-COPY dist /app
+COPY --from=build /app/dist .
 
 ENV PORT=8080
 EXPOSE 8080
