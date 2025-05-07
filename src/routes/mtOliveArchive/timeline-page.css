@@ -14,7 +14,7 @@
 .vertical-timeline::before {
     background: #7C2529;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-80%);
 }
 
 /* Make year text big and centered */
