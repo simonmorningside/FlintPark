@@ -1,17 +1,21 @@
-# Use prebuilt Nginx with Brotli
-FROM fholzer/nginx-brotli:v1.26.2
+# Build Stage
+FROM node:18-alpine AS build
 
-# Set working directory for Nginx config
-WORKDIR /etc/nginx
+WORKDIR /app
+COPY . .
+RUN npm install && npm run build
 
-# Use your custom Nginx config (make sure it's present in `.docker/nginx.conf`)
-ADD nginx.conf /etc/nginx/nginx.conf
+# Serve Stage
+FROM node:18-alpine
 
-# Copy React build from GitHub Actions artifact
-COPY dist /usr/share/nginx/html
+WORKDIR /app
+RUN npm install -g serve
 
-# Expose port for Cloud Run
+# Copy static build from previous stage
+COPY --from=build /app/dist .
+
+# Cloud Run expects the server to listen on $PORT
+ENV PORT 8080
 EXPOSE 8080
 
-# Start Nginx in foreground for Cloud Run compatibility
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["serve", "-s", ".", "-l", "8080"]
