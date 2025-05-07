@@ -1,13 +1,17 @@
-# Use standard nginx with gzip support
-FROM nginx:alpine
+# Use prebuilt Nginx with Brotli
+FROM fholzer/nginx-brotli:v1.26.2
 
-# Copy custom nginx config that listens on port 8080
+# Set working directory for Nginx config
 WORKDIR /etc/nginx
-COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copy prebuilt Vite app (will be provided by GitHub Actions)
+# Use your custom Nginx config (make sure it's present in `.docker/nginx.conf`)
+ADD nginx.conf /etc/nginx/nginx.conf
+
+# Copy React build from GitHub Actions artifact
 COPY dist /usr/share/nginx/html
 
+# Expose port for Cloud Run
 EXPOSE 8080
 
+# Start Nginx in foreground for Cloud Run compatibility
 CMD ["nginx", "-g", "daemon off;"]

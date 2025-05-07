@@ -19,64 +19,64 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js (NPM)
+        uses: actions/setup-node@v3
         with:
           node-version: '18.18'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install Dependencies (Clean)
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --ignore-scripts
+          npm rebuild @swc/core --force
+        env:
+          CI: true
 
-      - name: Rebuild Native Modules (Optional)
-        run: npm rebuild @swc/core --force
-
-      - name: Build App
+      - name: Build Development
         run: npm run build
 
-      - name: Upload dist folder
-        uses: actions/upload-artifact@v4
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist
 
   deploy-gcr:
-    name: Deploy to Google Cloud Run
+    name: Deploy to GCR
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo (for Dockerfile & nginx.conf)
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Download dist artifact
-        uses: actions/download-artifact@v4
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
         with:
           name: dist
           path: .docker/dist
 
-      - name: Debug .docker contents
-        run: ls -R .docker
-
       - name: Setup GCloud Auth
+        id: auth
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GCR_SA_KEY }}
 
-      - name: Setup Google Cloud SDK
+      - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
       - name: Build & Push to GCR
         run: |
           gcloud builds submit \
-            --tag "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA" \
-            --quiet
+            --quiet \
+            --tag "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA"
         working-directory: .docker
 
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy "$SERVICE_NAME" \
-            --image "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA" \
-            --platform managed \
+            --quiet \
             --region "$RUN_REGION" \
-            --allow-unauthenticated \
-            --quiet
+            --image "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA" \
+            --platform "managed" \
+            --allow-unauthenticated
