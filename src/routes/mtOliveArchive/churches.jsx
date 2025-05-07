@@ -12,7 +12,7 @@ export default function Churches() {
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
   const [imagesPerPage, setImagesPerPage] = useState(3); // default
-  const selectedImageIndices = [32, 35, 36, 7, 40, 13, 17, 9, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+  const selectedImageIndices = [5, 35, 9, 43, 16, 13, 40, 50, 51, 52, 49, 46, 7, 53, 19, 10, 45, 1, 48, 47];
   const [selectedFounderIndex, setSelectedFounderIndex] = useState(null);
   const [selectedBuildingIndex, setSelectedBuildingIndex] = useState(null);
   const [selectedParsonageIndex, setSelectedParsonageIndex] = useState(null);
