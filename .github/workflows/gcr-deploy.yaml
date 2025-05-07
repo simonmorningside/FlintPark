@@ -1,5 +1,5 @@
 name: Google Cloud Run Deploy
-# https://github.com/google-github-actions/setup-gcloud
+
 on:
   push:
     branches:
@@ -17,37 +17,24 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
 
       - name: Setup Node.js (NPM)
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v4
         with:
           node-version: '18.18'
 
-      - name: Use cached node_modules
-        uses: actions/cache@master
-        with:
-          path: node_modules
-          key: nodeModules-${{ hashFiles('**/package.lock') }}
-          restore-keys: |
-            nodeModules-
-
       - name: Install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install --frozen-lockfile
-        env:
-          CI: true
+        run: npm ci
 
-      # Rebuild @swc/core to fix native binding error
       - name: Rebuild Native Modules
         run: npm rebuild @swc/core --force
 
-      - name: Build Development
+      - name: Build for Production
         run: npm run build
 
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
@@ -59,36 +46,31 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
 
       - name: Download Artifact
-        uses: actions/download-artifact@main
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: .docker/dist
 
       - name: Setup GCloud Auth
-        id: auth
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GCR_SA_KEY }}
 
       - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v2.1.2
+        uses: google-github-actions/setup-gcloud@v2
 
-      # Build and push image to Google Container Registry
       - name: Build & Push
-        run: |-
+        run: |
           gcloud builds submit \
-            --quiet \
             --tag "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA"
         working-directory: .docker
 
-      # Deploy image to Cloud Run
       - name: Deploy GCR
-        run: |-
+        run: |
           gcloud run deploy "$SERVICE_NAME" \
-            --quiet \
             --region "$RUN_REGION" \
             --image "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA" \
             --platform "managed" \
