@@ -1,21 +1,13 @@
-# Build Stage
-FROM node:18-alpine AS build
-
-WORKDIR /app
-COPY . .
-RUN npm install && npm run build
-
-# Serve Stage
+# Serve pre-built Vite app using serve
 FROM node:18-alpine
 
 WORKDIR /app
 RUN npm install -g serve
 
-# Copy static build from previous stage
-COPY --from=build /app/dist .
+# dist/ will be copied here by GitHub Actions
+COPY dist /app
 
-# Cloud Run expects the server to listen on $PORT
-ENV PORT 8080
+ENV PORT=8080
 EXPOSE 8080
 
 CMD ["serve", "-s", ".", "-l", "8080"]
