@@ -36,7 +36,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="2019-Present"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Jevon Quintrell Catlett</h3>
             <p>
@@ -52,7 +52,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="2017"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Ronald Wilson, interim</h3>
             <p>
@@ -64,7 +64,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="2010-2016"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Dr. Major Adam Stewart</h3>
             <p>
@@ -76,7 +76,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="2009"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Roosevelt Austin, interim</h3>
             <p>
@@ -88,7 +88,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="1972-2008"
-            iconStyle={{ background: 'rgb(75, 19, 19)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Dr. Roy Ivory Greer Jr.</h3>
             <p>
@@ -105,7 +105,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="1939-1972"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Robert Roscoe Turpin</h3>
             <p>
@@ -128,7 +128,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="1937-1939"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Edgar James Timmons</h3>
             <p>
@@ -140,7 +140,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="1934-1937"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Junius H. Thomas</h3>
             <p>
@@ -152,7 +152,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="1932-1933"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Paschall Lee Sanders / Saunders</h3>
             <p>
@@ -164,7 +164,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           date="1931-1932"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. W.S. Winston, visiting</h3>
           <p>
@@ -177,7 +177,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           date="1931-1932"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. Elbert L. Todd</h3>
           <p>
@@ -190,7 +190,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           date="1930"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. C.A. Pugh, visiting</h3>
           <p>
@@ -203,7 +203,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           date="1928-1930"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. Louis Robert Webster Johnson</h3>
           <p>
@@ -218,7 +218,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           date="1928"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">William M. Epps, interim</h3>
           <p>
@@ -231,7 +231,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
             date="1923-1929"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. Wade Hampton McKinney</h3>
           <p>
@@ -251,7 +251,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
             date="1917-1923"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. Joseph Caldwell Nicholas</h3>
           <p>
@@ -265,7 +265,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           date="Unknown"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. Bolen</h3>
           <p>
@@ -278,7 +278,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
             date="1914-1918"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. Herbert Leslie Dungy</h3>
           <p>
@@ -293,7 +293,7 @@ export default function Timeline() {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
             date="1912-1914"
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
         >
             <h3 className="vertical-timeline-element-title">Rev. David C. Adams</h3>
           <p>
@@ -306,7 +306,7 @@ export default function Timeline() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             date="1910"
-            iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+            iconStyle={{ background: '#7C2529', color: '#fff' }}
           >
             <h3 className="vertical-timeline-element-title">Rev. Daniel L. Jackson</h3>
             <p>

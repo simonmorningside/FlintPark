@@ -11,8 +11,8 @@ export default function Churches() {
   const [media, setMedia] = useState({ images: [], videos: [] });
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
-  const imagesPerPage = 4;
-  const selectedImageIndices = [32, 35, 36, 7, 40, 13, 17, 9, 5];
+  const imagesPerPage = 3;
+  const selectedImageIndices = [32, 35, 36, 7, 40, 13, 17, 9, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
   const [selectedFounderIndex, setSelectedFounderIndex] = useState(null);
   const [selectedBuildingIndex, setSelectedBuildingIndex] = useState(null);
   const [selectedParsonageIndex, setSelectedParsonageIndex] = useState(null);
@@ -220,11 +220,11 @@ export default function Churches() {
                           style={{ width: '100%', height: 'auto' }}
                         />
                         {tag ? (
-                          <Link to={`/churches/pastors#${tag.id}`} className="founder-name-tag">
+                          <Link to={`/churches/pastors#${tag.id}`} className="pastor-name-tag">
                             {tag.name}
                           </Link>
                         ) : (
-                          <div className="founder-name-tag">Pastor</div>
+                          <div className="pastor-name-tag">Pastor</div>
                         )}
                       </div>
                     );
