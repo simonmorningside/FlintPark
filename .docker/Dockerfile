@@ -1,17 +1,10 @@
-# Stage 1: Build Vite app
-FROM node:18-alpine AS build
-
-WORKDIR /app
-COPY . .
-RUN npm install
-
-# Stage 2: Serve static site
+# Use Node-based static file server
 FROM node:18-alpine
 
 WORKDIR /app
 RUN npm install -g serve
 
-COPY --from=build /app/dist .
+COPY dist /app
 
 ENV PORT=8080
 EXPOSE 8080
