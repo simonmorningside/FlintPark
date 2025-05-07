@@ -55,6 +55,10 @@
     color: #222;
 }
 
+.vertical-timeline-element-content p {
+    text-align: left;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .vertical-timeline-element-date {
