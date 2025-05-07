@@ -100,17 +100,17 @@ export default function Churches() {
     { name: "Rev. Robert Roscoe Turpin", id: "robert" },
     { name: "Rev. Edgar James Timmons", id: "edgar" },
     { name: "Rev. Junius H. Thomas", id: "junius" },
-    { name: "Rev. Paschall Lee Sanders / Saunders", id: "paschall" }
-    { name: "Rev. W.S. Winston, visiting", id: "winston" }
-    { name: "Rev. Elbert L. Todd", id: "elbert" }
-    { name: "Rev. C.A. Pugh", id: "pugh" }
-    { name: "Rev. Louis Robert Webster Johnson", id: "louis" }
-    { name: "William M. Epps", id: "william" }
-    { name: "Rev. Wade Hampton McKinney", id: "wade" }
-    { name: "Rev. Joseph Caldwell Nicholas", id: "joseph" }
-    { name: "Rev. Bolen", id: "bolen" }
-    { name: "Rev. Herbert Leslie Dungy", id: "herbert" }
-    { name: "Rev. David C. Adams", id: "david" }
+    { name: "Rev. Paschall Lee Sanders / Saunders", id: "paschall" },
+    { name: "Rev. W.S. Winston, visiting", id: "winston" },
+    { name: "Rev. Elbert L. Todd", id: "elbert" },
+    { name: "Rev. C.A. Pugh", id: "pugh" },
+    { name: "Rev. Louis Robert Webster Johnson", id: "louis" },
+    { name: "William M. Epps", id: "william" },
+    { name: "Rev. Wade Hampton McKinney", id: "wade" },
+    { name: "Rev. Joseph Caldwell Nicholas", id: "joseph" },
+    { name: "Rev. Bolen", id: "bolen" },
+    { name: "Rev. Herbert Leslie Dungy", id: "herbert" },
+    { name: "Rev. David C. Adams", id: "david" },
     { name: "Rev. Daniel L. Jackson", id: "daniel" }
   ];
 
