@@ -2,7 +2,7 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 COPY . .
-RUN npm install && npm run build
+RUN npm install
 
 # Stage 2: Serve with Brotli-enabled Nginx
 FROM fholzer/nginx-brotli:latest
