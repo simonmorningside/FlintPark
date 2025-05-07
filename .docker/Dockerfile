@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Stage 2: Serve the app with Nginx and Brotli support
-FROM fholzer/nginx-brotli:v1.12.2
+FROM fholzer/nginx-brotli:v1.26.2
 
 # Set the working directory to Nginx config directory
 WORKDIR /etc/nginx
