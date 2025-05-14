@@ -33,15 +33,9 @@ export default function Churchesnavbar() {
     <>
       <nav className="church-top-nav">
         {/* Logo Section */}
-        <div className="logo-container">
+        <div>
           <Link to="/churches">
-            {media.images.length > 0 && (
-              <img
-                src={media.images[8].url}
-                alt="Church Logo"
-                className="nav-church-logo"
-              />
-            )}
+            <h1 className="navbartext">History of Mount Olive Missionary Baptist Church</h1>
           </Link>
         </div>
 

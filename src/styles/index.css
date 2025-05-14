@@ -89,3 +89,10 @@ nav ul {
     background-color: #f9f9f9;
   }
 }
+
+.navbartext {
+  color: #f7f7f7;
+  font-size: 1.2em;
+  font-weight: 500;
+  font-family: "Century Gothic", sans-serif;
+}
