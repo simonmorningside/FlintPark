@@ -17,7 +17,22 @@ export default function Archive() {
     const controller = new AbortController();
     const decoder = new TextDecoder();
 
-    const fetchAndStream = async (url) => {
+    const fetchAndStream = async (url, cacheKey) => {
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached) {
+        try {
+          const parsedArray = JSON.parse(cached);
+          console.log(`✅ Using cached data for ${cacheKey}:`, parsedArray.length, "items");
+          setPdfsWithMetadata((prev) => [...prev, ...parsedArray]);
+          return;
+        } catch (e) {
+          console.warn(`⚠️ Failed to parse cached data for ${cacheKey}:`, e);
+          sessionStorage.removeItem(cacheKey); // fallback to fresh fetch
+        }
+      }
+
+      console.log(`⬇️ Fetching fresh data for ${cacheKey} from`, url);
+
       try {
         const response = await fetch(url, {
           signal: controller.signal,
@@ -28,6 +43,7 @@ export default function Archive() {
 
         const reader = response.body.getReader();
         let buffer = "";
+        const parsedItems = [];
 
         while (true) {
           const { done, value } = await reader.read();
@@ -41,15 +57,20 @@ export default function Archive() {
             if (line.trim()) {
               try {
                 const parsed = JSON.parse(line);
+                parsedItems.push(parsed);
                 setPdfsWithMetadata((prev) => [...prev, parsed]);
               } catch (e) {
-                console.warn("Invalid JSON line:", line);
+                console.warn("❌ Invalid JSON line (skipping):", line);
               }
             }
           }
         }
+
+        sessionStorage.setItem(cacheKey, JSON.stringify(parsedItems));
+        console.log(`✅ Cached ${parsedItems.length} items under ${cacheKey}`);
       } catch (err) {
         if (err.name !== "AbortError") {
+          console.error(`🚨 Error during fetch for ${cacheKey}:`, err);
           setError(err.message);
           setLoading(false);
         }
@@ -59,9 +80,18 @@ export default function Archive() {
     const loadAll = async () => {
       setLoading(true);
       await Promise.all([
-        fetchAndStream("https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events_metadata"),
-        fetchAndStream("https://floral-park-webserver-861401374674.us-central1.run.app/api/choir"),
-        fetchAndStream("https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf"),
+        fetchAndStream(
+          "https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events_metadata",
+          "cache_church"
+        ),
+        fetchAndStream(
+          "https://floral-park-webserver-861401374674.us-central1.run.app/api/choir",
+          "cache_choir"
+        ),
+        fetchAndStream(
+          "https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf",
+          "cache_pdf"
+        ),
       ]);
       setLoading(false);
     };
@@ -71,7 +101,7 @@ export default function Archive() {
   }, []);
 
   const filteredItems = pdfsWithMetadata.filter((pdf) => {
-    const titleMatch = pdf.metadata?.Title.toLowerCase().includes(searchQuery.toLowerCase());
+    const titleMatch = pdf.metadata?.Title?.toLowerCase().includes(searchQuery.toLowerCase());
     const subject = pdf.metadata?.Subject || "";
     const subjectMatch = !subjectFilter || subject.toLowerCase().includes(subjectFilter.toLowerCase());
     return titleMatch && subjectMatch;
@@ -93,19 +123,22 @@ export default function Archive() {
     }
   }, [handleScroll]);
 
-  // 👇 Key fix to allow scroll-based batching to continue when already at bottom
   useEffect(() => {
     handleScroll();
   }, [visibleCount, filteredItems.length, handleScroll]);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-    setVisibleCount(75); // consistent with initial value
+    setVisibleCount(75);
   };
 
   return (
     <div className="archive-wrapper">
-      <section className="archive-container" ref={containerRef} style={{ height: "80vh", overflowY: "scroll" }}>
+      <section
+        className="archive-container"
+        ref={containerRef}
+        style={{ height: "80vh", overflowY: "scroll" }}
+      >
         <h2>Church Events PDFs</h2>
 
         <div className="filer-container">
