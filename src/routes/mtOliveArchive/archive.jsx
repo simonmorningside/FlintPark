@@ -18,16 +18,41 @@ export default function Archive() {
     const decoder = new TextDecoder();
 
     const fetchAndStream = async (url, cacheKey) => {
-      const cached = sessionStorage.getItem(cacheKey);
-      if (cached) {
+      const cachedEntry = sessionStorage.getItem(cacheKey);
+
+      const getStartOfCurrentHour = () => {
+        const now = new Date();
+        now.setMinutes(0, 0, 0);
+        return now.getTime();
+      };
+
+      const getStartOfNextHour = () => {
+        const now = new Date();
+        now.setHours(now.getHours() + 1, 0, 0, 0);
+        return now.getTime();
+      };
+
+      const currentHourStart = getStartOfCurrentHour();
+      const nextHourStart = getStartOfNextHour();
+
+      if (cachedEntry) {
         try {
-          const parsedArray = JSON.parse(cached);
-          console.log(`✅ Using cached data for ${cacheKey}:`, parsedArray.length, "items");
-          setPdfsWithMetadata((prev) => [...prev, ...parsedArray]);
-          return;
+          const { timestamp, data } = JSON.parse(cachedEntry);
+          const timestampDate = new Date(timestamp);
+          const resetTime = new Date(nextHourStart);
+
+          if (timestamp >= currentHourStart) {
+            console.log(`✅ Using cached data for ${cacheKey}:`, data.length, "items");
+            console.log(`🕒 Cached at: ${timestampDate.toLocaleTimeString()}, expires at: ${resetTime.toLocaleTimeString()}`);
+            setPdfsWithMetadata((prev) => [...prev, ...data]);
+            return;
+          } else {
+            console.log(`⏳ Cache expired for ${cacheKey} (cached at ${timestampDate.toLocaleTimeString()}, now ${new Date().toLocaleTimeString()})`);
+            sessionStorage.removeItem(cacheKey);
+          }
         } catch (e) {
           console.warn(`⚠️ Failed to parse cached data for ${cacheKey}:`, e);
-          sessionStorage.removeItem(cacheKey); // fallback to fresh fetch
+          sessionStorage.removeItem(cacheKey);
         }
       }
 
@@ -66,8 +91,14 @@ export default function Archive() {
           }
         }
 
-        sessionStorage.setItem(cacheKey, JSON.stringify(parsedItems));
+        const timestamp = Date.now();
+        const resetTime = new Date(getStartOfNextHour());
+        sessionStorage.setItem(
+          cacheKey,
+          JSON.stringify({ timestamp, data: parsedItems })
+        );
         console.log(`✅ Cached ${parsedItems.length} items under ${cacheKey}`);
+        console.log(`🕒 Cached at: ${new Date(timestamp).toLocaleTimeString()}, expires at: ${resetTime.toLocaleTimeString()}`);
       } catch (err) {
         if (err.name !== "AbortError") {
           console.error(`🚨 Error during fetch for ${cacheKey}:`, err);
