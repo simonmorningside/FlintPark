@@ -17,7 +17,47 @@ export default function Archive() {
     const controller = new AbortController();
     const decoder = new TextDecoder();
 
-    const fetchAndStream = async (url) => {
+    const fetchAndStream = async (url, cacheKey) => {
+      const cachedEntry = sessionStorage.getItem(cacheKey);
+
+      const getStartOfCurrentHour = () => {
+        const now = new Date();
+        now.setMinutes(0, 0, 0);
+        return now.getTime();
+      };
+
+      const getStartOfNextHour = () => {
+        const now = new Date();
+        now.setHours(now.getHours() + 1, 0, 0, 0);
+        return now.getTime();
+      };
+
+      const currentHourStart = getStartOfCurrentHour();
+      const nextHourStart = getStartOfNextHour();
+
+      if (cachedEntry) {
+        try {
+          const { timestamp, data } = JSON.parse(cachedEntry);
+          const timestampDate = new Date(timestamp);
+          const resetTime = new Date(nextHourStart);
+
+          if (timestamp >= currentHourStart) {
+            console.log(`✅ Using cached data for ${cacheKey}:`, data.length, "items");
+            console.log(`🕒 Cached at: ${timestampDate.toLocaleTimeString()}, expires at: ${resetTime.toLocaleTimeString()}`);
+            setPdfsWithMetadata((prev) => [...prev, ...data]);
+            return;
+          } else {
+            console.log(`⏳ Cache expired for ${cacheKey} (cached at ${timestampDate.toLocaleTimeString()}, now ${new Date().toLocaleTimeString()})`);
+            sessionStorage.removeItem(cacheKey);
+          }
+        } catch (e) {
+          console.warn(`⚠️ Failed to parse cached data for ${cacheKey}:`, e);
+          sessionStorage.removeItem(cacheKey);
+        }
+      }
+
+      console.log(`⬇️ Fetching fresh data for ${cacheKey} from`, url);
+
       try {
         const response = await fetch(url, {
           signal: controller.signal,
@@ -28,6 +68,7 @@ export default function Archive() {
 
         const reader = response.body.getReader();
         let buffer = "";
+        const parsedItems = [];
 
         while (true) {
           const { done, value } = await reader.read();
@@ -41,15 +82,26 @@ export default function Archive() {
             if (line.trim()) {
               try {
                 const parsed = JSON.parse(line);
+                parsedItems.push(parsed);
                 setPdfsWithMetadata((prev) => [...prev, parsed]);
               } catch (e) {
-                console.warn("Invalid JSON line:", line);
+                console.warn("❌ Invalid JSON line (skipping):", line);
               }
             }
           }
         }
+
+        const timestamp = Date.now();
+        const resetTime = new Date(getStartOfNextHour());
+        sessionStorage.setItem(
+          cacheKey,
+          JSON.stringify({ timestamp, data: parsedItems })
+        );
+        console.log(`✅ Cached ${parsedItems.length} items under ${cacheKey}`);
+        console.log(`🕒 Cached at: ${new Date(timestamp).toLocaleTimeString()}, expires at: ${resetTime.toLocaleTimeString()}`);
       } catch (err) {
         if (err.name !== "AbortError") {
+          console.error(`🚨 Error during fetch for ${cacheKey}:`, err);
           setError(err.message);
           setLoading(false);
         }
@@ -59,9 +111,18 @@ export default function Archive() {
     const loadAll = async () => {
       setLoading(true);
       await Promise.all([
-        fetchAndStream("https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events_metadata"),
-        fetchAndStream("https://floral-park-webserver-861401374674.us-central1.run.app/api/choir"),
-        fetchAndStream("https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf"),
+        fetchAndStream(
+          "https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events_metadata",
+          "cache_church"
+        ),
+        fetchAndStream(
+          "https://floral-park-webserver-861401374674.us-central1.run.app/api/choir",
+          "cache_choir"
+        ),
+        fetchAndStream(
+          "https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf",
+          "cache_pdf"
+        ),
       ]);
       setLoading(false);
     };
@@ -71,7 +132,7 @@ export default function Archive() {
   }, []);
 
   const filteredItems = pdfsWithMetadata.filter((pdf) => {
-    const titleMatch = pdf.metadata?.Title.toLowerCase().includes(searchQuery.toLowerCase());
+    const titleMatch = pdf.metadata?.Title?.toLowerCase().includes(searchQuery.toLowerCase());
     const subject = pdf.metadata?.Subject || "";
     const subjectMatch = !subjectFilter || subject.toLowerCase().includes(subjectFilter.toLowerCase());
     return titleMatch && subjectMatch;
@@ -93,19 +154,22 @@ export default function Archive() {
     }
   }, [handleScroll]);
 
-  // 👇 Key fix to allow scroll-based batching to continue when already at bottom
   useEffect(() => {
     handleScroll();
   }, [visibleCount, filteredItems.length, handleScroll]);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-    setVisibleCount(75); // consistent with initial value
+    setVisibleCount(75);
   };
 
   return (
     <div className="archive-wrapper">
-      <section className="archive-container" ref={containerRef} style={{ height: "80vh", overflowY: "scroll" }}>
+      <section
+        className="archive-container"
+        ref={containerRef}
+        style={{ height: "80vh", overflowY: "scroll" }}
+      >
         <h2>Church Events PDFs</h2>
 
         <div className="filer-container">
