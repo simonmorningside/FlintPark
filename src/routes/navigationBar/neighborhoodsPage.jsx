@@ -44,7 +44,7 @@ export default function Streets() {
         {/* Right Section: Interactive Map */}
         <div className="streets-map">
           <iframe
-            src="/floral-park-map/index.html"  // Path to the exported QGIS2Web HTML file
+            src="public\floral-park-map\index.html"  // Path to the exported QGIS2Web HTML file
             title="Flint Floral Park Map"
             style={{ width: '100%', height: '100%', border: 'none' }}  // Adjust dimensions as needed
           />
