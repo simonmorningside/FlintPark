@@ -13,7 +13,7 @@ body {
 
 .page-container {
   min-height: 100%;
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden;
   box-sizing: border-box;
 }
@@ -231,7 +231,7 @@ h1 {
 .history-section {
   padding: 60px 5% 80px 5%;
   box-sizing: border-box;
-  width: 100%;
+  width: 100vw;
   margin: 0;
 }
 
@@ -315,9 +315,23 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  margin-top: 20px;
   gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.pastor-slideshow-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
+  flex: 1;
+}
+
+.pastor-image-wrapper {
+  flex: 1 1 200px;
+  max-width: 250px;
+  text-align: center;
 }
 
 .arrow-button {
@@ -325,6 +339,8 @@ h1 {
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  padding: 0 10px;
+  min-width: 40px;
 }
 
 .left-arrow {
@@ -334,12 +350,12 @@ h1 {
 .right-arrow {
   margin-left: 10px;
 }
-
 /*PHOTO POPUP BOX*/
 /* Styling for the images */
 .founders-images {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .founder-photo {
@@ -386,8 +402,31 @@ h1 {
   background-color: #fff;
   border-radius: 8px;
   font-size: 14px;
+  font-weight: bold;
   color: #273e06;
   flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .founders-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .founders-content-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .founder-box {
+    width: 45%;
+    max-width: 180px;
+  }
+
+  .founder-popup-box {
+    width: 90%;
+    margin-top: 20px;
+  }
 }
 
 .founder-placeholder {
@@ -406,33 +445,117 @@ h1 {
   width: fit-content;
   margin: 0 10px;
 }
-
 .founder-name-tag {
+  display: inline-block;
   margin-top: 8px;
-  width: 80%;
-  /* Smaller than image */
-  background-color: #f2f2f2;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
   text-align: center;
-  padding: 6px 0;
-  font-weight: bold;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+.pastor-name-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pastor-name-tag:hover {
+  background-color: #819727;
+  color: white;
+}
+
+
 @media (max-width: 768px) {
-  .founders-content-row {
+  .founders-info-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .founders-content-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .founders-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .founder-box {
+    width: 40%;
+    max-width: 140px;
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .founder-photo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+
+  .founder-name-tag {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    text-align: center;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .founder-popup-box {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     align-self: center;
-    width: 90%;
+  }
+
+  .founder-placeholder {
+    font-style: italic;
+    color: #666;
+    text-align: center;
   }
 }
-
 /* Shared box and tag structure for buildings/parsonages */
 .image-box {
   display: flex;
@@ -479,6 +602,7 @@ h1 {
   background-color: #fff;
   border-radius: 8px;
   font-size: 14px;
+  font-weight: bold;
   color: #273e06;
   flex-shrink: 0;
 }
@@ -1050,4 +1174,50 @@ footer {
   max-width: 500px;
   width: 90%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.archive-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  justify-content: center;
+  background-color: #819727;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.block-style {
+  flex: 1 1 220px;
+  min-width: 100px;
+  max-width: 200px;
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.archive-link-styling {
+  font-weight: bold;
+  color: #f0f0f0;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.archive-link-styling:hover {
+  color: #008080;
+  /* a calm green-blue tone */
+}
+
+ul.archive-sublist {
+  padding-left: 0;
+  list-style-type: disc;
+  list-style-position: inside;
+  margin: 0;
 }
