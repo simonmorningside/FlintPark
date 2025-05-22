@@ -183,7 +183,7 @@ export default function Churches() {
                     ))}
                   </div>
 
-                  <div className="founder-popup-box">
+                  <div className="founder-popup-box centered-popup">
                     {selectedFounderIndex === null ? (
                       <p className="founder-placeholder">Click on a founder to learn more!</p>
                     ) : (
