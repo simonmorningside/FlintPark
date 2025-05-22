@@ -44,6 +44,7 @@
     padding: 40px 5%;
     text-align: left;
     background-color: #fff;
+    max-width: 100vw;
     /* default background */
 }
 
@@ -147,7 +148,7 @@
 }
 
 .modal-image {
-    width: 100%;
+    width: 100vw;
     height: auto;
     border-radius: 8px;
 }

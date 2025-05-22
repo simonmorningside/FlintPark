@@ -4,14 +4,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import './styles/index.css';  // Site-wide styles
-import './styles/home-page.css';  // Home Page-specific styles
-import './styles/streets-page.css';  // Streets Page-specific styles
-import './styles/videos-page.css';  // People Page-specific styles
-import './styles/team-page.css';  // Team Page-specific styles
-import './styles/text-files-page.css';  // Text Files Page-specific styles
-import './styles/about-page.css';  // Text Files Page-specific styles
-import './App.css';
 // Your other imports and component code here
 import Navbar from './routes/navigationBar/navbar.jsx';
 import ErrorPage from './error-page.jsx';

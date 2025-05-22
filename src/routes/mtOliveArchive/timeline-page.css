@@ -14,7 +14,7 @@
 .vertical-timeline::before {
     background: #7C2529;
     left: 50%;
-    transform: translateX(-80%);
+    transform: translateX(-50%);
 }
 
 /* Make year text big and centered */
@@ -53,10 +53,6 @@
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: #222;
-}
-
-.vertical-timeline-element-content p {
-    text-align: left;
 }
 
 /* Responsive */

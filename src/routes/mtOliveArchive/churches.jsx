@@ -183,11 +183,11 @@ export default function Churches() {
                     ))}
                   </div>
 
-                  <div className="founder-popup-box">
+                  <div className="founder-popup-box centered-popup">
                     {selectedFounderIndex === null ? (
                       <p className="founder-placeholder">Click on a founder to learn more!</p>
                     ) : (
-                      <div>
+                      <div className="h4fix">
                           <h4>{founderInfo[selectedFounderIndex].title}</h4>
                           <p>{founderInfo[selectedFounderIndex].description}</p>
                       </div>
@@ -270,7 +270,7 @@ export default function Churches() {
                   {selectedBuildingIndex === null ? (
                     <p className="info-placeholder">Click on a building to see more details.</p>
                   ) : (
-                    <div>
+                    <div className="h4fix">
                         <h4>{buildingInfo[selectedBuildingIndex].title}</h4>
                         <p>{buildingInfo[selectedBuildingIndex].description}</p>
                     </div>
@@ -295,7 +295,7 @@ export default function Churches() {
                   {selectedParsonageIndex === null ? (
                     <p className="info-placeholder">Click on a parsonage to learn about its history.</p>
                   ) : (
-                    <div>
+                    <div className="h4fix">
                         <h4>{parsonageInfo[selectedParsonageIndex].title}</h4>
                         <p>{parsonageInfo[selectedParsonageIndex].description}</p>
                     </div>
