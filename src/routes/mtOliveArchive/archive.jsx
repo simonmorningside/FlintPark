@@ -200,13 +200,37 @@ export default function Archive() {
             <option value="newsletter">Newsletter</option>
             <option value="The Olive Branch">The Olive Branch</option>
             <option value="Pastor">Pastor</option>
-            <option value="Bulletin">Bulletin</option>
+            <option value="Bulletins">Bulletins</option>
             <option value="Mount Olive">Mount Olive</option>
             <option value="Obituary">Obituary</option>
             <option value="Womens Day">Womens Day</option>
             <option value="Baptist">Baptist</option>
             <option value="Graduation">Graduation</option>
             <option value="Birthday">Birthday</option>
+            <option value="Histories">Histories</option>
+            <option value="Newspapers">Newspapers</option>
+            <option value="Photographs">Photographs</option>
+            <option value="Flyers">Flyers</option>
+            <option value="Choir Records">Choir Records</option>
+            <option value="Memos">Memos</option>
+          </select>
+        </div>
+
+        <div className="filter-container">
+          <label htmlFor="subjectFilter" className="filter-label">Filter by Names:</label>
+          <select
+            id="subjectFilter"
+            value={subjectFilter}
+            onChange={(e) => {
+              setSubjectFilter(e.target.value);
+              setVisibleCount(75);
+            }}
+            className="subject-dropdown"
+          >
+            <option value="">All Names</option>
+            <option value="Harrison E McGee">Harrison E McGee</option>
+            <option value="Joey Edwards">Joey Edwards</option>
+            <option value="Alice Barbee">Alice Barbee</option>
           </select>
         </div>
 
