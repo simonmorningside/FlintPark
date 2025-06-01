@@ -112,17 +112,9 @@ export default function Archive() {
       setLoading(true);
       await Promise.all([
         fetchAndStream(
-          "https://floral-park-webserver-861401374674.us-central1.run.app/api/church_events_metadata",
-          "cache_church"
-        ),
-        fetchAndStream(
-          "https://floral-park-webserver-861401374674.us-central1.run.app/api/choir",
-          "cache_choir"
-        ),
-        fetchAndStream(
-          "https://floral-park-webserver-861401374674.us-central1.run.app/api/pdf",
-          "cache_pdf"
-        ),
+          "https://floral-park-webserver-861401374674.us-central1.run.app/api/archive_full",
+          "cache_archive"
+        )
       ]);
       setLoading(false);
     };
@@ -202,7 +194,7 @@ export default function Archive() {
             <option value="Pastor">Pastor</option>
             <option value="Bulletins">Bulletins</option>
             <option value="Mount Olive">Mount Olive</option>
-            <option value="Obituary">Obituary</option>
+            <option value="Obituaries">Obituary</option>
             <option value="Womens Day">Womens Day</option>
             <option value="Baptist">Baptist</option>
             <option value="Graduation">Graduation</option>
