@@ -11,8 +11,8 @@ export default function Churches() {
   const [media, setMedia] = useState({ images: [], videos: [] });
   const [pastors, setPastors] = useState({ images: [], videos: [] });
   const [startIndex, setStartIndex] = useState(0);
-  const [imagesPerPage, setImagesPerPage] = useState(3); // default
-  const selectedImageIndices = [5, 54, 9, 43, 16, 13, 40, 50, 51, 52, 49, 46, 7, 53, 19, 10, 45, 1, 48, 47];
+  const [imagesPerPage, setImagesPerPage] = useState(4); // default
+  const selectedImageIndices = [11, 24, 18, 5, 9, 22, 20, 19, 17, 25, 21, 12, 15, 16, 6, 7, 4, 10];
   const [selectedFounderIndex, setSelectedFounderIndex] = useState(null);
   const [selectedBuildingIndex, setSelectedBuildingIndex] = useState(null);
   const [selectedParsonageIndex, setSelectedParsonageIndex] = useState(null);
@@ -22,7 +22,7 @@ export default function Churches() {
       if (window.innerWidth < 640) {
         setImagesPerPage(1);
       } else {
-        setImagesPerPage(3); // or however many you want on large screens
+        setImagesPerPage(4); // or however many you want on large screens
       }
     };
 
@@ -120,9 +120,7 @@ export default function Churches() {
     { name: "Rev. Paschall Lee Sanders / Saunders", id: "paschall" },
     { name: "Rev. W.S. Winston, visiting", id: "winston" },
     { name: "Rev. Elbert L. Todd", id: "elbert" },
-    { name: "Rev. C.A. Pugh", id: "pugh" },
     { name: "Rev. Louis Robert Webster Johnson", id: "louis" },
-    { name: "William M. Epps", id: "william" },
     { name: "Rev. Wade Hampton McKinney", id: "wade" },
     { name: "Rev. Joseph Caldwell Nicholas", id: "joseph" },
     { name: "Rev. Bolen", id: "bolen" },
@@ -136,7 +134,7 @@ export default function Churches() {
       <header className="header">
         <div className="header-content">
           <div className="header-logo-container">
-            {media.images[10] && <img src={media.images[10].url} alt="Church Logo" className="header-logo" />}
+            {media.images[9] && <img src={media.images[9].url} alt="Church Logo" className="header-logo" />}
           </div>
           <div className="title-video-container">
             <h1>History of Mount Olive Missionary Baptist Church</h1>
@@ -168,7 +166,7 @@ export default function Churches() {
               <div className="founders-info-container">
                 <div className="founders-content-row">
                   <div className="founders-images">
-                    {[18, 0, 19].map((idx, i) => (
+                    {[12, 6, 4].map((idx, i) => (
                       media.images[idx] && (
                         <div className="founder-box" key={i}>
                           <img
@@ -205,12 +203,6 @@ export default function Churches() {
 
                 <div
                   className="pastor-slideshow-container"
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent: 'center',
-                    gap: '10px',
-                  }}
                 >
                   {pastors.images.slice(startIndex, startIndex + imagesPerPage).map((image, i) => {
                     const globalIndex = startIndex + i;
@@ -219,11 +211,6 @@ export default function Churches() {
                       <div
                         key={i}
                         className="pastor-image-wrapper"
-                        style={{
-                          flex: '1 1 200px',
-                          maxWidth: '250px',
-                          textAlign: 'center',
-                        }}
                       >
                         <img
                           src={image.url}
@@ -257,7 +244,7 @@ export default function Churches() {
             {title === 'BUILDINGS' && (
               <div className="building-info-container">
                 <div className="image-row">
-                  {[12, 3, 7].map((idx, i) => (
+                  {[11, 1, 5].map((idx, i) => (
                     media.images[idx] && (
                       <div className="image-box" key={i} onClick={() => setSelectedBuildingIndex(i)}>
                         <img src={media.images[idx].url} alt={`Building ${i + 1}`} className="building-photo-custom" />
@@ -282,7 +269,7 @@ export default function Churches() {
             {title === 'PARSONAGES' && (
               <div className="parsonage-info-container">
                 <div className="image-row">
-                  {[14, 15, 16].map((idx, i) => (
+                  {[0, 3, 2].map((idx, i) => (
                     media.images[idx] && (
                       <div className="image-box" key={i} onClick={() => setSelectedParsonageIndex(i)}>
                         <img src={media.images[idx].url} alt={`Parsonage ${i + 1}`} className="parsonage-photo-custom" />
