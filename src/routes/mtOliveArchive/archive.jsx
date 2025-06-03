@@ -188,23 +188,29 @@ export default function Archive() {
             className="subject-dropdown"
           >
             <option value="">All Subjects</option>
-            <option value="Anniversary">Anniversary</option>
-            <option value="newsletter">Newsletter</option>
-            <option value="The Olive Branch">The Olive Branch</option>
-            <option value="Pastor">Pastor</option>
-            <option value="Bulletins">Bulletins</option>
-            <option value="Mount Olive">Mount Olive</option>
-            <option value="Obituaries">Obituary</option>
-            <option value="Womens Day">Womens Day</option>
-            <option value="Baptist">Baptist</option>
-            <option value="Graduation">Graduation</option>
-            <option value="Birthday">Birthday</option>
-            <option value="Histories">Histories</option>
-            <option value="Newspapers">Newspapers</option>
+            <option value="Birthdays">Birthdays</option>
+            <option value="Life Events">Life Events</option>
+            <option value="Graduations">Graduations</option>
+            <option value="Correspondence">Correspondence</option>
+            <option value="Funeral Programs">Celebration of Life</option>
+            <option value="Obituaries">Obituaries</option>
             <option value="Photographs">Photographs</option>
-            <option value="Flyers">Flyers</option>
             <option value="Choir Records">Choir Records</option>
+            <option value="Pastors">Pastors</option>
+            <option value="Summer Enrichment Program">Summer Program</option>
+            <option value="Church Materials">Church Materials</option>
+            <option value="Bulletins">Bulletins</option>
+            <option value="Womens Day">Womens Day</option>
+            <option value="Church Anniversaries">Church Anniversaries</option>
+            <option value="Programs">Programs</option>
+            <option value="Flyers">Flyers</option>
+            <option value="Newsletters">Newsletters</option>
+            <option value="The Olive Branch">The Olive Branch</option>
+            <option value="Anniversaries">Anniversaries</option>
+            <option value="Newspapers">Newspapers</option>
             <option value="Memos">Memos</option>
+            <option value="Histories">Histories</option>
+            <option value="Retirement">Retirement</option>
           </select>
         </div>
 
@@ -223,6 +229,15 @@ export default function Archive() {
             <option value="Harrison E McGee">Harrison E McGee</option>
             <option value="Joey Edwards">Joey Edwards</option>
             <option value="Alice Barbee">Alice Barbee</option>
+            <option value="Edith Spencer">Edith Spencer</option>
+            <option value="Jonathon K Taylor">Jonathon K Taylor</option>
+            <option value="Lynise Ma're Barbee">Lynise Ma're Barbee</option>
+            <option value="Aaron DuPree">Aaron DuPree</option>
+            <option value="Bianca Fields">Bianca Fields</option>
+            <option value="Alice Jewell Barbee">Alice Jewell Barbee</option>
+            <option value="Rome O Barbee">Rome O Barbee</option>
+            <option value="Reverend Simon Barbee">Reverend Simon Barbee</option>
+
           </select>
         </div>
 

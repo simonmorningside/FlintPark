@@ -185,7 +185,7 @@ export default function Churches() {
                     {selectedFounderIndex === null ? (
                       <p className="founder-placeholder">Click on a founder to learn more!</p>
                     ) : (
-                      <div className="h4fix">
+                      <div className="h4fix left-align">
                           <h4>{founderInfo[selectedFounderIndex].title}</h4>
                           <p>{founderInfo[selectedFounderIndex].description}</p>
                       </div>
@@ -196,50 +196,46 @@ export default function Churches() {
             )}
 
             {title === 'PASTORS' && (
-              <div className="pastors-slideshow-wrapper">
-                <button onClick={handlePrev} disabled={startIndex === 0} className="arrow-button left-arrow">
-                  <ChevronLeft />
-                </button>
+                <div className="pastors-slideshow-wrapper">
+                  <div className="pastor-slideshow-container">
+                    {pastors.images.slice(startIndex, startIndex + imagesPerPage).map((image, i) => {
+                      const globalIndex = startIndex + i;
+                      const tag = pastorNameTags[globalIndex];
+                      return (
+                        <div key={i} className="pastor-image-wrapper">
+                          <img
+                            src={image.url}
+                            alt="Pastor"
+                            className="pastor-photo"
+                            style={{ width: '100%', height: 'auto' }}
+                          />
+                          {tag ? (
+                            <Link to={`/churches/pastors#${tag.id}`} className="pastor-name-tag">
+                              {tag.name}
+                            </Link>
+                          ) : (
+                            <div className="pastor-name-tag">Pastor</div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
 
-                <div
-                  className="pastor-slideshow-container"
-                >
-                  {pastors.images.slice(startIndex, startIndex + imagesPerPage).map((image, i) => {
-                    const globalIndex = startIndex + i;
-                    const tag = pastorNameTags[globalIndex];
-                    return (
-                      <div
-                        key={i}
-                        className="pastor-image-wrapper"
-                      >
-                        <img
-                          src={image.url}
-                          alt="Pastor"
-                          className="pastor-photo"
-                          style={{ width: '100%', height: 'auto' }}
-                        />
-                        {tag ? (
-                          <Link to={`/churches/pastors#${tag.id}`} className="pastor-name-tag">
-                            {tag.name}
-                          </Link>
-                        ) : (
-                          <div className="pastor-name-tag">Pastor</div>
-                        )}
-                      </div>
-                    );
-                  })}
+                  <div className="arrow-button-row">
+                    <button onClick={handlePrev} disabled={startIndex === 0} className="arrow-button">
+                      <ChevronLeft />
+                    </button>
+                    <button
+                      onClick={handleNext}
+                      disabled={startIndex + imagesPerPage >= pastors.images.length}
+                      className="arrow-button"
+                    >
+                      <ChevronRight />
+                    </button>
+                  </div>
                 </div>
+              )}
 
-
-                <button
-                  onClick={handleNext}
-                  disabled={startIndex + imagesPerPage >= pastors.images.length}
-                  className="arrow-button right-arrow"
-                >
-                  <ChevronRight />
-                </button>
-              </div>
-            )}
 
             {title === 'BUILDINGS' && (
               <div className="building-info-container">
@@ -257,7 +253,7 @@ export default function Churches() {
                   {selectedBuildingIndex === null ? (
                     <p className="info-placeholder">Click on a building to see more details.</p>
                   ) : (
-                    <div className="h4fix">
+                    <div className="h4fix left-align">
                         <h4>{buildingInfo[selectedBuildingIndex].title}</h4>
                         <p>{buildingInfo[selectedBuildingIndex].description}</p>
                     </div>
@@ -282,7 +278,7 @@ export default function Churches() {
                   {selectedParsonageIndex === null ? (
                     <p className="info-placeholder">Click on a parsonage to learn about its history.</p>
                   ) : (
-                    <div className="h4fix">
+                    <div className="h4fix left-align">
                         <h4>{parsonageInfo[selectedParsonageIndex].title}</h4>
                         <p>{parsonageInfo[selectedParsonageIndex].description}</p>
                     </div>
@@ -294,10 +290,10 @@ export default function Churches() {
             {title === 'ARCHIVE' && (
               <div className="archive-links">
                 {[
-                  ["Life Events", "Funeral Programs", "Obituaries", "Graduations"],
+                  ["Life Events", "Celebration of Life", "Obituaries", "Graduations"],
                   ["Choir Records", "Recordings", "Meetings Minutes"],
-                  ["Church Materials", "Bulletins", "Newsletters (The Olive Branch)", "Flyers", "Anniversaries", "Directories"],
-                  ["Photographs", "Sunday School", "Events", "Summer Enrichment Program"]
+                  ["Church Materials", "Bulletins", "Newsletters", "Flyers", "Anniversaries", "Directories"],
+                  ["Photographs", "Sunday School", "Events", "Summer Program"]
                 ].map((group, i) => (
                   <p key={i} className="block-style">
                     <Link to={'archive/'} className="archive-link-styling">{group[0]}</Link><br />

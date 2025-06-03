@@ -47,7 +47,7 @@ export default function Timeline() {
       <VerticalTimelineElement
         className="vertical-timeline-element--education"
         date={date}
-        iconStyle={{ background: '#7C2529', color: '#fff' }}
+        iconStyle={{ background: '#cc5500', color: '#fff' }}
       >
         <div onClick={() => openModal({ title, date, content })} style={{ cursor: 'pointer' }}>
           <h3 className="vertical-timeline-element-title">{title}</h3>
@@ -238,7 +238,7 @@ export default function Timeline() {
       title: 'Rev. Daniel L. Jackson',
       content: [
         'Daniel Jackson, a minister from Toledo, answered Mt. Olive’s invitation to come to Flint and to serve as their first official minister.',
-        'Jackson boarded with the Linney family at 1718 Pine St. and served at Mt. Olive for a short time, perhaps less than a year, after which returned to Toledo. During Rev. Jackson’s short tenure, Mt. Olive was still holding services and Sunday school in the home of Sarah Howard on 9th St. The church was often referred to in the Flint Journal as the “Mt. Olive Mission,” but in 1911 was called Mount Olive Baptist Church, and reported to have paid off a site for a new church building (on Ward St.). On April 17, 1911, the Journal reports, Elder William Lyons spoke at “Mt. Olive Chapel” in Sarah Howard’s home. Early members Arthur Lawrence, Bessie Johnson, and Neta Howard sang; child Gladys Owens gave a recitation; Neta Howard read and Bessie Johnson played the organ. Miss Jennie Johnson was in attendance visiting from Dresden, Ontario.  Miss Jennie Johnson was the first woman to be ordained in the Baptist church in Ontario. She visited her older brother James Henry Johnson and the Mt. Olive community a number of times and eventually moved to Flint in 1925 to start the Christian Children’s Center on Pasadena St. When she moved to Flint she lived on the Southside at 1517 Fay St.'
+        'Jackson boarded with the Linney family at 1718 Pine St. and served at Mt. Olive for a short time, perhaps less than a year, after which returned to Toledo. During Rev. Jackson’s short tenure, Mt. Olive was still holding services and Sunday school in the home of Sarah Howard on 9th St. The church was often referred to in the Flint Journal as the “Mt. Olive Mission,” but in 1911 was called Mount Olive Baptist Church, and reported to have paid off a site for a new church building (on Ward St.). On April 17, 1911, the Journal reports, Elder William Lyons spoke at “Mt. Olive Chapel” in Sarah Howard’s home. Early members Arthur Lawrence, Bessie Johnson, and Neta Howard sang; child Gladys Owens gave a recitation; Neta Howard read and Bessie Johnson played the organ. Miss Jennie Johnson was in attendance visiting from Dresden, Ontario.  Miss Jennie Johnson was the first woman to be ordained in the Baptist church in Ontario. She visited her older brother James Henry Johnson and the Mt. Olive community a number of times and eventually moved to Flint in 1925 to start the Christian Children’s Center on Pasadena St. When she moved to Flint she lived on the Southside at 1517 Fay St.',
       ]
     },
   ];
@@ -247,6 +247,9 @@ export default function Timeline() {
 
   return (
     <div className="timeline-wrapper">
+      <div className="timeline-instructions">
+      Click on a name in the timeline to learn more about that pastor!
+      </div>      
       <VerticalTimeline>
         {timelineData.map(entry => renderElement(entry.id, entry.date, entry.title, entry.content))}
       </VerticalTimeline>
@@ -258,14 +261,19 @@ export default function Timeline() {
         style={{
           overlay: { backgroundColor: 'rgba(0, 0, 0, 0.7)' },
           content: {
-            maxWidth: '700px',
-            margin: 'auto',
-            padding: '2rem',
-            borderRadius: '1rem',
-            inset: '10% auto auto auto',
-            backgroundColor: '#fff',
-            color: '#000'
-          }
+          top: '50%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          transform: 'translate(-50%, -50%)', // Centering trick
+          maxWidth: '700px',
+          maxHeight: '80vh',
+          overflowY: 'auto',
+          padding: '2rem',
+          borderRadius: '1rem',
+          backgroundColor: '#fff',
+          color: '#000'
+        }
         }}
       >
         {selectedElement && (
