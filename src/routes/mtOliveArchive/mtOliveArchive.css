@@ -313,47 +313,54 @@ h1 {
 
 .pastors-slideshow-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 100px;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
   box-sizing: border-box;
 }
 
 .pastor-slideshow-container {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2rem;
-  width: calc(4 * 250px + 3 * 2rem); /* Fixed width for 4 cards + spacing */
-  box-sizing: border-box;
+  flex-wrap: nowrap;
+  margin-bottom: 1.5rem;
 }
 
 .pastor-image-wrapper {
   flex: 0 0 250px;
   max-width: 250px;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
+.arrow-button-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
 
 .arrow-button {
   background: orange;
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  padding: 0 10px;
-  min-width: 40px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+
 .left-arrow {
-  margin-right: 10px;
+  left: -40px; /* tweak as needed */
 }
 
 .right-arrow {
-  margin-left: 10px;
+  right: -40px;
 }
 /*PHOTO POPUP BOX*/
 /* Styling for the images */
@@ -1251,3 +1258,10 @@ ul.archive-sublist {
   color: #4b5c09;
   font-weight: bold;
 }
+*/
+
+.left-align p {
+  text-align: left;
+  justify-content: left;
+}
+

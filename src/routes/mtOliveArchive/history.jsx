@@ -26,7 +26,7 @@ export default function History() {
   return (
     <div className="history-page-container">
       <div className="history-banner">
-        <h1 className="history-main-title">History of Mt. Olive Missionary Baptist Church</h1>
+        <h1 className="history-main-title">Before Mt. Olive...</h1>
       </div>
 
       {modalOpen && (
@@ -128,16 +128,18 @@ export default function History() {
         </figure>
           </div>
           <p>
-            The First Baptist Church in Chatham began with just nine members in 1843 and congregants built their first building in 1851. 
+          The First Baptist Church in Chatham began with just nine members in 1843 and congregants built their first building in 1851. 
           In 1856 the three Black Baptist churches in Chatham–First Baptist, Second Baptist and Union Baptist–unified into the First Baptist Congregation of Chatham. The abolitionist John Brown planned his raid on Harpers Ferry in that church in 1858. Although the Black population of Chatham is now very small, First Baptist continues to meet in the same King Street location; its neighborhood remains a significant historical site for Black Canadian history; and The Black Mecca Museum that celebrates Chatham’s Black community lies next door. (This museum and neighborhood is one of several historical sites commemorating Ontario’s Black settlement history.)
 
           In those settlements and in their churches emerged a strong sense of free Black identity, culture, and mission. After escaping from slavery, their founders nurtured and educated a generation of leaders who would return to Michigan after the War for Black Freedom and take up the work of Black community-building. In 1861 there had been over 1000 members of the Regular Baptist Association in the settlements, and by 1887 that number had dwindled to 368 as young people and entire families moved back into the United States. What their parents had accomplished in the Ontario settlements, the children would do across MIchigan. Baptist men and women from settlements in Ontario developed Baptist churches in Grand Rapids, Kalamazoo, Lansing, Flint, Ypsilanti, Jackson, Adrian, and Ann Arbor. Many of Mt. Olive’s early members came across into Michigan as young adults and built the Southside Black neighborhood in Flint while Billy Durant was still making horse-drawn carriages. The Baptist churches in the settlements always had significant relationships with Baptist churches in Michigan which continued for decades after Emancipation, in part because families lived on both sides of the border.
 
-          The spirit-filled people who began Mt. Olive lived and died here in Flint and many are buried in the surrounding cemeteries. Their descendants continued their work here and in American cities across the urban north. Some of those earliest recorded members include:
-        </p>
+          </p>
       </section>
 
       <section className="history-section">
+        <p>
+          The spirit-filled people who began Mt. Olive lived and died here in Flint and many are buried in the surrounding cemeteries. Their descendants continued their work here and in American cities across the urban north. Some of those earliest recorded members include:
+        </p>
         <ul className="history-list">
           <li>Bethune, H.</li>
           <li>George, John and Jessie  (laborer, 1708 Pine)</li>
