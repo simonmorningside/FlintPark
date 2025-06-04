@@ -26,7 +26,7 @@ export default function History() {
   return (
     <div className="history-page-container">
       <div className="history-banner">
-        <h1 className="history-main-title">Before Mt. Olive...</h1>
+        <h1 className="history-main-title">On The Shoulders of Giants</h1>
       </div>
 
       {modalOpen && (
@@ -41,11 +41,11 @@ export default function History() {
       <section className="history-section">
         <h2>Introduction</h2>
         <p>
-          Mt. Olive, the oldest Black Baptist church in Flint, began as a series of organizing meetings in the home of founder Sarah F. Howard at 509 9th St. In those meetings, Howard and founder Rev. William Isaac Lyons (who proposed the name Mt. Olive) organized what the Flint Journal would call the “colored Baptist mission” in 1907.
+          Mt. Olive was the first African-American Baptist church in Flint. In the opening years of the 20th century, co-founders Sarah F. Howard and Rev. William Isaac Lyons invited members of Flint’s early African-American community to a series of meetings at Howard’s home to discuss the establishment of a Baptist church. Those meetings were often announced in the Flint Journal, and in 1907 the Journal announced the emergence of a “colored Baptist mission” on the Southside.
         </p><p>
           Mt. Olive’s founders were emigrants from Ontario, Canada, the adult children of people who had self-emancipated and fled the United States. Both Howard and Lyons had been educated in churches and schools organized by their parents’ generation in the Black settlements across the Detroit River. Both returned to the United States as young adults following 1863, and both were in mid-life and had suffered the loss of parents, spouses, and children by the time they began organizing the meetings. They were assisted by Rev. Robert Gillard, the State Missionary of the Michigan Baptist Convention, and Rev. Clarence E. Lapp, the recently arrived minister of the First Baptist Church of Flint (later known as Woodside and now the People’s Church).
         </p><p>
-          The spirit-filled people who began Mt. Olive lived and died here and are buried in our surrounding cemeteries. Their parents had built the first free Black communities and their descendants have continued their community-building work here and in American cities across the urban north. Some of their stories are told here.
+          The spirit-filled people who began Mt. Olive lived and died here and are buried in our surrounding cemeteries. Their parents had built the first free African-American communities and their descendants have continued their community-building work here and in American cities across the urban north. Some of their stories are told here.
         </p>
       </section>
 

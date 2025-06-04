@@ -137,7 +137,6 @@ export default function Churches() {
             {media.images[9] && <img src={media.images[9].url} alt="Church Logo" className="header-logo" />}
           </div>
           <div className="title-video-container">
-            <h1>History of Mount Olive Missionary Baptist Church</h1>
             <section className="header-text">
               <div className="video-header">
                 <video controls src={media.videos[0]?.url} className="church-video" poster=''/>
@@ -151,7 +150,7 @@ export default function Churches() {
       <section className="history-section">
         <div className="history-text">
           <p>
-            Mt. Olive, the oldest Black Baptist church in Flint, began as a series of organizing meetings in the home of founder Sarah F. Howard at 509 9th St. In those meetings, Howard and founder Rev. William Isaac Lyons (who proposed the name Mt. Olive) organized what the Flint Journal would call the “colored Baptist mission” in 1907. 
+            Mt. Olive was the first African-American Baptist church in Flint. In the opening years of the 20th century, co-founders Sarah F. Howard and Rev. William Isaac Lyons invited members of Flint’s early African-American community to a series of meetings at Howard’s home to discuss the establishment of a Baptist church. Those meetings were often announced in the Flint Journal, and in 1907 the Journal announced the emergence of a “colored Baptist mission” on the Southside. 
           </p>
           <Link to="history/" className="learn-more-link">Learn More...</Link>
         </div>
