@@ -411,10 +411,10 @@ h1 {
 .founder-popup-box {
   border: 2px solid #4b5c09;
   padding: 20px;
-  width: 600px;
+  width: 1000px;
   background-color: #fff;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #273e06;
   flex-shrink: 0;
@@ -611,10 +611,10 @@ h1 {
 .info-popup-box {
   border: 2px solid #4b5c09;
   padding: 20px;
-  width: 300px;
+  width: 500px;
   background-color: #fff;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #273e06;
   flex-shrink: 0;
@@ -707,11 +707,11 @@ h1 {
 .info-popup-box {
   border: 2px solid #4b5c09;
   padding: 20px;
-  width: 600px;
+  width: 500px;
   max-height: 200px;
   background-color: #fff;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 16px;
   color: #273e06;
   flex-shrink: 0;
 }
