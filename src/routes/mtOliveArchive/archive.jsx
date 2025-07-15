@@ -214,33 +214,6 @@ export default function Archive() {
           </select>
         </div>
 
-        <div className="filter-container">
-          <label htmlFor="subjectFilter" className="filter-label">Filter by Names:</label>
-          <select
-            id="subjectFilter"
-            value={subjectFilter}
-            onChange={(e) => {
-              setSubjectFilter(e.target.value);
-              setVisibleCount(75);
-            }}
-            className="subject-dropdown"
-          >
-            <option value="">All Names</option>
-            <option value="Harrison E McGee">Harrison E McGee</option>
-            <option value="Joey Edwards">Joey Edwards</option>
-            <option value="Alice Barbee">Alice Barbee</option>
-            <option value="Edith Spencer">Edith Spencer</option>
-            <option value="Jonathon K Taylor">Jonathon K Taylor</option>
-            <option value="Lynise Ma're Barbee">Lynise Ma're Barbee</option>
-            <option value="Aaron DuPree">Aaron DuPree</option>
-            <option value="Bianca Fields">Bianca Fields</option>
-            <option value="Alice Jewell Barbee">Alice Jewell Barbee</option>
-            <option value="Rome O Barbee">Rome O Barbee</option>
-            <option value="Reverend Simon Barbee">Reverend Simon Barbee</option>
-
-          </select>
-        </div>
-
         {error && <div>Error: {error}</div>}
         {!loading && filteredItems.length === 0 && <p>No matching PDFs found</p>}
 
