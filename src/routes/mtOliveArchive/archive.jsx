@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import "../mtOliveArchive/archive.css";
 
 export default function Archive() {
@@ -12,6 +13,16 @@ export default function Archive() {
   const containerRef = useRef(null);
   const [visibleCount, setVisibleCount] = useState(75);
   const batchSize = 25;
+  
+  const location = useLocation();
+  useEffect(() => {
+  const params = new URLSearchParams(location.search);
+  const category = params.get("category");
+
+  if (category) {
+    setSubjectFilter(category);
+  }
+}, [location.search]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -168,7 +179,7 @@ export default function Archive() {
           <div className="search-container">
             <input
               type="text"
-              placeholder="Search PDFs by Title..."
+              placeholder="Search PDFs by Description..."
               value={searchQuery}
               onChange={handleSearchChange}
               className="search-input"
@@ -211,33 +222,6 @@ export default function Archive() {
             <option value="Memos">Memos</option>
             <option value="Histories">Histories</option>
             <option value="Retirement">Retirement</option>
-          </select>
-        </div>
-
-        <div className="filter-container">
-          <label htmlFor="subjectFilter" className="filter-label">Filter by Names:</label>
-          <select
-            id="subjectFilter"
-            value={subjectFilter}
-            onChange={(e) => {
-              setSubjectFilter(e.target.value);
-              setVisibleCount(75);
-            }}
-            className="subject-dropdown"
-          >
-            <option value="">All Names</option>
-            <option value="Harrison E McGee">Harrison E McGee</option>
-            <option value="Joey Edwards">Joey Edwards</option>
-            <option value="Alice Barbee">Alice Barbee</option>
-            <option value="Edith Spencer">Edith Spencer</option>
-            <option value="Jonathon K Taylor">Jonathon K Taylor</option>
-            <option value="Lynise Ma're Barbee">Lynise Ma're Barbee</option>
-            <option value="Aaron DuPree">Aaron DuPree</option>
-            <option value="Bianca Fields">Bianca Fields</option>
-            <option value="Alice Jewell Barbee">Alice Jewell Barbee</option>
-            <option value="Rome O Barbee">Rome O Barbee</option>
-            <option value="Reverend Simon Barbee">Reverend Simon Barbee</option>
-
           </select>
         </div>
 
