@@ -212,7 +212,7 @@ h1 {
 .green-strip {
   width: 100%;
   height: 200px;
-  background-color: #819727;
+  background-color: #fbb03b;
   position: absolute;
   top: 255px; /* Default for larger screens (strip starts lower) */
   left: 0;
@@ -1263,5 +1263,9 @@ ul.archive-sublist {
 .left-align p {
   text-align: left;
   justify-content: left;
+}
+
+.orange-container {
+  background-color: #fbb03b;
 }
 
