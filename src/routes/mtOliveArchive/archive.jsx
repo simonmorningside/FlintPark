@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import "../mtOliveArchive/archive.css";
 
 export default function Archive() {
@@ -12,6 +13,16 @@ export default function Archive() {
   const containerRef = useRef(null);
   const [visibleCount, setVisibleCount] = useState(75);
   const batchSize = 25;
+  
+  const location = useLocation();
+  useEffect(() => {
+  const params = new URLSearchParams(location.search);
+  const category = params.get("category");
+
+  if (category) {
+    setSubjectFilter(category);
+  }
+}, [location.search]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -168,7 +179,7 @@ export default function Archive() {
           <div className="search-container">
             <input
               type="text"
-              placeholder="Search PDFs by Title..."
+              placeholder="Search PDFs by Description..."
               value={searchQuery}
               onChange={handleSearchChange}
               className="search-input"
