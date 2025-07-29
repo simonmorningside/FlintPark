@@ -105,7 +105,8 @@ export default function Churches() {
       title: "1520 Park St.", description: "On the next block north of the first parsonage, McKinney’s successor, Rev. Lewis Johnson lived at 1520 Park St. during 1929 and 1930. It is unknown if this house was owned by the church as a parsonage. No other Mt. Olive ministers are listed as living at this address after Rev. Johnson’s time." },
     {
       title: " 1613 Linwood Ave.", description: "This house on Linwood Ave. was purchased as a parsonage for Rev. Greer. After his passing in 2008, his successor Rev. Stewart lived there for some time." },
-    { title: "1608 Park St.", description: "During the ministry of Rev. Joseph Nicholas (1917-23), the church purchased 1608 Park St. Nicholas lived there for some time, and in 1928, Rev. Wade McKinney and his wife Ruth lived there. By the 1930s, the house seems to have moved out of the church’s hands." }
+    { 
+        title: "1608 Park St.", description: "During the ministry of Rev. Joseph Nicholas (1917-23), the church purchased 1608 Park St. Nicholas lived there for some time, and in 1928, Rev. Wade McKinney and his wife Ruth lived there. By the 1930s, the house seems to have moved out of the church’s hands." }
   ];
 
   const pastorNameTags = [
@@ -130,7 +131,7 @@ export default function Churches() {
   ];
 
   return (
-    <div className="page-container" style={{ marginTop: '60px', padding: 0 }}>
+    <div className="page-container orange-container" style={{ marginTop: '40px', padding: 0 }}>
       <header className="header">
         <div className="header-content">
           <div className="header-logo-container">
