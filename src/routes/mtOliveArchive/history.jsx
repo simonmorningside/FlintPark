@@ -71,7 +71,7 @@ export default function History() {
             <img src={history2} alt="Historic scene 2" onClick={() => openModal(history2)}
               className="clickable-image" />
             <figcaption>Main Street, Amherstburg, 1865, the settlement where William Lyons was born.
-              Alvin D. McCurdy Fonds, Archives of Ontario, Amherstburg. In Archives of Ontario. https://www.archives.gov.on.ca/en/explore/online/ alvin_mccurdy/big/big_05_main_street.aspx</figcaption>
+              Alvin D. McCurdy Fonds, Archives of Ontario. </figcaption>
           </figure>
         </div>
       <p>
@@ -101,7 +101,7 @@ export default function History() {
           <figure className="history-image-block">
             <img src={history4} alt="Community photo 4" onClick={() => openModal(history4)}
               className="clickable-image" />
-            <figcaption>“Students of King Street School in Amherstburg, Ontario with Their Teacher, J. H. Alexander. c. 1890s.” Alvin D. McCurdy Fonds, Archives of Ontario, Amherstburg.</figcaption>
+            <figcaption>“Students of King Street School in Amherstburg, Ontario with Their Teacher, J. H. Alexander. c. 1890s.” Alvin D. McCurdy Fonds, Archives of Ontario.</figcaption>
           </figure>
           <figure className="history-image-block">
             <img src={history5} alt="Community photo 5" onClick={() => openModal(history5)}
