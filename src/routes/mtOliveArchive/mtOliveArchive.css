@@ -122,7 +122,8 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  flex-direction: column; /* Make sure logo and video are stacked on smaller screens */
+  flex-direction: column;
+  padding-top: 20px; /* Make sure logo and video are stacked on smaller screens */
 }
 
 .header-content {
@@ -212,7 +213,7 @@ h1 {
 .green-strip {
   width: 100%;
   height: 200px;
-  background-color: #fbb03b;
+  background-color: #cc7000;
   position: absolute;
   top: 255px; /* Default for larger screens (strip starts lower) */
   left: 0;
@@ -443,8 +444,10 @@ h1 {
 }
 
 .founder-placeholder {
-  color: #888;
+  color: #d48002;
   font-style: italic;
+  font-weight: 600;
+  font-size: 1.4em;
 }
 
 .founder-photo:hover {
@@ -621,8 +624,10 @@ h1 {
 }
 
 .info-placeholder {
-  color: #888;
+  color: #d48002;
   font-style: italic;
+  font-weight: 600;
+  font-size: 1.4em;
 }
 
 .building-photo-custom {
@@ -894,10 +899,6 @@ footer {
   padding: 20px;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 .links-section {
   display: flex;
@@ -1252,13 +1253,13 @@ ul.archive-sublist {
   margin: 0;
 }
 
-/* .h4fix {
+ .h4fix {
   font-size: 1.2rem;
   margin-bottom: 10px;
   color: #4b5c09;
   font-weight: bold;
 }
-*/
+
 
 .left-align p {
   text-align: left;
@@ -1266,6 +1267,6 @@ ul.archive-sublist {
 }
 
 .orange-container {
-  background-color: #fbb03b;
+  background-color: #cc7000;
 }
 

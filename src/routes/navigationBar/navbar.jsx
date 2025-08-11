@@ -60,7 +60,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link to={`/churches/`} onClick={() => setMenuOpen(false)}>
-              Churches
+              Mt. Olive
             </Link>
           </li>
           <li>

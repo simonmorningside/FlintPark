@@ -2,10 +2,7 @@
   padding: 20px;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
+
 
 .content-section {
   display: grid;
@@ -40,10 +37,7 @@ footer {
   padding: 20px;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
+
 
 .links-section {
   display: flex;
