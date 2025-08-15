@@ -25,6 +25,7 @@ import ChoirRecords from './routes/mtOliveArchive/choirRecords.jsx';
 import LifeEvents from './routes/mtOliveArchive/lifeEvents.jsx';
 import ChurchMaterials from './routes/mtOliveArchive/churchMaterials.jsx';
 import Photographs from './routes/mtOliveArchive/photographs.jsx';
+import AboutChurch from './routes/mtOliveArchive/aboutchurch.jsx';
 
 
 
@@ -111,6 +112,10 @@ const router = createBrowserRouter([
         path: "photographs/",
         element: <Photographs/>,
       },
+      {
+        path: "about/",
+        element: <AboutChurch />,
+      }
     ]
   }
 ]);

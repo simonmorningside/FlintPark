@@ -68,6 +68,11 @@ export default function Churchesnavbar() {
               Archive
             </Link>
           </li>
+          <li>
+            <Link to={`about/`} onClick={() => setMenuOpen(false)}>
+              About
+            </Link>
+          </li>
         </ul>
       </nav>
       <div id="detail">

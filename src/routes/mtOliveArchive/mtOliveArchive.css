@@ -1270,3 +1270,14 @@ ul.archive-sublist {
   background-color: #cc7000;
 }
 
+.left-justify-about {
+  text-align: left;
+}
+
+.center-page-about {
+  margin-top: 5vh;
+  padding-left: 12.5vw;
+  padding-right: 12.5vw;
+  max-width: 75vw;
+  justify-content: center;
+}
