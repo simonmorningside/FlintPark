@@ -65,7 +65,7 @@ export default function History() {
           <figure className="history-image-block">
             <img src={history1} alt="Historic scene 1" onClick={() => openModal(history1)}
               className="clickable-image" />
-            <figcaption>Barbershop, Essex County, c.1900. Alvin D. McCurdy Fonds, Archives of Ontario, Amherstburg. In Archives of Ontario.</figcaption>
+            <figcaption>Barbershop, Essex County, c.1900. Alvin D. McCurdy Fonds, Archives of Ontario.</figcaption>
           </figure>
           <figure className="history-image-block">
             <img src={history2} alt="Historic scene 2" onClick={() => openModal(history2)}
@@ -162,6 +162,84 @@ export default function History() {
           <li>Owens, Gladys</li>
           <li>Saunders, H</li>
         </ul>
+      </section>
+
+      <section className="history-section">
+        <h2>Mt. Olive History</h2>
+        <div>
+          <p>
+          Much has occurred in the decades since. Mt Olive gave birth to many local Baptist churches including St Paul, First Trinity, Grace Emmanuel, Mt Carmel, Christ the Lamb, Mission (Shiloh), and Cornerstone.
+          </p>
+          <h3>Education</h3>
+          <p>
+          Mt Olive has had a Sunday School program since its very beginning. Sunday School classes were first organized by Rev. C.E. Lapp from First Baptist Church, Flint and taught by Arthur and Celinda Severance. Classes have been held for children, young adults, adults, men, women, and couples. 
+          </p>
+          <p>
+          Vacation Bible School has been a feature of the educational program in the summer. At times in collaboration with Quinn Chapel.
+          </p>
+          <p>
+          The Ada Berry Bible Class was organized as the Ladies Bible Class in 1924 by Miss Ada Berry, the sister-in-law of Rev. Wade McKinney. Anna Ruth McKinney was the first teacher, followed by many, including Ada Berry, Annie Turpin, Augustus Calloway, Ezra Broadnax, Nellie Kimble, Lois D. Greer, Etta Copedge and Alma Daniels.
+          </p>
+          <p>
+          The presidents of the class have included:
+          </p>
+          <ul>
+            <li>Mrs. George Rankin</li>
+            <li>Eletha K. Ray</li>
+            <li>Lucy Wheeler. Mrs.Wheeler was remembered to have mentored many young women and encouraged their education.</li>
+            <li>Edith B. Robinson initiated a college scholarship program</li>
+            <li>Jessie L. Brady</li>
+            <li>Eliza Prather</li>
+            <li>Mrs Henry Suber served as president for 29 years from 1953 to 1982.</li>
+            <li>Dorris Walton served 12 years</li>
+            <li>Margaret Campbell</li>
+          </ul>
+          <p>
+          Educational programs and other activities for young people (such as summer camp scholarships) have been supported through fundraisers such as Mother and Daughter Banquets and Father and Son Banquets.
+          </p>
+          <h3>Music</h3>
+          <p>
+          Music too has been a significant feature of Mt Olive since the very beginning. The Senior Choir was organized in 1915 with Willie Perdue as pianist and director, followed by Edith Robinson who served for 29 years. Ruth Buckner succeeded Edith Robinson in 1956, followed by Margaret Anthony. 
+          </p>
+          <p>
+          The youth choir was developed by the Rev and Mrs Turpin in the late 1940s for young people 14 and older. Its first president was Nellie Edwards Raini, its director George Grier, and pianist Emily Calloway. This choir became the Young Adult Choir in the 1950s under the direction of Wade S. Jones with Emily Calloway and Harrison McGee as pianists. Johnnie Wynn Jr. served as president of the Young Adult choir between 1946 and 1958, when Willim Pinnix took over the position through 1965. In 1967 the Young Adult Choir merged with the Senior Choir under its director, Harrison McGee, who became the director, pianist, and organist of what would be renamed in 1993, the Chancel Choir.
+          </p>
+          <p>
+          In 2006 Mt Olive had seven choirs: the Sunshine Choir, the Ambassadors Choir, the Inspirational Choir, the Male Chorus, the Chancel Choir, the Men’s Day Choir, and the Women’s Day Choir.
+          </p>
+          <h3>Deacon Board</h3>
+          <p>
+          The deacons of Mt Olive have served as key leaders in Mt. Olive for over a century. They serve the pastor, the church, and those in need. Over the course of their history, they have discussed key aspects of church life, worked with church ministries, advised and supported the pastor, and led and assisted in services. They have conducted the continuous prayer services that honor the anniversaries of the church and they have sponsored missionary initiatives locally and abroad. They support the needs of church members by visiting the sick, preparing Bapstismal candidates, and reaching out to those in need.
+          </p>
+          <h3>Deaconess and Mothers Board</h3>
+          <p>
+          The Deaconess Board was organized under Rev. McKinney. Members work in the church to prepare for service and in outreach to members. The board was chaired from 1934-1944 by Ophelia Tallaferio, followed by many others including Susie Suber, Dorris Walton, Montel Sneed, Henrietta French, Rosie Foster, and Versia Wren. The Mothers Board was developed in 1983 as the Deaconess Emeritus Board, and was renamed in 1990.
+          </p>
+          <h3>Women’s Day</h3>
+          <p>
+          Rev. Wade McKinney helped organize the first Mt Olive Women’s Day in 1925 to honor the women of the church. The themed women-lead service customarily features guest speakers and a women’s chorus. Speakers have included local, regional, and national dignitaries. Funds raised through Women’s Day events usually support the life of women in the church, for instance remodeling the women’s restrooms. 
+          </p>
+          <h3>Blue Star Mothers</h3>
+          <p>
+          During World War II, the Blue Star Mothers at Mt Olive honored mothers whose sons were serving abroad in the armed forces. They wore white dresses with a cap featuring a blue star and raised funds for their work by selling daisies.
+          </p>
+          <h3>Senior Usher Board</h3>
+          <p>
+          The Senior Usher Board was formed by Rev. McKinney in 1928 to assist with worship services and Mrs. Annie Turpin organized a Junior Usher Board in 1941.  Members of the senior board have consistently served to support worship and to sponsor significant aspects of building projects.
+          </p>
+          <h3>The Floral Club</h3>
+          <p>
+          The Floral Club (named by member Alma Childress) was organized in 1939 for the purpose of beautifying the church and its surroundings and to remember deceased members. The Floral Board's presidents have included Mae Nolan (1939), Lydia Waller (1940), Ella Lewis (1945), Annie Exum (1948), Fannie Ross (1954), Elleanor Holms (1956), Abzee Carter Simmons (1962), and Pauline Todd (1967).
+          </p>
+          <h3>Birthday Club</h3>
+          <p>
+          Beginning in 1953, under the leadership of Irene Brown and Alverna Kelly, a Birthday club organized monthly events to recognize birthdays. Local merchants donated cake, punch, and ice cream. In the 1980s those events became quarterly. 
+          </p>
+          <h3>Theater Groups</h3>
+          <p>
+          In the 1950s the church organized two short-lived multi-racial theater groups under the direction of Rosa L. Kemp–the Young Adult Players and the Dramusolits. These groups performed plays at the church and in other locations through the city including Central High School and other churches. Two of the plays they performed were <span className="text-italics">Whatsoever Ye Sow</span> and <span className="text-italics">Salvation is Free</span>.
+          </p>
+        </div>
       </section>
     </div>
   );
