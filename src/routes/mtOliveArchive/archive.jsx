@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import "../mtOliveArchive/archive.css";
 
 export default function Archive() {
@@ -13,16 +13,16 @@ export default function Archive() {
   const containerRef = useRef(null);
   const [visibleCount, setVisibleCount] = useState(75);
   const batchSize = 25;
-  
-  const location = useLocation();
-  useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const category = params.get("category");
 
-  if (category) {
-    setSubjectFilter(category);
-  }
-}, [location.search]);
+  // useSearchParams gives us both searchParams and setSearchParams
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (category) {
+      setSubjectFilter(category);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -53,12 +53,20 @@ export default function Archive() {
           const resetTime = new Date(nextHourStart);
 
           if (timestamp >= currentHourStart) {
-            console.log(`✅ Using cached data for ${cacheKey}:`, data.length, "items");
-            console.log(`🕒 Cached at: ${timestampDate.toLocaleTimeString()}, expires at: ${resetTime.toLocaleTimeString()}`);
+            console.log(
+              `✅ Using cached data for ${cacheKey}:`,
+              data.length,
+              "items"
+            );
+            console.log(
+              `🕒 Cached at: ${timestampDate.toLocaleTimeString()}, expires at: ${resetTime.toLocaleTimeString()}`
+            );
             setPdfsWithMetadata((prev) => [...prev, ...data]);
             return;
           } else {
-            console.log(`⏳ Cache expired for ${cacheKey} (cached at ${timestampDate.toLocaleTimeString()}, now ${new Date().toLocaleTimeString()})`);
+            console.log(
+              `⏳ Cache expired for ${cacheKey} (cached at ${timestampDate.toLocaleTimeString()}, now ${new Date().toLocaleTimeString()})`
+            );
             sessionStorage.removeItem(cacheKey);
           }
         } catch (e) {
@@ -109,7 +117,9 @@ export default function Archive() {
           JSON.stringify({ timestamp, data: parsedItems })
         );
         console.log(`✅ Cached ${parsedItems.length} items under ${cacheKey}`);
-        console.log(`🕒 Cached at: ${new Date(timestamp).toLocaleTimeString()}, expires at: ${resetTime.toLocaleTimeString()}`);
+        console.log(
+          `🕒 Cached at: ${new Date(timestamp).toLocaleTimeString()}, expires at: ${resetTime.toLocaleTimeString()}`
+        );
       } catch (err) {
         if (err.name !== "AbortError") {
           console.error(`🚨 Error during fetch for ${cacheKey}:`, err);
@@ -125,7 +135,7 @@ export default function Archive() {
         fetchAndStream(
           "https://floral-park-webserver-861401374674.us-central1.run.app/api/archive_full",
           "cache_archive"
-        )
+        ),
       ]);
       setLoading(false);
     };
@@ -137,7 +147,8 @@ export default function Archive() {
   const filteredItems = pdfsWithMetadata.filter((pdf) => {
     const titleMatch = pdf.metadata?.Title?.toLowerCase().includes(searchQuery.toLowerCase());
     const subject = pdf.metadata?.Subject || "";
-    const subjectMatch = !subjectFilter || subject.toLowerCase().includes(subjectFilter.toLowerCase());
+    const subjectMatch =
+      !subjectFilter || subject.toLowerCase().includes(subjectFilter.toLowerCase());
     return titleMatch && subjectMatch;
   });
 
@@ -145,7 +156,9 @@ export default function Archive() {
     if (!containerRef.current) return;
     const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
     if (scrollTop + clientHeight >= scrollHeight - 100) {
-      setVisibleCount((prev) => Math.min(prev + batchSize, filteredItems.length));
+      setVisibleCount((prev) =>
+        Math.min(prev + batchSize, filteredItems.length)
+      );
     }
   }, [filteredItems.length]);
 
@@ -188,13 +201,22 @@ export default function Archive() {
         </div>
 
         <div className="filter-container">
-          <label htmlFor="subjectFilter" className="filter-label">Filter by Subject:</label>
+          <label htmlFor="subjectFilter" className="filter-label">
+            Filter by Subject:
+          </label>
           <select
             id="subjectFilter"
             value={subjectFilter}
             onChange={(e) => {
-              setSubjectFilter(e.target.value);
+              const value = e.target.value;
+              setSubjectFilter(value);
               setVisibleCount(75);
+
+              if (value) {
+                setSearchParams({ category: value });
+              } else {
+                setSearchParams({});
+              }
             }}
             className="subject-dropdown"
           >
@@ -222,6 +244,7 @@ export default function Archive() {
             <option value="Memos">Memos</option>
             <option value="Histories">Histories</option>
             <option value="Retirement">Retirement</option>
+             <option value="Recordings">Recordings</option>
           </select>
         </div>
 
@@ -236,14 +259,19 @@ export default function Archive() {
             pdf ? (
               <div className="grid-item" key={index}>
                 <button
-                  onClick={() => setPreviewData({ metadata: pdf.metadata, url: pdf.url })}
+                  onClick={() =>
+                    setPreviewData({ metadata: pdf.metadata, url: pdf.url })
+                  }
                   className="pdf-link-button"
                 >
                   {pdf.metadata?.Title || pdf.name}
                 </button>
               </div>
             ) : (
-              <div className="grid-item skeleton" key={`skeleton-${index}`}></div>
+              <div
+                className="grid-item skeleton"
+                key={`skeleton-${index}`}
+              ></div>
             )
           )}
         </div>
@@ -251,21 +279,41 @@ export default function Archive() {
         {loading && <p style={{ textAlign: "center" }}>Loading more items...</p>}
 
         {previewData && (
-          <div className="pdf-preview-overlay" onClick={() => setPreviewData(null)}>
-            <div className="pdf-preview-modal" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="pdf-preview-overlay"
+            onClick={() => setPreviewData(null)}
+          >
+            <div
+              className="pdf-preview-modal"
+              onClick={(e) => e.stopPropagation()}
+            >
               <h3>{previewData.metadata.Title}</h3>
-              <p><strong>Identifier:</strong> {previewData.metadata.Identifier}</p>
-              <p><strong>Subject:</strong> {previewData.metadata.Subject}</p>
+              <p>
+                <strong>Identifier:</strong> {previewData.metadata.Identifier}
+              </p>
+              <p>
+                <strong>Subject:</strong> {previewData.metadata.Subject}
+              </p>
               <a
                 href={previewData.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: "inline-block", marginTop: "1rem", fontWeight: "bold", color: "#0077cc" }}
+                style={{
+                  display: "inline-block",
+                  marginTop: "1rem",
+                  fontWeight: "bold",
+                  color: "#0077cc",
+                }}
               >
                 View Full PDF
               </a>
               <br />
-              <button onClick={() => setPreviewData(null)} style={{ marginTop: "1rem" }}>Close</button>
+              <button
+                onClick={() => setPreviewData(null)}
+                style={{ marginTop: "1rem" }}
+              >
+                Close
+              </button>
             </div>
           </div>
         )}
