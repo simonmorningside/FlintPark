@@ -294,18 +294,18 @@ export default function Churches() {
                   <a className="recolor bold">Life Events</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Celebration of Life</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Graduations</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Funeral+Programs">Celebration of Life</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Graduations">Graduations</a></li>
                   </ul>
                   </div>
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold">Choir Records</a>
+                  <a className="recolor bold">Church Media</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Recordings</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive">Recordings</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="flintneighborhoodhistories.org/churches/archive/?category=Videos">Videos</a></li>
                   </ul>
                   </div>
                   <div className="block-style">
@@ -313,9 +313,11 @@ export default function Churches() {
                   <a className="recolor bold">Church Materials</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Bulletins">Bulletins</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Newsletters">Newsletters</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Flyers">Flyers</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Anniversaries">Anniversaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Directories">Directories</a></li>
                   </ul>
                   </div>
                   <div className="block-style">
@@ -323,9 +325,8 @@ export default function Churches() {
                   <a className="recolor bold">Photographs</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Events">Events</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Summer+Program">Summer Program</a></li>
                   </ul>
                   </div>
               </div>
