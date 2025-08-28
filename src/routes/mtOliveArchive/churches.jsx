@@ -289,22 +289,45 @@ export default function Churches() {
 
             {title === 'ARCHIVE' && (
               <div className="archive-links">
-                {[
-                  ["Life Events", "Celebration of Life", "Obituaries", "Graduations"],
-                  ["Choir Records", "Recordings", "Meetings Minutes"],
-                  ["Church Materials", "Bulletins", "Newsletters", "Flyers", "Anniversaries", "Directories"],
-                  ["Photographs", "Sunday School", "Events", "Summer Program"]
-                ].map((group, i) => (
-                  <p key={i} className="block-style">
-                    <Link to={'archive/'} className="archive-link-styling">{group[0]}</Link><br />
-                    <ul className="archive-sublist">
-                      {group.slice(1).map((item, j) => (
-                        <li key={j} style={{ marginBottom: '4px', listStyleType: 'circle' }}>{item}</li>
-                      ))}
-                    </ul>
-
-                  </p>
-                ))}
+                  <div className="block-style">
+                  <h3 className="archive-link-styling">
+                  <a className="recolor bold">Life Events</a>
+                  </h3>
+                  <ul className="archive-sublist">
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Celebration of Life</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Graduations</a></li>
+                  </ul>
+                  </div>
+                  <div className="block-style">
+                  <h3 className="archive-link-styling">
+                  <a className="recolor bold">Choir Records</a>
+                  </h3>
+                  <ul className="archive-sublist">
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Recordings</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                  </ul>
+                  </div>
+                  <div className="block-style">
+                  <h3 className="archive-link-styling">
+                  <a className="recolor bold">Church Materials</a>
+                  </h3>
+                  <ul className="archive-sublist">
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                  </ul>
+                  </div>
+                  <div className="block-style">
+                  <h3 className="archive-link-styling">
+                  <a className="recolor bold">Photographs</a>
+                  </h3>
+                  <ul className="archive-sublist">
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="http://localhost:5173/churches/archive/?category=Obituaries">Obituaries</a></li>
+                  </ul>
+                  </div>
               </div>
             )}
           </div>

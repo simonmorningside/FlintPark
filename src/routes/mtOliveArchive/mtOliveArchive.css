@@ -1237,8 +1237,9 @@ footer {
   color: #f0f0f0;
   text-decoration: none;
   display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  margin-top: -1vh;
+  font-size: 1.3rem;
 }
 
 .archive-link-styling:hover {
@@ -1275,9 +1276,26 @@ ul.archive-sublist {
 }
 
 .center-page-about {
-  margin-top: 5vh;
+  margin-top: 10vh;
   padding-left: 12.5vw;
   padding-right: 12.5vw;
   max-width: 75vw;
   justify-content: center;
+}
+
+.archive-sublinks {
+  margin-bottom: 4%;
+  list-style-type: circle;
+}
+
+.recolor {
+  color: #273e06;
+}
+
+.recolor:hover {
+  color: #fbb03b;
+}
+
+.bold {
+  font-weight: bold;
 }
