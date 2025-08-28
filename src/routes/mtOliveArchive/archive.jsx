@@ -244,7 +244,6 @@ export default function Archive() {
             <option value="Memos">Memos</option>
             <option value="Histories">Histories</option>
             <option value="Retirement">Retirement</option>
-            <option value="Recordings">Recordings</option>
             <option value="Videos">Videos</option>
             <option value="Directories">Directories</option>
             <option value="Events">Events</option>
