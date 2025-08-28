@@ -291,7 +291,7 @@ export default function Churches() {
               <div className="archive-links">
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold">Life Events</a>
+                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/churches/archive/?category=Life+Events">Life Events</a>
                   </h3>
                   <ul className="archive-sublist">
                     <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Obituaries">Obituaries</a></li>
@@ -301,16 +301,16 @@ export default function Churches() {
                   </div>
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold">Church Media</a>
+                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/churches/archive/?category=">Church Media</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive">Recordings</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="flintneighborhoodhistories.org/churches/archive/?category=Videos">Videos</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=">Recordings</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Videos">Videos</a></li>
                   </ul>
                   </div>
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold">Church Materials</a>
+                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/churches/archive/?category=Church+Materials">Church Materials</a>
                   </h3>
                   <ul className="archive-sublist">
                     <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Bulletins">Bulletins</a></li>
@@ -322,7 +322,7 @@ export default function Churches() {
                   </div>
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold">Photographs</a>
+                  <a className="recolor bold"href="https://flintneighborhoodhistories.org/churches/archive/?category=Photographs">Photographs</a>
                   </h3>
                   <ul className="archive-sublist">
                     <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Events">Events</a></li>
