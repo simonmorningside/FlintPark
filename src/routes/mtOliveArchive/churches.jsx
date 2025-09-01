@@ -304,7 +304,7 @@ export default function Churches() {
                   <a className="recolor bold" href="https://flintneighborhoodhistories.org/churches/archive/?category=">Church Media</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=">Recordings</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Memos">Memos</a></li>
                     <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Videos">Videos</a></li>
                   </ul>
                   </div>
@@ -326,7 +326,7 @@ export default function Churches() {
                   </h3>
                   <ul className="archive-sublist">
                     <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Events">Events</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Summer+Program">Summer Program</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Summer+Enrichment+Program">Summer Program</a></li>
                   </ul>
                   </div>
               </div>

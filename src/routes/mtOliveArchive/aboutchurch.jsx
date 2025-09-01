@@ -32,6 +32,10 @@ export default function AboutChurch() {
           <p>Digital video and audio editing was performed by Vickie Larsen. Digitized materials were converted into accessible formats to ensure compatibility with web viewing and were configured for a searchable database for web viewing by student developers Simon Zychowski and Mackailee Longobricco of Morningside University. These same developers developed the user interface.</p>
       </div>
       <div className="left-justify-about">
+        <h2>Digital Deployment</h2>
+          <p>This website is hosted on the google cloud platoform with the backend and data also functioning from there. It has a repository on github that sends automatic updates to the cloud deployed site whenever the main branch is edited. This allows modification for future work from other humanities passionate CS majors. Allowing the archive to grow and be updated as our knowlege about the Mt. Olive history grows.</p>
+      </div>
+      <div className="left-justify-about">
         <h2>Additions and Concerns</h2>
           <p>Additions to the physical or digital Mt Olive Missionary Baptist Church archive can be shared with members of the History Ministry or brought to the church office. Please direct any revisions or corrections to existing materials or text to Vickie Larsen at larsenv@morningside.edu</p>
       </div>
