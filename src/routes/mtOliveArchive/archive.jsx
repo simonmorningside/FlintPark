@@ -221,32 +221,33 @@ export default function Archive() {
             className="subject-dropdown"
           >
             <option value="">All Subjects</option>
-            <option value="Birthdays">Birthdays</option>
-            <option value="Life Events">Life Events</option>
-            <option value="Graduations">Graduations</option>
-            <option value="Correspondence">Correspondence</option>
-            <option value="Funeral Programs">Celebration of Life</option>
-            <option value="Obituaries">Obituaries</option>
-            <option value="Photographs">Photographs</option>
-            <option value="Choir Records">Choir Records</option>
-            <option value="Pastors">Pastors</option>
-            <option value="Summer Enrichment Program">Summer Program</option>
-            <option value="Church Materials">Church Materials</option>
-            <option value="Bulletins">Bulletins</option>
-            <option value="Womens Day">Womens Day</option>
-            <option value="Church Anniversaries">Church Anniversaries</option>
-            <option value="Programs">Programs</option>
-            <option value="Flyers">Flyers</option>
-            <option value="Newsletters">Newsletters</option>
-            <option value="The Olive Branch">The Olive Branch</option>
             <option value="Anniversaries">Anniversaries</option>
-            <option value="Newspapers">Newspapers</option>
-            <option value="Memos">Memos</option>
-            <option value="Histories">Histories</option>
-            <option value="Retirement">Retirement</option>
-            <option value="Videos">Videos</option>
+            <option value="Birthdays">Birthdays</option>
+            <option value="Bulletins">Bulletins</option>
+            <option value="Funeral Programs">Celebration of Life</option>
+            <option value="Choir Records">Choir Records</option>
+            <option value="Church Anniversaries">Church Anniversaries</option>
+            <option value="Church Materials">Church Materials</option>
+            <option value="Correspondence">Correspondence</option>
             <option value="Directories">Directories</option>
             <option value="Events">Events</option>
+            <option value="Flyers">Flyers</option>
+            <option value="Graduations">Graduations</option>
+            <option value="Histories">Histories</option>
+            <option value="Life Events">Life Events</option>
+            <option value="Memos">Memos</option>
+            <option value="Newsletters">Newsletters</option>
+            <option value="Newspapers">Newspapers</option>
+            <option value="Obituaries">Obituaries</option>
+            <option value="Pastors">Pastors</option>
+            <option value="Photographs">Photographs</option>
+            <option value="Programs">Programs</option>
+            <option value="Recordings">Recordings</option>
+            <option value="Retirement">Retirement</option>
+            <option value="Summer Enrichment Program">Summer Program</option>
+            <option value="The Olive Branch">The Olive Branch</option>
+            <option value="Videos">Videos</option>
+            <option value="Womens Day">Womens Day</option>
           </select>
         </div>
 
