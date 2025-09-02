@@ -192,7 +192,7 @@ export default function Archive() {
           <div className="search-container">
             <input
               type="text"
-              placeholder="Search PDFs by Description..."
+              placeholder="Search Files by Description..."
               value={searchQuery}
               onChange={handleSearchChange}
               className="search-input"
@@ -252,7 +252,7 @@ export default function Archive() {
         </div>
 
         {error && <div>Error: {error}</div>}
-        {!loading && filteredItems.length === 0 && <p>No matching PDFs found</p>}
+        {!loading && filteredItems.length === 0 && <p>No matching files found</p>}
 
         <div className="grid-container">
           {(loading && pdfsWithMetadata.length === 0
@@ -308,7 +308,7 @@ export default function Archive() {
                   color: "#0077cc",
                 }}
               >
-                View Full PDF
+                View File
               </a>
               <br />
               <button
