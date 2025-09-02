@@ -186,7 +186,7 @@ export default function Archive() {
         ref={containerRef}
         style={{ height: "80vh", overflowY: "scroll" }}
       >
-        <h2>Church Events PDFs</h2>
+        <h2>Church Archive Files</h2>
 
         <div className="filer-container">
           <div className="search-container">
