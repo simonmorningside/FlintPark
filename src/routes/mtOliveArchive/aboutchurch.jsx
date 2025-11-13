@@ -13,8 +13,8 @@ export default function AboutChurch() {
     <div className="center-page-about">
       <div className="left-justify-about">
         <h2>The Archive Project Team</h2>
-          <p>The Mt Olive Missionary Baptist History project is a collaboration between the Mt. Olive History Ministry and the Flint Neighborhood History Project.</p>
-          <p>The items in the Mt. Olive Missionary Baptist Church archive were gathered by members of the History Ministry between 2023 and 2025 under the leadership of Melva Viltz. Members of the archive working group include Betty Tippor, Wanda Harden, Alfreda Duncan, and Earnest and Nancy Pouncy. Items were also shared by Kenneth Gillard. The collection was preserved, catalogued, and digitized by Natalie Frary under the direction of Vickie Larsen and Pamela Hawkins of the Flint Neighborhood History Project. The digitization protocols and metadata structure were developed by Natalie Frary and Vickie Larsen in consultation with Anne Cong-Huyen, Joe Bauers, and Matt Caruthers, members of the Anti-Racist Digital Research Initiatives support team at the University of Michigan College of Literature Science and the Arts. Archive-quality digital files are owned by Mt Olive Missionary Baptist church.</p>
+          <p>The Mt. Olive Missionary Baptist History project is a collaboration between the Mt. Olive History Ministry and the Flint Neighborhood History Project.</p>
+          <p>The items in the Mt. Olive Missionary Baptist Church archive were gathered by members of the History Ministry between 2023 and 2025 under the leadership of Melva Viltz. Members of the archive working group include Betty Tippor, Wanda Harden, Alfreda Duncan, and Earnest and Nancy Pouncy. Items were also shared by Kenneth Gillard. The collection was preserved, catalogued, and digitized by Natalie Frary under the direction of Vickie Larsen and Pamela Hawkins of the Flint Neighborhood History Project. The digitization protocols and metadata structure were developed by Natalie Frary and Vickie Larsen in consultation with Anne Cong-Huyen, Joe Bauers, and Matt Caruthers, members of the Anti-Racist Digital Research Initiatives support team at the University of Michigan College of Literature Science and the Arts. Archive-quality digital files are owned by Mt. Olive Missionary Baptist church.</p>
       </div>
       <div className="left-justify-about">
         <h2>The Research</h2>
@@ -37,7 +37,7 @@ export default function AboutChurch() {
       </div>
       <div className="left-justify-about">
         <h2>Additions and Concerns</h2>
-          <p>Additions to the physical or digital Mt Olive Missionary Baptist Church archive can be shared with members of the History Ministry or brought to the church office. Please direct any revisions or corrections to existing materials or text to Vickie Larsen at larsenv@morningside.edu</p>
+          <p>Additions to the physical or digital Mt. Olive Missionary Baptist Church archive can be shared with members of the History Ministry or brought to the church office. Please direct any revisions or corrections to existing materials or text to Vickie Larsen at larsenv@morningside.edu</p>
       </div>
       <div className="left-justify-about">
         <h2>Permissions</h2>
@@ -46,8 +46,8 @@ export default function AboutChurch() {
       <div className="left-justify-about">
         <h2>Media Credits</h2>
           <p>
-            This Far By Faith, Mt Olive Missionary Baptist Church, Flint
-            Choir Recordings, Mt Olive Missionary Baptist Church, Flint and
+            This Far By Faith, Mt. Olive Missionary Baptist Church, Flint
+            Choir Recordings, Mt. Olive Missionary Baptist Church, Flint and
             Zion Baptist Church, Washington DC
           </p>
       </div>
