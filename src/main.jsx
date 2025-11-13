@@ -75,7 +75,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: 'churches/',
+    path: 'mtolive/',
     element: <Churchesnavbar />,
     errorElement: <ErrorPage />,
     children: [
