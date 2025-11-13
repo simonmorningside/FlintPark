@@ -210,7 +210,7 @@ export default function Churches() {
                             style={{ width: '100%', height: 'auto' }}
                           />
                           {tag ? (
-                            <Link to={`/churches/pastors#${tag.id}`} className="pastor-name-tag">
+                            <Link to={`/mtolive/pastors#${tag.id}`} className="pastor-name-tag">
                               {tag.name}
                             </Link>
                           ) : (
@@ -291,43 +291,43 @@ export default function Churches() {
               <div className="archive-links">
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/churches/archive/?category=Life+Events">Life Events</a>
+                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Life+Events">Life Events</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Funeral+Programs">Celebration of Life</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Graduations">Graduations</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Obituaries">Obituaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Funeral+Programs">Celebration of Life</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Graduations">Graduations</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Obituaries">Obituaries</a></li>
                   </ul>
                   </div>
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/churches/archive/?category=">Church Media</a>
+                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/mtolive/archive/?category=">Church Media</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Memos">Memos</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Recordings">Recordings</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Videos">Videos</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Memos">Memos</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Recordings">Recordings</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Videos">Videos</a></li>
                   </ul>
                   </div>
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/churches/archive/?category=Church+Materials">Church Materials</a>
+                  <a className="recolor bold" href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Church+Materials">Church Materials</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Anniversaries">Anniversaries</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Bulletins">Bulletins</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Directories">Directories</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Flyers">Flyers</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Newsletters">Newsletters</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Anniversaries">Anniversaries</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Bulletins">Bulletins</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Directories">Directories</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Flyers">Flyers</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Newsletters">Newsletters</a></li>
                   </ul>
                   </div>
                   <div className="block-style">
                   <h3 className="archive-link-styling">
-                  <a className="recolor bold"href="https://flintneighborhoodhistories.org/churches/archive/?category=Photographs">Photographs</a>
+                  <a className="recolor bold"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Photographs">Photographs</a>
                   </h3>
                   <ul className="archive-sublist">
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Events">Events</a></li>
-                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/churches/archive/?category=Summer+Enrichment+Program">Summer Program</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Events">Events</a></li>
+                    <li className="archive-sublinks"><a className="recolor"href="https://flintneighborhoodhistories.org/mtolive/archive/?category=Summer+Enrichment+Program">Summer Program</a></li>
                   </ul>
                   </div>
               </div>

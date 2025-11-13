@@ -34,7 +34,7 @@ export default function Churchesnavbar() {
       <nav className="church-top-nav">
         {/* Logo Section */}
         <div>
-          <Link to="/churches">
+          <Link to="/mtolive">
             <h1 className="navbartext">History of Mount Olive Missionary Baptist Church</h1>
           </Link>
         </div>
@@ -49,7 +49,7 @@ export default function Churchesnavbar() {
         {/* Navigation Links (only appear when menuOpen is true) */}
         <ul className={`church-nav-links ${menuOpen ? 'open' : ''}`}>
           <li>
-            <Link to={`/churches/`} onClick={() => setMenuOpen(false)}>
+            <Link to={`/mtolive/`} onClick={() => setMenuOpen(false)}>
               Home
             </Link>
           </li>
