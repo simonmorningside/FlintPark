@@ -59,7 +59,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to={`/Mt.Olive/`} onClick={() => setMenuOpen(false)}>
+            <Link to={`/mtolive/`} onClick={() => setMenuOpen(false)}>
               Mt. Olive
             </Link>
           </li>

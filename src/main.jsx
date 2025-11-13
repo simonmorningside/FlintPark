@@ -81,7 +81,7 @@ const router = createBrowserRouter([
     children: [
       { index: false, element: <Churches /> },
       {
-        path: '/churches/',
+        path: '/mtolive/',
         element: <Churches />,
       },
       {
