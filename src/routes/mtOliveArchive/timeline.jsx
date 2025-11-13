@@ -183,7 +183,7 @@ export default function Timeline() {
     {
       id: 'william',
       date: '1928',
-      title: 'William M. Epps, interim',
+      title: 'Rev. William M. Epps, interim',
       content: [
         'Rev. William Epps preached at Mt. Olive for a few months in the Fall of 1928. He was a laborer and auto worker who lived at 510 Kennelworth with his wife Mildred.'
       ]
