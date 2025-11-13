@@ -74,7 +74,7 @@ export default function Timeline() {
       date: '2017',
       title: 'Rev. Ronald Wilson, interim',
       content: [
-        'Rev Wilson served as Associate Pastor under Rev. Greer and served as interim minister in 2017.'
+        'Rev. Wilson served as Associate Pastor under Rev. Greer and served as interim minister in 2017.'
       ]
     },
     {
@@ -82,7 +82,7 @@ export default function Timeline() {
       date: '2010-2016',
       title: 'Rev. Dr. Major Adam Stewart',
       content: [
-        'Rev. Stewart (1960- ) is from Muskegon Heights, Michigan and was called to serve as pastor of Mt. Olive in 2009. He began his pastorate in March 2010. Rev Stewart is a graduate of Eastern Michigan University and holds a doctorate in theology from United Theological Seminary in Dayton, OH.',
+        'Rev. Stewart (1960- ) is from Muskegon Heights, Michigan and was called to serve as pastor of Mt. Olive in 2009. He began his pastorate in March 2010. Rev. Stewart is a graduate of Eastern Michigan University and holds a doctorate in theology from United Theological Seminary in Dayton, OH.',
         'He and his wife Carla Brooks Stewart raised three daughters: Alexandria Janine, Mikaela Ann, and Karissa Danielle. During his ministry, the church produced the video history, This Far by Faith, in honor of its 100th anniversary. Rev. Stewart worked to make Mt. Olive debt free, burning the mortgage for the Family Life Center in front of the congregation in June 2014. He acquired three properties adjacent to the church and extended youth ministries and programming. He has since served as a pastor of The Greater Mt. Sinai Baptist Church in Charlotte, NC.'
        ]
     },
@@ -101,7 +101,7 @@ export default function Timeline() {
       content: [
         'Rev. Roy Greer (1935-2008) was born in Henderson, Texas. He began ministry work at the age of 12 doing revivals across the country, with his 12 year old uncle, Bishop T.T. Terry. They were affectionately known as the twin preachers.',
         'He was educated at the Southern Bible Institute in Dallas, TX; John Wesley College in Owosso, MI; Grand Rapids Baptist College and Seminary; and Calvary Christian Seminary. Rev. Greer and his wife Lois Dean Morgan Greer had six children. Lois Dean Greer died in 2006; and Rev. Greer married Brenda J. Duckett in 2007.',
-        'Before coming to Mt. Olive in 1972, Rev. Dr. Greer was a pastor at New Mount Moriah Baptist Church in Dallas, TX and the First Baptist Church of Sheffield, AL. Rev. Greer was offered a salary of $175 per week and $60 per week as a housing allowance, and the family of eight first moved into a rented 2-bedroom home on Home St. on the Northside. The Greers greatly impacted church life at Mt. Olive. Rev Greer brought a cool youthful energy to the church and a fiery preaching style. Mrs Greer brought a remarkable singing style and an emphasis on a wider range of lively music. Rev. Greer’s vision led to several administrative updates, additions and renovations to both the interior and exterior of the church building, as membership continued to climb. Rev Greer added to the schedule of services and added communion to a morning service as well as the evening. He was known as a sharp dresser, a man with a good sense of humor, and a mentor to young people. His vision for the Family Life Center built in 1999 was that it would serve as a gathering space for the youth in the Flint community. Many of those he mentored went on to become doctors, lawyers, teachers, and ministers.',
+        'Before coming to Mt. Olive in 1972, Rev. Dr. Greer was a pastor at New Mount Moriah Baptist Church in Dallas, TX and the First Baptist Church of Sheffield, AL. Rev. Greer was offered a salary of $175 per week and $60 per week as a housing allowance, and the family of eight first moved into a rented 2-bedroom home on Home St. on the Northside. The Greers greatly impacted church life at Mt. Olive. Rev. Greer brought a cool youthful energy to the church and a fiery preaching style. Mrs Greer brought a remarkable singing style and an emphasis on a wider range of lively music. Rev. Greer’s vision led to several administrative updates, additions and renovations to both the interior and exterior of the church building, as membership continued to climb. Rev. Greer added to the schedule of services and added communion to a morning service as well as the evening. He was known as a sharp dresser, a man with a good sense of humor, and a mentor to young people. His vision for the Family Life Center built in 1999 was that it would serve as a gathering space for the youth in the Flint community. Many of those he mentored went on to become doctors, lawyers, teachers, and ministers.',
         'Rev. Greer enthusiastically oversaw the Mt. Olive centennial celebration in 2007. He was also instrumental in building a church in India and supporting a pastor and church in Haiti. Members fondly recall Rev. Greer’s openness to new musical styles, his tireless pastoral work, and his lively sermons. '
       ]
     },
@@ -159,7 +159,7 @@ export default function Timeline() {
       date: '1931-1932',
       title: 'Rev. Elbert L. Todd',
       content: [
-        'The Rev Elbert L. Todd (1879-1960) served as the pastor of Mt. Olive for some of 1931 and 1932. He was born in Mississippi and worked as a farmer there as a young man before studying for the ministry.',
+        'The Rev. Elbert L. Todd (1879-1960) served as the pastor of Mt. Olive for some of 1931 and 1932. He was born in Mississippi and worked as a farmer there as a young man before studying for the ministry.',
         'He had served in Cairo, Illinois, but by 1931 he was serving as the full-time minister of Second Baptist Church in Battle Creek where he lived with his wife and three adult children and at Mt. Olive in Flint, possibly as an interim or supply minister. He remained at Second Baptist until 1944, and then he served for 16 years as the minister of Mt. Zion Baptist in Ecorse, Michigan. Todd held the position of president of the Wolverine State Baptist Convention for 25 years. He served the Baptist church until the moment of his death, which occurred in the middle of his church’s annual business meeting in 1960. '
       ]
     },
@@ -177,7 +177,7 @@ export default function Timeline() {
       title: 'Rev. Louis Robert Webster Johnson',
       content: [
         'Rev. L.R.W. Johnson came to Flint in 1928 to work at Mt. Olive. His wife and nine children remained in Virginia. He was a boarder at 1520 Park St. in 1929 and 1930. He appears weekly in the Flint Journal preaching at Mt. Olive on Sunday mornings and evenings on a variety of topics.',
-        'In May 1930, George Johnson began rehearsals for a music training course at Mt. Olive church. In June or July of 1930, Rev. Johnson submitted his resignation. At their monthly meeting, the congregation voted to ask Rev Johnson to reconsider and to return. The following week a group of church members called a second meeting at which they declared the minister’s position vacant. Rev. Johnson and his supporters sought a legal injunction against the organizers of that second meeting on the grounds that the monthly meeting of the congregation occurred only on the first Tuesday following the first Sunday of each month and that the second meeting had been out of order. Johnson continued to preach at Mt. Olive through the Fall of 1930, but by 1931 he was the pastor of New Hope Baptist Church at 1703 Elm St. and he was living at 2046 Stanford Ave. It is unclear whether New Hope was composed of the faction of Mt. Olive members who supported Johnson or whether it was an independently organized congregation. Rev Johnson died in Nashville in 1935.'
+        'In May 1930, George Johnson began rehearsals for a music training course at Mt. Olive church. In June or July of 1930, Rev. Johnson submitted his resignation. At their monthly meeting, the congregation voted to ask Rev Johnson to reconsider and to return. The following week a group of church members called a second meeting at which they declared the minister’s position vacant. Rev. Johnson and his supporters sought a legal injunction against the organizers of that second meeting on the grounds that the monthly meeting of the congregation occurred only on the first Tuesday following the first Sunday of each month and that the second meeting had been out of order. Johnson continued to preach at Mt. Olive through the Fall of 1930, but by 1931 he was the pastor of New Hope Baptist Church at 1703 Elm St. and he was living at 2046 Stanford Ave. It is unclear whether New Hope was composed of the faction of Mt. Olive members who supported Johnson or whether it was an independently organized congregation. Rev. Johnson died in Nashville in 1935.'
       ]
     },
     {
