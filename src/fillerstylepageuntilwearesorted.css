@@ -1,0 +1,9 @@
+div .color {
+    color: #000000ff
+}
+
+.about-church-image {
+  max-width: 35%;
+  height: auto;
+  margin-top: 20px;
+}
