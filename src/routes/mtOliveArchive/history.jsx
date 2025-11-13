@@ -75,7 +75,7 @@ export default function History() {
           </figure>
         </div>
       <p>
-          After 1834, when slavery was abolished throughout the British Empire, refugees from American slavery and legalized racism fled across the Detroit River into Canada, many on the “Underground Railroad,” many supported by members of Triennial Convention Baptist churches. Once safely across the river, refugees joined or created small rural agricultural Black settlements in Ontario. Some of those settlements were just across the river in places such as Windsor, Amherstbrug, Sandwich, Colchester, New Canaan, Gosfield, and Mt. Pleasant. Otters were slightly further in at Puce, Buxton, Chatham, Shrewsbury, Dresden, and London. These were not the first Black settlers in Ontario; land grants had been given to Black soldiers who fought for the British in the American Revolutionary War. Some Black settlements had been in place for decades. After the Fugitive Slave Act of 1850 when it became legal for slavers to send slave catchers into the Northern states to kidnap self-emancipated people, thousands in the North fled across the Detroit River and joined those Ontario settlements. By the time slavery was abolished in the US, as many as 50,000 Black people were living between Windsor and Toronto. Most of Mt. Olive's founders, earliest leaders, and members were among them.
+          After 1834, when slavery was abolished throughout the British Empire, refugees from American slavery and legalized racism fled across the Detroit River into Canada, many on the “Underground Railroad,” many supported by members of Triennial Convention Baptist churches. Once safely across the river, refugees joined or created small rural agricultural Black settlements in Ontario. Some of those settlements were just across the river in places such as Windsor, Amherstburg, Sandwich, Colchester, New Canaan, Gosfield, and Mt. Pleasant. Otters were slightly further in at Puce, Buxton, Chatham, Shrewsbury, Dresden, and London. These were not the first Black settlers in Ontario; land grants had been given to Black soldiers who fought for the British in the American Revolutionary War. Some Black settlements had been in place for decades. After the Fugitive Slave Act of 1850 when it became legal for slavers to send slave catchers into the Northern states to kidnap self-emancipated people, thousands in the North fled across the Detroit River and joined those Ontario settlements. By the time slavery was abolished in the US, as many as 50,000 Black people were living between Windsor and Toronto. Most of Mt. Olive's founders, earliest leaders, and members were among them.
         </p>
         <p>
           Church-building seems to have been synonymous with community-building in the settlements. Residents and missionaries developed AME and Baptist churches and Sunday schools in even the smallest settlements. The history of the Amherstburg Regular Missionary Baptist Association describes the emergence of those churches:
@@ -156,11 +156,11 @@ export default function History() {
           <li>Lyons, WIlliam, Margaret, and their daughter Edna (later Jones), (laborer and minister, 1608 Pine)</li>
           <li>Mahalay, Henry and Isabelle</li>
           <li>Martin/Mortin, George W. (laborer, 1501/2 Harrison St.)  moved to Flint in the 1870s</li>
-          <li>Martin, Henry O. and Ellen C (laborer, 121 E. 12th St.)</li>
+          <li>Martin, Henry O. and Ellen C. (laborer, 121 E. 12th St.)</li>
           <li>McClellan, Richard, Carrie, and Zera (janitor, 1510 Harrison St.)</li>
           <li>Morgan, Hattie</li>
           <li>Owens, Gladys</li>
-          <li>Saunders, H</li>
+          <li>Saunders, H.</li>
         </ul>
       </section>
 
@@ -209,7 +209,7 @@ export default function History() {
           </p>
           <h3>Deacon Board</h3>
           <p>
-          The deacons of Mt. Olive have served as key leaders in Mt. Olive for over a century. They serve the pastor, the church, and those in need. Over the course of their history, they have discussed key aspects of church life, worked with church ministries, advised and supported the pastor, and led and assisted in services. They have conducted the continuous prayer services that honor the anniversaries of the church and they have sponsored missionary initiatives locally and abroad. They support the needs of church members by visiting the sick, preparing Bapstismal candidates, and reaching out to those in need.
+          The deacons of Mt. Olive have served as key leaders in Mt. Olive for over a century. They serve the pastor, the church, and those in need. Over the course of their history, they have discussed key aspects of church life, worked with church ministries, advised and supported the pastor, and led and assisted in services. They have conducted the continuous prayer services that honor the anniversaries of the church and they have sponsored missionary initiatives locally and abroad. They support the needs of church members by visiting the sick, preparing Baptismal candidates, and reaching out to those in need.
           </p>
           <h3>Deaconess and Mothers Board</h3>
           <p>
@@ -217,7 +217,7 @@ export default function History() {
           </p>
           <h3>Women’s Day</h3>
           <p>
-          Rev. Wade McKinney helped organize the first Mt. Olive Women’s Day in 1925 to honor the women of the church. The themed women-lead service customarily features guest speakers and a women’s chorus. Speakers have included local, regional, and national dignitaries. Funds raised through Women’s Day events usually support the life of women in the church, for instance remodeling the women’s restrooms. 
+          Rev. Wade McKinney helped organize the first Mt. Olive Women’s Day in 1925 to honor the women of the church. The themed women-led service customarily features guest speakers and a women’s chorus. Speakers have included local, regional, and national dignitaries. Funds raised through Women’s Day events usually support the life of women in the church, for instance remodeling the women’s restrooms. 
           </p>
           <h3>Blue Star Mothers</h3>
           <p>
